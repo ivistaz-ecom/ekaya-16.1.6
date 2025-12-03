@@ -85,7 +85,7 @@ function Banner({ slug }) {
         </div>
       ) : (
         bannerImage && (
-          <div className="lg:h-screen relative mx-auto" data-aos="fade-down">
+          <div className="lg:h-[100vh] h-[80vh] relative mx-auto" data-aos="fade-down">
             <Image
               src={bannerImage}
               alt="Banner"
@@ -98,7 +98,7 @@ function Banner({ slug }) {
             <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
             <div className="lg:w-[50%] w-full absolute bottom-0 lg:py-12 lg:ml-40 md:ml-20 pb-2 z-20">
               <h1
-                className="lg:!text-6xl md:text-5xl text-2xl lg:px-0 px-10 text-white poppins-light !font-light"
+                className="lg:!text-6xl md:text-5xl !text-3xl lg:px-0 px-10 text-white poppins-light !font-light"
                 dangerouslySetInnerHTML={{ __html: pageTitle }}
               />
             </div>

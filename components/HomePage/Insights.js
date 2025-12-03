@@ -1,57 +1,57 @@
-"use client";
-import React, { useState, useRef, useEffect } from "react";
-import Image from "next/image";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import configData from "../../config.json";
-import Link from "next/link";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+"use client"
+import React, { useState, useRef, useEffect } from "react"
+import Image from "next/image"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+import configData from "../../config.json"
+import Link from "next/link"
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
 
 function Insights() {
-  const [Blogs, setData] = useState([]);
-  const [isDesktop, setIsDesktop] = useState(false);
-  const sliderRef = useRef(null);
+  const [Blogs, setData] = useState([])
+  const [isDesktop, setIsDesktop] = useState(false)
+  const sliderRef = useRef(null)
 
   const fetchPost = async () => {
     try {
       const postResponse = await fetch(
-        `${configData.SERVER_URL}posts?_embed&categories[]=2&&production[]=${configData.SERVER}&status[]=publish&per_page=3`
-      );
-      const postData = await postResponse.json();
+        `${configData.SERVER_URL}posts?_embed&categories[]=2&&production[]=${configData.SERVER}&status[]=publish`
+      )
+      const postData = await postResponse.json()
 
       if (postResponse.ok) {
-        setData(postData);
+        setData(postData)
       } else {
-        console.error(`Failed to fetch post. Status: ${postResponse.status}`);
+        console.error(`Failed to fetch post. Status: ${postResponse.status}`)
       }
     } catch (error) {
-      console.error("Error fetching post:", error);
+      console.error("Error fetching post:", error)
     }
-  };
+  }
 
   useEffect(() => {
-    fetchPost();
+    fetchPost()
 
     const handleResize = () => {
-      setIsDesktop(window.innerWidth >= 1024);
-    };
+      setIsDesktop(window.innerWidth >= 1024)
+    }
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
+    handleResize()
+    window.addEventListener("resize", handleResize)
+    return () => window.removeEventListener("resize", handleResize)
+  }, [])
 
-  const showArrows = isDesktop ? Blogs.length > 4 : true;
+  const showArrows = !isDesktop && Blogs.length > 1
 
   const NextArrow = ({ onClick }) => (
     <div
       className="in-arrow absolute -bottom-10  right-5  cursor-pointer pe-20"
       onClick={onClick}
     >
-      <IoIosArrowForward className="text-5xl rounded-full"/>
+      <IoIosArrowForward className="text-5xl rounded-full" />
     </div>
-  );
+  )
 
   const PrevArrow = ({ onClick }) => (
     <div
@@ -60,7 +60,7 @@ function Insights() {
     >
       <IoIosArrowBack className="text-5xl  rounded-full" />
     </div>
-  );
+  )
 
   const settings = {
     dots: false,
@@ -87,7 +87,7 @@ function Insights() {
         },
       },
     ],
-  };
+  }
 
   return (
     <>
@@ -102,44 +102,50 @@ function Insights() {
         <Slider {...settings} ref={sliderRef} className="z-10">
           {Blogs.map((items, index) => {
             // Safely get featured media image URL
-            const featuredImageUrl = items["_embedded"]?.["wp:featuredmedia"]?.[0]?.["source_url"] || "/blogs/banner.png";
-            
+            const featuredImageUrl =
+              items["_embedded"]?.["wp:featuredmedia"]?.[0]?.["source_url"] ||
+              "/blogs/banner.png"
+
             return (
-            <div
-              className={`z-10 lg:max-w-sm dark:bg-gray-800 dark:border-gray-700 ${items.acf?.css || ""}`}
-              key={index}
-            >
-              <Link href={`/blogs/${items.slug}`}>
-                <Image
-                  className="rounded-0 w-full"
-                  src={featuredImageUrl}
-                  alt={items.title?.rendered || "Blog post"}
-                  width={300}
-                  height={300}
-                />
-                <div className="p-5">
-                  <h5 className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title">
-                    {items.title.rendered}
-                  </h5>
-                  <p
-                    className="mb-3 text-start font-normal text-base poppins-regular text-gray-700 dark:text-gray-400 post-content"
-                    dangerouslySetInnerHTML={{ __html: items.excerpt.rendered }}
+              <div
+                className={`z-10 lg:max-w-sm dark:bg-gray-800 dark:border-gray-700 ${
+                  items.acf?.css || ""
+                }`}
+                key={index}
+              >
+                <Link href={`/blogs/${items.slug}`}>
+                  <Image
+                    className="rounded-0 w-full"
+                    src={featuredImageUrl}
+                    alt={items.title?.rendered || "Blog post"}
+                    width={300}
+                    height={300}
                   />
-                  <Link href={`/blogs/${items.slug}`}>
-                    <p className="text-start font-normal flex items-center w-40 gap-2 text-base poppins-regular bg-white shadow-md rounded-full dark:text-gray-400 px-5 py-1 border hover:bg-e-green hover:text-white transition-all duration-300 text-e-green">
-                      Read More <IoIosArrowForward className="text-2xl" />
-                    </p>
-                  </Link>
-                </div>
-              </Link>
-            </div>
-            );
+                  <div className="p-5">
+                    <h5 className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title">
+                      {items.title.rendered}
+                    </h5>
+                    <p
+                      className="mb-3 text-start font-normal text-base poppins-regular text-gray-700 dark:text-gray-400 post-content"
+                      dangerouslySetInnerHTML={{
+                        __html: items.excerpt.rendered,
+                      }}
+                    />
+                    <Link href={`/blogs/${items.slug}`}>
+                      <p className="text-start font-normal flex items-center w-40 gap-2 text-base poppins-regular bg-white shadow-md rounded-full dark:text-gray-400 px-5 py-1 border hover:bg-e-green hover:text-white transition-all duration-300 text-e-green ">
+                        Read More <IoIosArrowForward className="text-2xl" />
+                      </p>
+                    </Link>
+                  </div>
+                </Link>
+              </div>
+            )
           })}
         </Slider>
       </div>
       <div className="z-0 -mt-[15em] bg-no-repeat bg-white bg-cover bg-[url('/background.jpg')] bg-blend-multiply h-screen relative"></div>
     </>
-  );
+  )
 }
 
-export default Insights;
+export default Insights
