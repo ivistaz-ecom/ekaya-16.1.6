@@ -34,7 +34,7 @@ function Content() {
             <Image
               class="object-cover lg:w-[25em]"
               src="/why-ekaya/1.png"
-              alt=""
+              alt="ekaya-spaces"
               width={800}
               height={500}
             />
@@ -49,7 +49,7 @@ function Content() {
             <Image
               class="object-cover lg:w-[25em] w-full"
               src="/why-ekaya/2.png"
-              alt=""
+              alt="ekaya-spaces"
               width={800}
               height={500}
             />
@@ -88,7 +88,7 @@ function Content() {
             <Image
               class="object-cover lg:w-[25em] w-full"
               src="/why-ekaya/3.png"
-              alt=""
+              alt="ekaya-spaces"
               width={800}
               height={500}
             />

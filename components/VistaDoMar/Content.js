@@ -196,10 +196,10 @@ function Content() {
       >
         <Slider ref={sliderRef} {...settings} className="z-10">
           <div className="p-2 z-10">
-            <img src="/VistaDoMar/part-1.webp" className="" />
+            <img src="/VistaDoMar/part-1.webp" className="" alt="ekaya-spaces" />
           </div>
           <div className="p-2">
-            <img src="/VistaDoMar/part-2.webp" className="" />
+            <img src="/VistaDoMar/part-2.webp" className="" alt="ekaya-spaces" />
           </div>
         </Slider>
         <div className="text-[18px] poppins-light border border-e-green lg:w-[490px] p-6 my-12 mx-auto">

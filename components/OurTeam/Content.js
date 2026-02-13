@@ -22,7 +22,7 @@ function Content() {
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10 w-full"
             src="/our-team/1.png"
-            alt=""
+            alt="ekaya-spaces"
             width={800}
             height={500}
           />
@@ -59,7 +59,7 @@ function Content() {
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:ml-10 w-full"
             src="/our-team/2.png"
-            alt=""
+            alt="ekaya-spaces"
             width={800}
             height={500}
           />
@@ -72,7 +72,7 @@ function Content() {
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10"
             src="/our-team/3.png"
-            alt=""
+            alt="ekaya-spaces"
             width={800}
             height={500}
           />
@@ -108,7 +108,7 @@ function Content() {
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:ml-10"
             src="/our-team/4.png"
-            alt=""
+            alt="ekaya-spaces"
             width={800}
             height={500}
           />
@@ -121,7 +121,7 @@ function Content() {
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10"
             src="/our-team/5.png"
-            alt=""
+            alt="ekaya-spaces"
             width={800}
             height={500}
           />
