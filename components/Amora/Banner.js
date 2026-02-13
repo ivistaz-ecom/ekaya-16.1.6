@@ -17,7 +17,7 @@ function Banner() {
   return (
     <div className="lg:h-screen h-[60vh] relative mx-auto" data-aos="fade-down">
       <Image
-        src="/amora/banner.png"
+        src="/amora/banner.webp"
         alt="Banner"
         width={1000} // Adjust width and height according to your image dimensions
         height={500}

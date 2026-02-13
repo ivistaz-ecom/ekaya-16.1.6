@@ -135,7 +135,7 @@ const Carousel = () => {
         <Slider ref={sliderRef} {...settings} className="z-10">
           <div className="p-2 z-10">
             <Image
-              src="/lucilia/slide-1.png"
+              src="/lucilia/slide-1.webp"
               alt="slide-1"
               width={1000}
               height={1000}
@@ -144,7 +144,7 @@ const Carousel = () => {
           </div>
           <div className="p-2">
             <Image
-              src="/lucilia/slide-2.png"
+              src="/lucilia/slide-2.webp"
               alt="slide-2"
               width={1000}
               height={1000}

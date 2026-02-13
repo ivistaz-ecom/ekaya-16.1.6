@@ -11,22 +11,22 @@ import VerticleLines from "../../components/common/VerticalLines";
 const FloorPlan = [
   {
     id: "1",
-    floor: "/ellen/floor-1.png",
+    floor: "/ellen/floor-1.webp",
     plan_name: "Floor plan 1",
   },
   {
     id: "2",
-    floor: "/ellen/floor-2.png",
+    floor: "/ellen/floor-2.webp",
     plan_name: "Floor plan 2",
   },
   {
     id: "3",
-    floor: "/ellen/floor-3.png",
+    floor: "/ellen/floor-3.webp",
     plan_name: "3D Design 1",
   },
   {
     id: "4",
-    floor: "/ellen/floor-4.png",
+    floor: "/ellen/floor-4.webp",
     plan_name: "3D Design 2",
   },
 ];
@@ -167,7 +167,7 @@ function Content() {
         <Slider ref={sliderRef} {...settings} className="z-10">
           <div className="z-10">
             <Image
-              src="/ellen/slide.png"
+              src="/ellen/slide.webp"
               className="w-full"
               alt="ellen"
               width={500}

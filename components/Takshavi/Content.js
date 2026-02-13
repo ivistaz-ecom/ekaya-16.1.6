@@ -9,22 +9,22 @@ import Link from "next/link";
 const FloorPlan = [
   {
     id: "1",
-    floor: "/takshavi/floor-1.png",
+    floor: "/takshavi/floor-1.webp",
     plan_name: "Floor plan 1",
   },
   {
     id: "2",
-    floor: "/takshavi/floor-2.png",
+    floor: "/takshavi/floor-2.webp",
     plan_name: "Floor Plan 2",
   },
   {
     id: "3",
-    floor: "/takshavi/floor-3.png",
+    floor: "/takshavi/floor-3.webp",
     plan_name: "3D Design 1",
   },
   {
     id: "4",
-    floor: "/takshavi/floor-4.png",
+    floor: "/takshavi/floor-4.webp",
     plan_name: "3D Design 2",
   },
 ];
@@ -165,13 +165,13 @@ function Content() {
       <div className="w-[80%] mx-auto">
         <Slider ref={sliderRef} {...settings} className="z-10">
           <div className="z-10">
-            <img src="/takshavi/gallery-1.png" className="" />
+            <img src="/takshavi/gallery-1.webp" className="" />
           </div>
           <div>
-            <img src="/takshavi/gallery-2.png" className="" />
+            <img src="/takshavi/gallery-2.webp" className="" />
           </div>
           <div>
-            <img src="/takshavi/gallery-3.png" className="" />
+            <img src="/takshavi/gallery-3.webp" className="" />
           </div>
         </Slider>
         <div className="text-[18px] poppins-light border border-e-green lg:w-[490px] p-6 my-12">

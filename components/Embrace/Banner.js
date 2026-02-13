@@ -18,7 +18,7 @@ function Banner() {
   return (
     <div className="lg:h-screen h-[60vh] relative z-19" data-aos="fade-down">
       <Image
-        src="/embrace/banner.png"
+        src="/embrace/banner.webp"
         alt="Banner"
         width={1000} // Adjust width and height according to your image dimensions
         height={500}

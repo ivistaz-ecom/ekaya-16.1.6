@@ -60,7 +60,7 @@ export default function MyComponent() {
         <Slider {...settings} className="z-10">
           <div className="z-10">
             <Image
-              src="/embrace/gallery-001.png"
+              src="/embrace/gallery-001.webp"
               width={800}
               height={500}
               className="w-full h-auto object-cover"
@@ -69,7 +69,7 @@ export default function MyComponent() {
           </div>
           <div>
             <Image
-              src="/embrace/gallery-002.jpg"
+              src="/embrace/gallery-002.webp"
               width={800}
               height={500}
               className="w-full h-auto object-cover"

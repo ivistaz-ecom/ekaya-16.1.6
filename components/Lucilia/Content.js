@@ -47,7 +47,7 @@ function Content() {
 
       <div className="h-[700px] lg:relative mx-auto py-12 z-10">
         <Image
-          src="/lucilia/design-bg.png"
+          src="/lucilia/design-bg.webp"
           alt="Banner"
           width={1000} // Adjust width and height according to your image dimensions
           height={500}

@@ -9,25 +9,25 @@ import 'slick-carousel/slick/slick-theme.css';
 // Sample data
 const gymData = [
   {
-    image: "/VistaDoMar/Gym_Final@2x.png",
+    image: "/VistaDoMar/Gym_Final@2x.webp",
     title: "Wellness Studio",
     description:
       "Pursue your fitness goals in our fully-equipped gymnasium, available at your convenience with reliable power backup.",
   },
   {
-    image: "/VistaDoMar/Pool_Final@2x.png",
+    image: "/VistaDoMar/Pool_Final@2x.webp",
     title: "The Aqua Retreat: Swim, Soak, Sun",
     description:
       "Relax and rejuvenate in our expansive swimming pool and jacuzzi, offering uninterrupted hydrotherapy experiences.",
   },
   {
-    image: "/VistaDoMar/Play Area_Final@2x.png",
+    image: "/VistaDoMar/Play Area_Final@2x.webp",
     title: "The Harmony Park: Grill, Gather, Ground",
     description:
       "Immerse yourself in lush greenery and tranquil surroundings on our meticulously landscaped ground floor.",
   },
   {
-    image: "/VistaDoMar/Sauna_Final@2x.png",
+    image: "/VistaDoMar/Sauna_Final@2x.webp",
     title: "Thermal Suite with Steam & Dry Sauna",
     description:
       "Unwind in our steam and sauna rooms, accessible round the clock for your relaxation needs.",

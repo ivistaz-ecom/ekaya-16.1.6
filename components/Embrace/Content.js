@@ -10,27 +10,27 @@ import ProjectGallery from "./ProjectGallery";
 const FloorPlan = [
   {
     id: "1",
-    floor: "/embrace/floor-6.png",
+    floor: "/embrace/floor-6.webp",
     plan_name: "3D rendered",
   },
   {
     id: "2",
-    floor: "/embrace/floor-2.png",
+    floor: "/embrace/floor-2.webp",
     plan_name: "Floor plan parking",
   },
   {
     id: "3",
-    floor: "/embrace/floor-3.png",
+    floor: "/embrace/floor-3.webp",
     plan_name: "Floor plan — 3 floors",
   },
   {
     id: "4",
-    floor: "/embrace/floor-41.png",
+    floor: "/embrace/floor-41.webp",
     plan_name: "Unit floor plan design layout",
   },
   {
     id: "4",
-    floor: "/embrace/floor-5.png",
+    floor: "/embrace/floor-5.webp",
     plan_name: "Features",
   },
 ];

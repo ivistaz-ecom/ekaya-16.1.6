@@ -368,7 +368,7 @@ function Crafted() {
                     <Slider ref={sliderRef} {...settings}>
                       {/* <div>
                         <Image
-                          src="/takshavi/takshavi-comp2.jpg"
+                          src="/takshavi/takshavi-comp2.webp"
                           className="w-full h-[400px]"
                           width={800}
                           height={400}
@@ -376,7 +376,7 @@ function Crafted() {
                       </div> */}
                       <div>
                         <Image
-                          src="/takshavi/takshavi-comp.jpg"
+                          src="/takshavi/takshavi-comp.webp"
                           className="w-full h-[400px]"
                           width={800}
                           height={400}
@@ -693,7 +693,7 @@ function Crafted() {
                   <Slider ref={sliderRef} {...settings}>
                     <div>
                       <Image
-                        src="/lucilia/slide-1.png"
+                        src="/lucilia/slide-1.webp"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}
@@ -701,7 +701,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/lucilia/slide-2.png"
+                        src="/lucilia/slide-2.webp"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}
