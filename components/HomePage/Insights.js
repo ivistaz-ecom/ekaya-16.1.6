@@ -7,6 +7,7 @@ import Slider from "react-slick"
 import configData from "../../config.json"
 import Link from "next/link"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
+import { fixBlogTitleHtml } from "../../utils/blogTitle"
 
 function Insights() {
   const [Blogs, setData] = useState([])
@@ -122,9 +123,12 @@ function Insights() {
                     height={300}
                   />
                   <div className="p-5">
-                    <h5 className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title">
-                      {items.title.rendered}
-                    </h5>
+                    <h5
+                      className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title [&_.highlight]:font-medium [&_.highlight]:text-e-green"
+                      dangerouslySetInnerHTML={{
+                        __html: fixBlogTitleHtml(items.title?.rendered ?? ""),
+                      }}
+                    />
                     <p
                       className="mb-3 text-start font-normal text-base poppins-regular text-gray-700 dark:text-gray-400 post-content"
                       dangerouslySetInnerHTML={{

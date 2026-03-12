@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import configData from "../../../config.json";
 import AOS from "aos";
 import Image from "next/image";
+import { fixBlogTitleHtml } from "../../../utils/blogTitle";
 
 function Banner({ slug }) {
   useEffect(() => {
@@ -28,7 +29,7 @@ function Banner({ slug }) {
       if (postData.length == 0) {
         setError(true);
       } else {
-        setPageTitle(postData[0].title.rendered);
+        setPageTitle(fixBlogTitleHtml(postData[0].title.rendered));
         
         // Get banner image from ACF field first, then fallback to featured media
         const acfData = postData[0].acf;
@@ -98,7 +99,7 @@ function Banner({ slug }) {
             <div className="absolute inset-0 bg-black bg-opacity-50 z-10"></div>
             <div className="lg:w-[50%] w-full absolute bottom-0 lg:py-12 lg:ml-40 md:ml-20 pb-2 z-20">
               <h1
-                className="lg:!text-6xl md:text-5xl !text-3xl lg:px-0 px-10 text-white poppins-light !font-light"
+                className="lg:!text-6xl md:text-5xl !text-3xl lg:px-0 px-10 text-white poppins-light !font-light [&_.highlight]:font-medium [&_.highlight]:text-white [&_.highlight]:border-b [&_.highlight]:border-white/50"
                 dangerouslySetInnerHTML={{ __html: pageTitle }}
               />
             </div>
