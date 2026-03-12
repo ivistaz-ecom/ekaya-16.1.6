@@ -93,7 +93,7 @@ function Content({ slug }) {
         </div>
       ) : (
         <div className="mt-10 lg:mt-[100px] w-[80%] mx-auto" data-aos="fade-up">
-          <p
+          <div
             className="poppins-light text-[18px] text-start pb-5"
             dangerouslySetInnerHTML={{ __html: Page }}
           />

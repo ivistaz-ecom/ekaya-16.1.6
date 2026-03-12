@@ -60,12 +60,12 @@ function Header({ stats }) {
     <>
       <span className="absolute w-full z-0" onClick={handleClick}></span>
       <nav
-        class={`${
+        className={`${
           isScrolled ? "bg-[#5CA2B0]" : "bg-transparent bg-opacity-5"
         } transition-all duration-300 fixed w-full z-50 top-0 start-0 border-b border-[#f8fafc7a]`}
       >
-        <div class="flex justify-between p-4 lg:w-[80%] mx-auto  items-center z-50 ">
-          <div class="text-center lg:hidden">
+        <div className="flex justify-between p-4 lg:w-[80%] mx-auto  items-center z-50 ">
+          <div className="text-center lg:hidden">
             <button
               className="text-white bg-white rounded-lg px-2 py-2"
               type="button"
@@ -75,18 +75,18 @@ function Header({ stats }) {
             </button>
           </div>
           <div className="">
-            <div class="hidden w-full lg:block md:w-auto" id="navbar-dropdown">
-              <ul class="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
+            <div className="hidden w-full lg:block md:w-auto" id="navbar-dropdown">
+              <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
                 <li>
                   <button
                     id="dropdownNavbarLink"
                     data-dropdown-toggle="dropdownNavbar"
-                    class="flex items-center text-white justify-between text-[18px] poppins-light hover:text-white"
+                    className="flex items-center text-white justify-between text-[18px] poppins-light hover:text-white"
                     onClick={handleToggle}
                   >
                     Our Projects{" "}
                     <svg
-                      class="w-2.5 h-2.5 ms-2.5"
+                      className="w-2.5 h-2.5 ms-2.5"
                       aria-hidden="true"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -94,22 +94,22 @@ function Header({ stats }) {
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="m1 1 4 4 4-4"
                       />
                     </svg>
                   </button>
                   {status && (
-                    <div class="z-50 top-20 absolute font-normal bg-white divide-y divide-gray-100  shadow dark:bg-gray-700 dark:divide-gray-600 w-[600px]">
+                    <div className="z-50 top-20 absolute font-normal bg-white divide-y divide-gray-100  shadow dark:bg-gray-700 dark:divide-gray-600 w-[600px]">
                       <div className="flex justify-between p-0">
                         <div className="p-0 w-full">
                           <p className="border-b border-gray-400 p-2 poppins-light text-[18px]">
                             Ongoing Projects
                           </p>
                           <ul
-                            class="py-2 text- text-gray-700 dark:text-gray-400"
+                            className="py-2 text- text-gray-700 dark:text-gray-400"
                             aria-labelledby="dropdownLargeButton"
                           >
                             <li>
@@ -121,7 +121,7 @@ function Header({ stats }) {
                               <Link
                                 onClick={handleClick}
                                 href="/about-dona-paula"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 — Dona Paula
                               </Link>
@@ -156,7 +156,7 @@ function Header({ stats }) {
                             Completed Projects
                           </p>
                           <ul
-                            class="py-2 text- text-gray-700 dark:text-gray-400"
+                            className="py-2 text- text-gray-700 dark:text-gray-400"
                             aria-labelledby="dropdownLargeButton"
                           >
                             <li>
@@ -168,7 +168,7 @@ function Header({ stats }) {
                               <Link
                                 onClick={handleClick}
                                 href="/about-embrace"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 — Embrace
                               </Link>
@@ -189,7 +189,7 @@ function Header({ stats }) {
                             Upcoming Projects
                           </p>
                           <ul
-                            class="py-2 text- text-gray-700 dark:text-gray-400"
+                            className="py-2 text- text-gray-700 dark:text-gray-400"
                             aria-labelledby="dropdownLargeButton"
                           >
                             <li>
@@ -202,7 +202,7 @@ function Header({ stats }) {
                               <Link
                                 onClick={handleClick}
                                 href="/about-moira"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 — Moira
                               </Link>
@@ -211,7 +211,7 @@ function Header({ stats }) {
                               <Link
                                 onClick={handleClick}
                                 href="/about-amora"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 — Amora
                               </Link>
@@ -220,7 +220,7 @@ function Header({ stats }) {
                               <Link
                                 onClick={handleClick}
                                 href="/about-lucilia"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
                               >
                                 — Lucilia
                               </Link>
@@ -313,22 +313,22 @@ function Header({ stats }) {
           <div className="lg:mr-[00px] w-40 lg:w-60 md:w-96">
             <Link
               href="/"
-              class="flex items-center space-x-3 rtl:space-x-reverse"
+              className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src="/logo.svg" class="h-8" alt="Ekaya" />
+              <img src="/logo.svg" className="h-8" alt="Ekaya" />
             </Link>
           </div>
           <Link
             href="/contact-us"
-            class="flex md:order-2 space-x-3 md:space-x-0"
+            className="flex md:order-2 space-x-3 md:space-x-0"
           >
             <button
               type="button"
-              class="text-e-green bg-white hover:bg-black hover:border-white hover:text-white poppins-normal rounded-full text- lg:px-20 px-5 py-2.5 text-center inline-flex items-center"
+              className="text-e-green bg-white hover:bg-black hover:border-white hover:text-white poppins-normal rounded-full text- lg:px-20 px-5 py-2.5 text-center inline-flex items-center"
             >
               INQUIRE
               <svg
-                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                 aria-hidden="true"
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -336,9 +336,9 @@ function Header({ stats }) {
               >
                 <path
                   stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
                   d="M1 5h12m0 0L9 1m4 4L9 9"
                 />
               </svg>

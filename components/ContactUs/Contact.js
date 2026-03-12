@@ -521,6 +521,7 @@ import server from "../../config.json";
 import Link from "next/link";
 import { useSearchParams, usePathname } from "next/navigation";
 import { useEffect } from "react";
+import ReCAPTCHA from "react-google-recaptcha";
 
 function Contact() {
   const Locations = [
@@ -540,6 +541,8 @@ function Contact() {
   const [submitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState("");
   const [acceptance, setAcceptance] = useState("");
+  const [recaptchaToken, setRecaptchaToken] = useState(null);
+  const [recaptchaError, setRecaptchaError] = useState("");
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -706,16 +709,32 @@ function Contact() {
     agree: "",
   });
 
+  const handleRecaptchaChange = (token) => {
+    setRecaptchaToken(token);
+    setRecaptchaError("");
+  };
+
   const handleForm = async (event) => {
     event.preventDefault();
     setErrors({});
     setIsSubmitting(true);
     setError("");
 
+    if (!recaptchaToken) {
+      setRecaptchaError("Please verify that you are not a robot.");
+      setIsSubmitting(false);
+      return;
+    }
+
+    const payload = {
+      ...formData,
+      "g-recaptcha-response": recaptchaToken,
+    };
+
     try {
       const response = await axios.post(
         `${server.SERVER_FROM}contact-form-7/v1/contact-forms/7/feedback`,
-        formData,
+        payload,
         {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -747,6 +766,7 @@ function Contact() {
         setIsCheckboxChecked(false);
         setAcceptance("");
         setIsSubmitting(false);
+        setRecaptchaToken(null);
       } else {
         const fieldErrors = {};
         const { invalid_fields } = response.data;
@@ -999,6 +1019,15 @@ function Contact() {
               </a>
               .
             </label>
+          </div>
+          <div className="mt-6">
+            <ReCAPTCHA
+              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+              onChange={handleRecaptchaChange}
+            />
+            {recaptchaError && (
+              <p className="mt-2 text-xs text-red-600">{recaptchaError}</p>
+            )}
           </div>
           <button
             type="submit"
