@@ -178,7 +178,7 @@ function Content() {
         <div className="text-[18px] poppins-light border border-e-green lg:w-[490px] p-6 my-12 mx-auto">
           <Link
             href="/#contactpage"
-            class="text-black dark:text-black underline hover:underline"
+            className="text-black dark:text-black underline hover:underline"
           >
             Click here
           </Link>{" "}

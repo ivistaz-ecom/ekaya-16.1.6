@@ -7,7 +7,6 @@ import Slider from "react-slick"
 import configData from "../../config.json"
 import Link from "next/link"
 import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io"
-import { fixBlogTitleHtml } from "../../utils/blogTitle"
 
 function Insights() {
   const [Blogs, setData] = useState([])
@@ -17,7 +16,7 @@ function Insights() {
   const fetchPost = async () => {
     try {
       const postResponse = await fetch(
-        `${configData.SERVER_URL}posts?_embed&categories[]=2&&production[]=${configData.SERVER}&status[]=publish`
+        `${configData.SERVER_URL}posts?_embed&categories[]=2&&production[]=${configData.SERVER}&status[]=publish`,
       )
       const postData = await postResponse.json()
 
@@ -124,9 +123,9 @@ function Insights() {
                   />
                   <div className="p-5">
                     <h5
-                      className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title [&_.highlight]:font-medium [&_.highlight]:text-e-green"
+                      className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title"
                       dangerouslySetInnerHTML={{
-                        __html: fixBlogTitleHtml(items.title?.rendered ?? ""),
+                        __html: items.title?.rendered ?? "",
                       }}
                     />
                     <p
