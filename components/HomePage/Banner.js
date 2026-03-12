@@ -47,3 +47,4 @@ function Banner() {
 }
 
 export default Banner
+// Banner.js
