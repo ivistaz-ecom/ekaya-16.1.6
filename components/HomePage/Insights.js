@@ -17,7 +17,7 @@ function Insights() {
   const fetchPost = async () => {
     try {
       const postResponse = await fetch(
-        `${configData.SERVER_URL}posts?_embed&categories[]=2&&production[]=${configData.SERVER}&status[]=publish`
+        `${configData.SERVER_URL}posts?_embed&categories[]=2&&production[]=${configData.SERVER}&status[]=publish`,
       )
       const postData = await postResponse.json()
 
