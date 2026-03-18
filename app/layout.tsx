@@ -1,22 +1,95 @@
-'use client'
-import { useState } from 'react';
-import { Inter } from "next/font/google";
-import "./globals.css";
-import Header from '../components/common/Header'
-import Footer from '../components/common/Footer'
-import Script from "next/script";
-import "aos/dist/aos.css";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import './globals.css';
+import Script from 'next/script';
+import 'aos/dist/aos.css';
+import AppShell from '../components/common/AppShell';
+
+export const metadata = {
+  metadataBase: new URL('https://ekaya-spaces.com'),
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico' },
+      { url: '/app/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-32x32.png', type: 'image/png', sizes: '32x32' },
+      { url: '/favicon-48x48.png', type: 'image/png', sizes: '48x48' },
+    ],
+    apple: [{ url: '/apple-touch-icon.png' }],
+  },
+};
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-  const [status, setStatus] = useState(false);
-
-  const handleClick = () => {
-      setStatus(false);
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': 'https://ekaya-spaces.com/#organization',
+        name: 'Ekaya Spaces',
+        url: 'https://ekaya-spaces.com/',
+        logo: { '@type': 'ImageObject', url: 'https://ekaya-spaces.com/logo.png' },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          telephone: '+91-80-4951-7389',
+          contactType: 'customer support',
+          areaServed: 'IN',
+        },
+        sameAs: [
+          'https://www.linkedin.com/company/ekaya-spaces/',
+          'https://www.instagram.com/ekaya_spaces/',
+          'https://www.facebook.com/EkayaSpaces/',
+        ],
+      },
+      {
+        '@type': 'RealEstateDeveloper',
+        '@id': 'https://ekaya-spaces.com/#realestatebusiness',
+        name: 'Ekaya Spaces LLP',
+        url: 'https://ekaya-spaces.com/',
+        image: 'https://ekaya-spaces.com/logo.png',
+        description:
+          'Ekaya Spaces LLP is a Bangalore-based real estate developer specializing in modern residential and commercial spaces with a focus on design, sustainability, and functionality.',
+        areaServed: { '@type': 'City', name: 'Bangalore' },
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Bangalore',
+          addressRegion: 'Karnataka',
+          addressCountry: 'IN',
+        },
+        geo: { '@type': 'GeoCoordinates', latitude: '12.9716', longitude: '77.5946' },
+        foundingLocation: { '@type': 'Place', name: 'Bangalore, India' },
+        makesOffer: {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Real Estate Development',
+            serviceType: 'Residential and Commercial Projects',
+          },
+        },
+        parentOrganization: { '@id': 'https://ekaya-spaces.com/#organization' },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': 'https://ekaya-spaces.com/#website',
+        url: 'https://ekaya-spaces.com/',
+        name: 'Ekaya Spaces Official Website',
+        inLanguage: 'en-IN',
+        publisher: { '@id': 'https://ekaya-spaces.com/#organization' },
+        potentialAction: {
+          '@type': 'SearchAction',
+          target: 'https://ekaya-spaces.com/?s={search_term_string}',
+          'query-input': 'required name=search_term_string',
+        },
+      },
+    ],
   };
 
   return (
@@ -38,8 +111,12 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" 
           rel="stylesheet"
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
       </head>
-      <body onClick={handleClick}>
+      <body>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 
@@ -51,10 +128,7 @@ export default function RootLayout({
         </noscript>
         {/* End Google Tag Manager (noscript) */}
 
-        <Header stats={status} />
-        {children}
-        <SpeedInsights />
-        <Footer />
+        <AppShell>{children}</AppShell>
       </body>
     </html>
   );
