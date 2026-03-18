@@ -118,6 +118,7 @@ function Footer() {
                 <div className="flex justify-start mt-auto pt-6">
                   <Image
                     src="/footer-logo.svg"
+                    alt="Ekaya logo"
                     className="pb-6"
                     width={300}
                     height={300}

@@ -1,64 +1,94 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import { initFlowbite } from "flowbite";
-import { FaBarsStaggered, FaChevronUp } from "react-icons/fa6";
-import { FaChevronDown } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
+"use client"
+import React, { useState, useEffect } from "react"
+import Link from "next/link"
+import { FaBarsStaggered, FaChevronUp } from "react-icons/fa6"
+import { FaChevronDown } from "react-icons/fa"
+import { AiOutlineClose } from "react-icons/ai"
+
+// Shared nav data (single source of truth)
+const PROJECTS = {
+  ongoing: [
+    {
+      region: "Goa",
+      links: [{ href: "/vista-do-mar", label: "Vista Do Mar" }],
+    },
+    { region: "Bangalore", links: [{ href: "/takshavi", label: "Takshavi" }] },
+  ],
+  completed: [
+    {
+      region: "Bangalore",
+      links: [
+        { href: "/about-embrace", label: "Embrace" },
+        { href: "/about-ellen", label: "Ellen" },
+      ],
+    },
+  ],
+  upcoming: [
+    {
+      region: "Goa",
+      links: [
+        { href: "/about-amora", label: "Amora" },
+        { href: "/about-lucilia", label: "Lucilia" },
+      ],
+    },
+  ],
+}
+
+const ABOUT_LINKS = [
+  { href: "/about-us", label: "Our Story" },
+  { href: "/our-team", label: "Our Team" },
+  { href: "/why-ekaya", label: "Why Ekaya" },
+  { href: "/sustainability", label: "Sustainability" },
+]
+
+const linkClass =
+  "block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+
+const ChevronIcon = ({ isOpen, className = "w-2.5 h-2.5 ms-2.5" }) =>
+  isOpen ? (
+    <FaChevronUp className={className} />
+  ) : (
+    <FaChevronDown className={className} />
+  )
 
 function Header({ stats }) {
-  const [status, setStatus] = useState(false);
-  const [ekaya, setEkaya] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [showOngoing, setShowOngoing] = useState(false);
-  const [showCompleted, setShowCompleted] = useState(false);
-  const [showUpcoming, setShowUpcoming] = useState(false);
-  const [showEkaya, setShowEkaya] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [desktopDropdown, setDesktopDropdown] = useState(null) // "projects" | "ekaya"
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [mobileDropdown, setMobileDropdown] = useState(null) // "ongoing" | "completed" | "upcoming" | "about"
+  const [isScrolled, setIsScrolled] = useState(false)
 
-  const handleDropdown = (type) => {
-    setOpenDropdown((prev) => (prev === type ? null : type));
-  };
+  const closeAll = () => {
+    setDesktopDropdown(null)
+    setMobileMenuOpen(false)
+    setMobileDropdown(null)
+  }
 
-  const handleMobileClick = () => {
-    setIsMenuOpen(false);
-    setOpenDropdown(null);
-  };
+  const toggleDesktopDropdown = (type) => {
+    setDesktopDropdown((prev) => (prev === type ? null : type))
+  }
 
-  const handleToggle = () => {
-    setStatus(!status);
-    setEkaya(false);
-  };
-  const handleEkaya = () => {
-    setEkaya(!ekaya);
-    setStatus(false);
-  };
+  const toggleMobileDropdown = (type) => {
+    setMobileDropdown((prev) => (prev === type ? null : type))
+  }
 
-  const handleClick = () => {
-    setStatus(false);
-    setEkaya(false);
-    // alert('hello')
-  };
+  const closeMobileAndNav = () => {
+    setMobileMenuOpen(false)
+    setMobileDropdown(null)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollTop = window.scrollY;
-      setIsScrolled(scrollTop > 50);
-    };
+      const scrollTop = window.scrollY
+      setIsScrolled(scrollTop > 50)
+    }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  //   useEffect(() => {
-  //     initFlowbite();
-
-  // },[])
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   return (
     <>
-      <span className="absolute w-full z-0" onClick={handleClick}></span>
+      <span className="absolute w-full z-0" onClick={closeAll} aria-hidden />
       <nav
         className={`${
           isScrolled ? "bg-[#5CA2B0]" : "bg-transparent bg-opacity-5"
@@ -75,237 +105,114 @@ function Header({ stats }) {
             </button>
           </div>
           <div className="">
-            <div className="hidden w-full lg:block md:w-auto" id="navbar-dropdown">
+            <div
+              className="hidden w-full lg:block md:w-auto"
+              id="navbar-dropdown"
+            >
               <ul className="flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
                 <li>
-                  <button
-                    id="dropdownNavbarLink"
-                    data-dropdown-toggle="dropdownNavbar"
-                    className="flex items-center text-white justify-between text-[18px] poppins-light hover:text-white"
-                    onClick={handleToggle}
+                  <div
+                    onMouseLeave={() => setDesktopDropdown(null)}
+                    // keep hover active while crossing the visual gap (mt-7) into dropdown
+                    className={`relative inline-block ${
+                      desktopDropdown === "projects"
+                        ? "before:content-[''] before:absolute before:left-0 before:top-full before:h-7 before:w-[600px]"
+                        : ""
+                    }`}
                   >
-                    Our Projects{" "}
-                    <svg
-                      className="w-2.5 h-2.5 ms-2.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
+                    <button
+                      className="flex items-center text-white justify-between text-[18px] poppins-light hover:text-white"
+                      type="button"
+                      onMouseEnter={() => setDesktopDropdown("projects")}
                     >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m1 1 4 4 4-4"
-                      />
-                    </svg>
-                  </button>
-                  {status && (
-                    <div className="z-50 top-20 absolute font-normal bg-white divide-y divide-gray-100  shadow dark:bg-gray-700 dark:divide-gray-600 w-[600px]">
-                      <div className="flex justify-between p-0">
-                        <div className="p-0 w-full">
-                          <p className="border-b border-gray-400 p-2 poppins-light text-[18px]">
-                            Ongoing Projects
-                          </p>
-                          <ul
-                            className="py-2 text- text-gray-700 dark:text-gray-400"
-                            aria-labelledby="dropdownLargeButton"
-                          >
-                            <li>
-                              <p className="px-4 text-e-green poppins-light text-[18px]">
-                                Goa
+                      Our Projects{" "}
+                      <ChevronIcon isOpen={desktopDropdown === "projects"} />
+                    </button>
+                    {desktopDropdown === "projects" && (
+                      <div className="z-50 absolute left-0 top-full mt-7 font-normal bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 w-[600px]">
+                        <div className="flex justify-between p-0">
+                          {[
+                            ["Ongoing Projects", PROJECTS.ongoing, ""],
+                            [
+                              "Completed Projects",
+                              PROJECTS.completed,
+                              "bg-gray-200",
+                            ],
+                            ["Upcoming Projects", PROJECTS.upcoming, ""],
+                          ].map(([title, sections, bgClass]) => (
+                            <div
+                              key={title}
+                              className={`p-0 w-full ${bgClass}`}
+                            >
+                              <p className="border-b border-gray-400 p-2 poppins-light text-[18px]">
+                                {title}
                               </p>
-                            </li>
-                            {/* <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/about-dona-paula"
-                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Dona Paula
-                              </Link>
-                            </li> */}
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/vista-do-mar"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Vista Do Mar
-                              </Link>
-                            </li>
-                            <li className="pt-4">
-                              <p className="px-4 text-e-green poppins-light text-[18px]">
-                                Bangalore
-                              </p>
-                            </li>
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/takshavi"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Takshavi
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="bg-gray-200 p-0 w-full">
-                          <p className="border-b border-gray-400 p-2 poppins-light text-[18px]">
-                            Completed Projects
-                          </p>
-                          <ul
-                            className="py-2 text- text-gray-700 dark:text-gray-400"
-                            aria-labelledby="dropdownLargeButton"
-                          >
-                            <li>
-                              <p className="px-4 text-e-green poppins-light text-[18px]">
-                                Bangalore
-                              </p>
-                            </li>
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/about-embrace"
-                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Embrace
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/about-ellen"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Ellen
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
-                        <div className="p-0 w-full">
-                          <p className="border-b border-gray-400 p-2 poppins-light text-[18px]">
-                            Upcoming Projects
-                          </p>
-                          <ul
-                            className="py-2 text- text-gray-700 dark:text-gray-400"
-                            aria-labelledby="dropdownLargeButton"
-                          >
-                            <li>
-                              <p className="px-4 text-e-green poppins-light text-[18px]">
-                                Goa
-                              </p>
-                            </li>
-
-                            {/* <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/about-moira"
-                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Moira
-                              </Link>
-                            </li> */}
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/about-amora"
-                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Amora
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/about-lucilia"
-                                className="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                — Lucilia
-                              </Link>
-                            </li>
-                          </ul>
+                              <ul className="py-2 text-gray-700 dark:text-gray-400">
+                                {sections.map(({ region, links }, i) => (
+                                  <React.Fragment key={region}>
+                                    <li className={i > 0 ? "pt-4" : ""}>
+                                      <p className="px-4 text-e-green poppins-light text-[18px]">
+                                        {region}
+                                      </p>
+                                    </li>
+                                    {links.map(({ href, label }) => (
+                                      <li key={href}>
+                                        <Link
+                                          onClick={closeAll}
+                                          href={href}
+                                          className={linkClass}
+                                        >
+                                          — {label}
+                                        </Link>
+                                      </li>
+                                    ))}
+                                  </React.Fragment>
+                                ))}
+                              </ul>
+                            </div>
+                          ))}
                         </div>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </li>
 
                 <li>
-                  <button
-                    id="dropdownNavbarLink1"
-                    data-dropdown-toggle="dropdownNavba1r"
-                    class="flex items-center text-white justify-between text-[18px] poppins-light hover:text-white"
-                    onClick={handleEkaya}
+                  <div
+                    onMouseLeave={() => setDesktopDropdown(null)}
+                    // keep hover active while crossing the visual gap (mt-7) into dropdown
+                    className={`relative inline-block ${
+                      desktopDropdown === "ekaya"
+                        ? "before:content-[''] before:absolute before:left-0 before:top-full before:h-7 before:w-[200px]"
+                        : ""
+                    }`}
                   >
-                    About Ekaya{" "}
-                    <svg
-                      class="w-2.5 h-2.5 ms-2.5"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
+                    <button
+                      className="flex items-center text-white justify-between text-[18px] poppins-light hover:text-white"
+                      type="button"
+                      onMouseEnter={() => setDesktopDropdown("ekaya")}
                     >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="m1 1 4 4 4-4"
-                      />
-                    </svg>
-                  </button>
-
-                  {ekaya && (
-                    <div class="z-50 top-20 absolute font-normal bg-white divide-y divide-gray-100  shadow dark:bg-gray-700 dark:divide-gray-600 w-[200px]">
-                      <div className="flex justify-between p-0">
-                        <div className="p-0 w-full">
-                          <ul
-                            class="py-2 text- text-gray-700 dark:text-gray-400"
-                            aria-labelledby="dropdownLargeButton"
-                          >
-                            <li>
+                      About Ekaya{" "}
+                      <ChevronIcon isOpen={desktopDropdown === "ekaya"} />
+                    </button>
+                    {desktopDropdown === "ekaya" && (
+                      <div className="z-50 absolute left-0 top-full mt-7 font-normal bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 w-[200px]">
+                        <ul className="py-2 text-gray-700 dark:text-gray-400 p-0 w-full">
+                          {ABOUT_LINKS.map(({ href, label }) => (
+                            <li key={href}>
                               <Link
-                                onClick={handleClick}
-                                href="/about-us"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
+                                onClick={closeAll}
+                                href={href}
+                                className={linkClass}
                               >
-                                Our Story
+                                {label}
                               </Link>
                             </li>
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/our-team"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                Our Team
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="why-ekaya"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                Why Ekaya
-                              </Link>
-                            </li>
-                            <li>
-                              <Link
-                                onClick={handleClick}
-                                href="/sustainability"
-                                class="block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
-                              >
-                                Sustainability
-                              </Link>
-                            </li>
-                          </ul>
-                        </div>
+                          ))}
+                        </ul>
                       </div>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </li>
               </ul>
             </div>
@@ -348,7 +255,7 @@ function Header({ stats }) {
         {mobileMenuOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden"
-            onClick={handleClick}
+            onClick={closeAll}
           >
             <div
               className="absolute top-0 left-0 w-3/4 h-full bg-white z-50 px-6"
@@ -357,8 +264,9 @@ function Header({ stats }) {
               <div className="flex justify-between items-center mb-6">
                 <img src="/logo.svg" className="h-8" alt="Ekaya" />
                 <button
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeAll}
                   className="text-gray-700 text-2xl font-bold p-2"
+                  aria-label="Close menu"
                 >
                   <div>
                     <AiOutlineClose
@@ -369,174 +277,64 @@ function Header({ stats }) {
                 </button>
               </div>
               <ul className="space-y-7 text-gray-700 text-lg">
-                {/* Ongoing Projects */}
+                {[
+                  ["ongoing", "Ongoing Projects", PROJECTS.ongoing],
+                  ["completed", "Completed Projects", PROJECTS.completed],
+                  ["upcoming", "Upcoming Projects", PROJECTS.upcoming],
+                ].map(([key, title, sections]) => (
+                  <li key={key}>
+                    <button
+                      onClick={() => toggleMobileDropdown(key)}
+                      className="flex justify-between w-full"
+                    >
+                      {title}{" "}
+                      <ChevronIcon
+                        isOpen={mobileDropdown === key}
+                        className="w-4 h-4"
+                      />
+                    </button>
+                    {mobileDropdown === key && (
+                      <div className="mt-4 space-y-4">
+                        {sections.map(({ region, links }) => (
+                          <div key={region}>
+                            <h3 className="text-xl bg-[#5CA2B0] px-5 p-1 rounded-md text-white">
+                              {region}
+                            </h3>
+                            <ul className="pl-4 space-y-2 pt-3">
+                              {links.map(({ href, label }) => (
+                                <li key={href}>
+                                  <Link href={href} onClick={closeMobileAndNav}>
+                                    — {label}
+                                  </Link>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </li>
+                ))}
                 <li>
                   <button
-                    onClick={() => handleDropdown("ongoing")}
+                    onClick={() => toggleMobileDropdown("about")}
                     className="flex justify-between w-full"
                   >
-                    Ongoing Projects{" "}
-                    <span>
-                      {openDropdown === "ongoing" ? (
-                        <FaChevronUp />
-                      ) : (
-                        <FaChevronDown />
-                      )}
-                    </span>
+                    About Ekaya{" "}
+                    <ChevronIcon
+                      isOpen={mobileDropdown === "about"}
+                      className="w-4 h-4"
+                    />
                   </button>
-                  {openDropdown === "ongoing" && (
-                    <>
-                      <h3 className=" text-xl bg-[#5CA2B0] px-5 p-1 rounded-md text-white mt-4">
-                        Goa
-                      </h3>
-                      <ul className="pl-4 space-y-2 pb-3">
-                        {/* <li className="pt-3"><Link href="/about-dona-paula" onClick={handleMobileClick}>— Dona Paula</Link></li> */}
-                        <li>
-                          <Link
-                            href="/vista-do-mar"
-                            onClick={handleMobileClick}
-                          >
-                            — Vista Do Mar
+                  {mobileDropdown === "about" && (
+                    <ul className="pl-4 space-y-2 pt-3">
+                      {ABOUT_LINKS.map(({ href, label }) => (
+                        <li key={href}>
+                          <Link href={href} onClick={closeMobileAndNav}>
+                            {label}
                           </Link>
                         </li>
-                      </ul>
-                      <h3 className=" text-xl bg-[#5CA2B0] px-5 p-1 rounded-md text-white">
-                        Bangalore
-                      </h3>
-                      <ul className="pl-4 space-y-2 text-">
-                        <li className="pt-3">
-                          <Link href="/takshavi" onClick={handleMobileClick}>
-                            — Takshavi
-                          </Link>
-                        </li>
-                      </ul>
-                    </>
-                  )}
-                </li>
-
-                {/* Completed Projects */}
-                <li>
-                  <button
-                    onClick={() => handleDropdown("completed")}
-                    className="flex justify-between w-full"
-                  >
-                    Completed Projects{" "}
-                    <span>
-                      {openDropdown === "completed" ? (
-                        <FaChevronUp />
-                      ) : (
-                        <FaChevronDown />
-                      )}
-                    </span>
-                  </button>
-                  {openDropdown === "completed" && (
-                    <>
-                      <h3 className=" text-xl bg-[#5CA2B0] px-5 p-1 rounded-md text-white mt-4">
-                        Bangalore
-                      </h3>
-                      <ul className="pl-4 space-y-2 text-">
-                        <li className="pt-3">
-                          <Link
-                            href="/about-embrace"
-                            onClick={handleMobileClick}
-                          >
-                            Embrace
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/about-ellen" onClick={handleMobileClick}>
-                            Ellen
-                          </Link>
-                        </li>
-                      </ul>
-                    </>
-                  )}
-                </li>
-
-                {/* Upcoming Projects */}
-                <li>
-                  <button
-                    onClick={() => handleDropdown("upcoming")}
-                    className="flex justify-between w-full"
-                  >
-                    Upcoming Projects{" "}
-                    <span>
-                      {openDropdown === "upcoming" ? (
-                        <FaChevronUp />
-                      ) : (
-                        <FaChevronDown />
-                      )}
-                    </span>
-                  </button>
-                  {openDropdown === "upcoming" && (
-                    <>
-                      <h3 className=" text-xl bg-[#5CA2B0] px-5 p-1 rounded-md text-white mt-4">
-                        Goa
-                      </h3>
-                      <ul className="pl-4 space-y-2 text-">
-                        <li className="pt-3">
-                          <Link href="/about-moira" onClick={handleMobileClick}>
-                            — Moira
-                          </Link>
-                        </li>
-                        <li>
-                          <Link href="/about-amora" onClick={handleMobileClick}>
-                            — Amora
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/about-lucilia"
-                            onClick={handleMobileClick}
-                          >
-                            — Lucilia
-                          </Link>
-                        </li>
-                      </ul>
-                    </>
-                  )}
-                </li>
-
-                {/* About Ekaya */}
-                <li>
-                  <button
-                    onClick={() => handleDropdown("about")}
-                    className="flex justify-between w-full"
-                  >
-                    <span>About Ekaya</span>{" "}
-                    <span>
-                      {openDropdown === "about" ? (
-                        <FaChevronUp />
-                      ) : (
-                        <FaChevronDown />
-                      )}
-                    </span>
-                  </button>
-                  {openDropdown === "about" && (
-                    <ul className="pl-4 space-y-2 text-">
-                      <li className="pt-3">
-                        <Link href="/about-us" onClick={handleMobileClick}>
-                          Our Story
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/our-team" onClick={handleMobileClick}>
-                          Our Team
-                        </Link>
-                      </li>
-                      <li>
-                        <Link href="/why-ekaya" onClick={handleMobileClick}>
-                          Why Ekaya
-                        </Link>
-                      </li>
-                      <li>
-                        <Link
-                          href="/sustainability"
-                          onClick={handleMobileClick}
-                        >
-                          Sustainability
-                        </Link>
-                      </li>
+                      ))}
                     </ul>
                   )}
                 </li>
@@ -546,7 +344,6 @@ function Header({ stats }) {
         )}
       </nav>
     </>
-  );
+  )
 }
-
-export default Header;
+export default Header
