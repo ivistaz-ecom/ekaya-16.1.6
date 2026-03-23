@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useRef } from "react"
+import React, { useRef } from "react"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 import Slider from "react-slick"
@@ -7,14 +7,12 @@ import Features from "../../components/VistaDoMar/Features"
 import Carousels from "../../components/VistaDoMar/Carousels"
 import Contact from "../../components/HomePage/Contact"
 
-import { Carousel } from "flowbite"
-
 function Content() {
   const sliderRef = useRef(null)
 
   const NextArrow = ({ onClick }) => (
     <div
-      className="in-arrow lg:w-[90%] sm:w-[90%] w-[80%] lg:-bottom-[10%] -bottom-[15%] next-arrow"
+      className="in-arrow w-12 h-12 flex items-center justify-center lg:-bottom-[10%] -bottom-[15%] next-arrow"
       onClick={onClick}
     >
       <svg
@@ -54,7 +52,7 @@ function Content() {
                 transform="translate(8.913 0) rotate(45)"
                 fill="none"
                 stroke="#fff"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </g>
           </g>
@@ -65,7 +63,7 @@ function Content() {
 
   const PrevArrow = ({ onClick }) => (
     <div
-      className="in-arrow lg:w-[90%] sm:w-[90%] w-[80%] lg:-bottom-[10%] -bottom-[15%] prev-arrow"
+      className="in-arrow w-12 h-12 flex items-center justify-center lg:-bottom-[10%] -bottom-[15%] prev-arrow"
       onClick={onClick}
     >
       <svg
@@ -97,7 +95,7 @@ function Content() {
               transform="translate(17.776 8.913) rotate(135)"
               fill="none"
               stroke="#fff"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </g>
         </g>
@@ -194,18 +192,28 @@ function Content() {
         className="lg:w-[80%] sm:w-[80%] w-full mx-auto p-5"
         data-aos="fade-down"
       >
-        <Slider ref={sliderRef} {...settings} className="z-10">
-          <div className="p-2 z-10">
-            <img src="/VistaDoMar/part-1.webp" className="" alt="ekaya-spaces" />
-          </div>
-          <div className="p-2">
-            <img src="/VistaDoMar/part-2.webp" className="" alt="ekaya-spaces" />
-          </div>
-        </Slider>
+        <div className="vista-do-mar-slider relative">
+          <Slider ref={sliderRef} {...settings} className="z-10">
+            <div className="p-2 z-10">
+              <img
+                src="/VistaDoMar/part-1.webp"
+                className=""
+                alt="ekaya-spaces"
+              />
+            </div>
+            <div className="p-2">
+              <img
+                src="/VistaDoMar/part-2.webp"
+                className=""
+                alt="ekaya-spaces"
+              />
+            </div>
+          </Slider>
+        </div>
         <div className="text-[18px] poppins-light border border-e-green lg:w-[490px] p-6 my-12 mx-auto">
           <a
             href="#contactpage"
-            class="text-black dark:text-black underline hover:underline"
+            className="text-black dark:text-black underline hover:underline"
           >
             Click here
           </a>{" "}

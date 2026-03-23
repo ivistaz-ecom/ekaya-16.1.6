@@ -1,14 +1,17 @@
-"use client";
-import React, { useRef } from "react";
-import Slider from "react-slick";
-import Image from "next/image";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+"use client"
+import React, { useRef } from "react"
+import Slider from "react-slick"
+import Image from "next/image"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+
 const Carousel = () => {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef(null)
+
+  // Custom arrow UI (matches `VistaDoMar/Content.js`)
   const NextArrow = ({ onClick }) => (
     <div
-      className="in-arrow lg:w-[90%] sm:w-[90%] w-[80%] lg:-bottom-[10%] -bottom-[15%] next-arrow"
+      className="in-arrow w-12 h-12 flex items-center justify-center lg:-bottom-[10%] -bottom-[15%] next-arrow"
       onClick={onClick}
     >
       <svg
@@ -29,7 +32,7 @@ const Carousel = () => {
             cy="24"
             r="24"
             transform="translate(1167 1988)"
-            fill="#5CA2B0"
+            fill="#1d1d1d"
           />
           <g
             id="Group_13142"
@@ -48,18 +51,18 @@ const Carousel = () => {
                 transform="translate(8.913 0) rotate(45)"
                 fill="none"
                 stroke="#fff"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </g>
           </g>
         </g>
       </svg>
     </div>
-  );
+  )
 
   const PrevArrow = ({ onClick }) => (
     <div
-      className="in-arrow lg:w-[90%] sm:w-[90%] w-[80%] lg:-bottom-[10%] -bottom-[15%] prev-arrow"
+      className="in-arrow w-12 h-12 flex items-center justify-center lg:-bottom-[10%] -bottom-[15%] prev-arrow"
       onClick={onClick}
     >
       <svg
@@ -76,7 +79,7 @@ const Carousel = () => {
           cx="24"
           cy="24"
           r="24"
-          fill="#5CA2B0"
+          fill="#1d1d1d"
         />
         <g
           id="Group_13142"
@@ -91,47 +94,56 @@ const Carousel = () => {
               transform="translate(17.776 8.913) rotate(135)"
               fill="none"
               stroke="#fff"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </g>
         </g>
       </svg>
     </div>
-  );
+  )
 
-  var settings = {
+  const settings = {
     dots: false,
+    arrows: true,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    autoplay: false,
-    // prevArrow: <PrevArrow onClick={() => sliderRef.current.slickPrev()} />, // Pass onClick handler to prev arrow
-    // nextArrow: <NextArrow onClick={() => sliderRef.current.slickNext()} />, // Pass onClick handler to next arrow
+    autoplay: true,
+    prevArrow: (
+      <PrevArrow
+        onClick={() => sliderRef.current && sliderRef.current.slickPrev()}
+      />
+    ),
+    nextArrow: (
+      <NextArrow
+        onClick={() => sliderRef.current && sliderRef.current.slickNext()}
+      />
+    ),
     responsive: [
       {
-        breakpoint: 1024, // Adjust this value based on your design breakpoints
+        breakpoint: 1024,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 2,
         },
       },
       {
-        breakpoint: 768, // Adjust this value based on your design breakpoints
+        breakpoint: 768,
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
         },
       },
-      // You can add more breakpoints and adjust settings as needed
     ],
-  };
+  }
+
   return (
-    <>
-      <div
-        className="lg:w-[80%] sm:w-[80%] w-full mx-auto p-5 py-10"
-        data-aos="fade-down"
-      >
+    <div
+      className="lg:w-[80%] sm:w-[80%] w-full mx-auto p-5 py-10"
+      data-aos="fade-down"
+    >
+      <div className="vista-do-mar-slider relative">
         <Slider ref={sliderRef} {...settings} className="z-10">
           <div className="p-2 z-10">
             <Image
@@ -152,18 +164,9 @@ const Carousel = () => {
             />
           </div>
         </Slider>
-        {/* <div className="text-[18px] poppins-light border border-e-green lg:w-[490px] p-6 my-12 mx-auto">
-          <a
-            href="#contactpage"
-            class="text-black dark:text-black underline hover:underline"
-          >
-            Click here
-          </a>{" "}
-          to fill the form for the project brochure
-        </div> */}
       </div>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default Carousel;
+export default Carousel

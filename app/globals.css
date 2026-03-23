@@ -1,19 +1,15 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
 
-
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
-  
 }
-
 
 @media (prefers-color-scheme: dark) {
   :root {
@@ -31,9 +27,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb)); */
-    /* font-family: "Poppins", sans-serif; */
-    font-family: "Poppins", sans-serif;
-    
+  /* font-family: "Poppins", sans-serif; */
+  font-family: "Poppins", sans-serif;
 }
 
 @layer utilities {
@@ -41,8 +36,6 @@ body {
     text-wrap: balance;
   }
 }
-
-
 
 .poppins-thin {
   font-family: "Poppins", sans-serif;
@@ -192,15 +185,17 @@ body {
   width: 100%;
   height: 100%;
 }
-.slick-list{
-  z-index:99;
+.slick-list {
+  z-index: 99;
 }
 .in-arrow {
   position: absolute;
   transform: translateY(-50%);
   /* width: 93%; */
-  /*Adjustwidthasneeded*/height: 40px;
-  /*Adjustheightasneeded*/cursor: pointer;
+  /*Adjustwidthasneeded*/
+  height: 40px;
+  /*Adjustheightasneeded*/
+  cursor: pointer;
   z-index: 200;
   -webkit-transform: translateY(-50%);
   -moz-transform: translateY(-50%);
@@ -222,27 +217,42 @@ body {
   height: 100%;
 }
 
+/* Vista do Mar slider: center both arrows like the design screenshot */
+.vista-do-mar-slider .in-arrow {
+  top: auto;
+  bottom: -32px;
+  left: 50%;
+  right: auto;
+  transform: translateY(0);
+}
+
+.vista-do-mar-slider .prev-arrow {
+  transform: translateX(calc(-100% - 10px));
+}
+
+.vista-do-mar-slider .next-arrow {
+  transform: translateX(10px);
+}
+
 ::marker {
   font-size: 25px;
 }
-
 
 .triangle-right {
   width: 0;
   height: 0;
   border-top: 15px solid transparent;
-  border-left: 18px solid #ABD2D3;
+  border-left: 18px solid #abd2d3;
   border-bottom: 15px solid transparent;
   position: absolute;
   /* top: 50%; */
   left: 100%;
 }
 
-
 .triangle-bottom {
   width: 0;
   height: 0;
-  border-top: 16px solid #ABD2D3;
+  border-top: 16px solid #abd2d3;
   border-left: 14px solid #abd2d300;
   border-bottom: 4px solid transparent;
   position: absolute;
@@ -254,58 +264,56 @@ body {
 .triangle-left {
   width: 0;
   height: 0;
-  border-top: 16px solid #ABD2D3;
+  border-top: 16px solid #abd2d3;
   border-left: 14px solid #ff010100;
   border-bottom: 4px solid rgba(255, 166, 0, 0);
   position: absolute;
   top: 100%;
-  left:30px;
+  left: 30px;
   /* bottom: 100%; */
   border-right: 12px solid #ff000000;
 }
 
-
 .vertical {
   border-left: 1px solid #f8fafc7a;
-  top:75px;
-  bottom:0;
+  top: 75px;
+  bottom: 0;
   height: auto;
-  position:absolute;
+  position: absolute;
   left: 10.5%;
-  z-index: 5!important;
+  z-index: 5 !important;
 }
 .vertical-1 {
   border-left: 1px solid #f8fafc7a;
-  top:75px;
-  bottom:0;
+  top: 75px;
+  bottom: 0;
   height: auto;
-  position:absolute;
+  position: absolute;
   left: 33.5%;
   z-index: 5 !important;
 }
 .vertical-2 {
   border-left: 1px solid #f8fafc7a;
-  top:75px;
-  bottom:0;
+  top: 75px;
+  bottom: 0;
   height: auto;
-  position:absolute;
+  position: absolute;
   left: 64.5%;
   z-index: 5 !important;
 }
 .vertical-3 {
   border-left: 1px solid #f8fafc7a;
-  top:75px;
-  bottom:0;
+  top: 75px;
+  bottom: 0;
   height: auto;
-  position:absolute;
+  position: absolute;
   left: 88.9%;
-  overflow-x:inherit;
+  overflow-x: inherit;
   z-index: 5 !important;
 }
-.center{
+.center {
   text-align: -webkit-center;
 }
-
 
 .post-content {
   min-height: 3rem; /* Adjust this based on your design */

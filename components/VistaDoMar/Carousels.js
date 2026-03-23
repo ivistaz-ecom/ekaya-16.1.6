@@ -1,10 +1,10 @@
-'use client';
+"use client"
 
-import { useRef } from 'react';
-import Slider from 'react-slick';
-import Image from 'next/image';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import { useRef } from "react"
+import Slider from "react-slick"
+import Image from "next/image"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
 
 // Sample data
 const gymData = [
@@ -21,7 +21,7 @@ const gymData = [
       "Relax and rejuvenate in our expansive swimming pool and jacuzzi, offering uninterrupted hydrotherapy experiences.",
   },
   {
-    image: "/VistaDoMar/Play Area_Final@2x.webp",
+    image: "/VistaDoMar/Play_Area_Final@2x.webp",
     title: "The Harmony Park: Grill, Gather, Ground",
     description:
       "Immerse yourself in lush greenery and tranquil surroundings on our meticulously landscaped ground floor.",
@@ -32,7 +32,7 @@ const gymData = [
     description:
       "Unwind in our steam and sauna rooms, accessible round the clock for your relaxation needs.",
   },
-];
+]
 
 // Custom arrow components (no absolute positioning here)
 const PrevArrow = ({ onClick }) => (
@@ -40,14 +40,9 @@ const PrevArrow = ({ onClick }) => (
     onClick={onClick}
     className=" rounded-full shadow-lg p-2 pointer-events-auto"
   >
-    <Image
-      src="/VistaDoMar/right.svg"
-      alt="Previous"
-      width={24}
-      height={24}
-    />
+    <Image src="/VistaDoMar/right.svg" alt="Previous" width={24} height={24} />
   </button>
-);
+)
 
 const NextArrow = ({ onClick }) => (
   <button
@@ -59,13 +54,13 @@ const NextArrow = ({ onClick }) => (
       alt="Next"
       width={24}
       height={24}
-      className=''
+      className=""
     />
   </button>
-);
+)
 
 const GymCarousel = () => {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef(null)
 
   const settings = {
     dots: false,
@@ -90,7 +85,7 @@ const GymCarousel = () => {
         },
       },
     ],
-  };
+  }
 
   return (
     <div className="  relative ">
@@ -116,15 +111,19 @@ const GymCarousel = () => {
 
               {/* Content below the image */}
               <div className="bg-[#e8f9f9] p-6 text-center">
-                <h3 className="lg:text-[36px] text-[28px] poppins-light  mb-2">{item.title}</h3>
-                <p className="lg:text-[18px] text-gray-700 poppins-light ">{item.description}</p>
+                <h3 className="lg:text-[36px] text-[28px] poppins-light  mb-2">
+                  {item.title}
+                </h3>
+                <p className="lg:text-[18px] text-gray-700 poppins-light ">
+                  {item.description}
+                </p>
               </div>
             </div>
           </div>
         ))}
       </Slider>
     </div>
-  );
-};
+  )
+}
 
-export default GymCarousel;
+export default GymCarousel

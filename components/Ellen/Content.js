@@ -1,12 +1,12 @@
-"use client";
-import React, { useState, useRef } from "react";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import Contact from "../../components/HomePage/Contact";
-import Image from "next/image";
-import Map from "../../utils/Map";
-import VerticleLines from "../../components/common/VerticalLines";
+"use client"
+import React, { useState, useRef } from "react"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+import Contact from "../../components/HomePage/Contact"
+import Image from "next/image"
+import Map from "../../utils/Map"
+import VerticleLines from "../../components/common/VerticalLines"
 
 const FloorPlan = [
   {
@@ -29,10 +29,10 @@ const FloorPlan = [
     floor: "/ellen/floor-4.webp",
     plan_name: "3D Design 2",
   },
-];
+]
 
 function Content() {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef(null)
 
   const NextArrow = ({ onClick }) => (
     <div className="arrow next-arrow" onClick={onClick}>
@@ -73,14 +73,14 @@ function Content() {
                 transform="translate(8.913 0) rotate(45)"
                 fill="none"
                 stroke="#fff"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </g>
           </g>
         </g>
       </svg>
     </div>
-  );
+  )
 
   const PrevArrow = ({ onClick }) => (
     <div className="arrow prev-arrow" onClick={onClick}>
@@ -113,13 +113,13 @@ function Content() {
               transform="translate(17.776 8.913) rotate(135)"
               fill="none"
               stroke="#fff"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </g>
         </g>
       </svg>
     </div>
-  );
+  )
 
   var settings = {
     dots: false,
@@ -130,7 +130,7 @@ function Content() {
     autoplay: true,
     prevArrow: <PrevArrow onClick={() => sliderRef.current.slickPrev()} />, // Pass onClick handler to prev arrow
     nextArrow: <NextArrow onClick={() => sliderRef.current.slickNext()} />, // Pass onClick handler to next arrow
-  };
+  }
 
   return (
     <div>
@@ -163,12 +163,12 @@ function Content() {
           Project Gallery
         </p>
       </div>
-      <div className="w-[80%] mx-auto">
+      <div className="w-[80%] container mx-auto">
         <Slider ref={sliderRef} {...settings} className="z-10">
           <div className="z-10">
             <Image
               src="/ellen/slide.webp"
-              className="w-full"
+              className="w-full h-[320px] sm:h-[420px] lg:h-[750px]"
               alt="ellen"
               width={500}
               height={650}
@@ -177,7 +177,7 @@ function Content() {
           <div>
             <Image
               src="/ellen.png"
-              className="w-full"
+              className="w-full h-[320px] sm:h-[420px] lg:h-[750px]"
               alt="ellen"
               width={500}
               height={650}
@@ -328,10 +328,7 @@ function Content() {
           </div>
         </div>
       </div>
-      <div
-        className="grid lg:grid-cols-2 w-[80%] mx-auto"
-        
-      >
+      <div className="grid lg:grid-cols-2 w-[80%] mx-auto">
         <div className="items-center content-center p-6">
           <h5 className="poppins-light text-gray-900 lg:text-6xl">
             HOW TO
@@ -353,7 +350,7 @@ function Content() {
       <Contact />
       <VerticleLines />
     </div>
-  );
+  )
 }
 
-export default Content;
+export default Content
