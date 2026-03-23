@@ -222,7 +222,14 @@ function Header({ stats }) {
               href="/"
               className="flex items-center space-x-3 rtl:space-x-reverse"
             >
-              <img src="/logo.svg" className="h-8" alt="Ekaya" />
+              <img
+                src="/logo.svg"
+                width={32}
+                height={32}
+                className="w-full h-auto"
+                alt="Ekaya"
+                loading="eager"
+              />
             </Link>
           </div>
           <Link
@@ -262,7 +269,14 @@ function Header({ stats }) {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-6">
-                <img src="/logo.svg" className="h-8" alt="Ekaya" />
+                <img
+                  src="/logo.svg"
+                  width={32}
+                  height={32}
+                 className="w-full h-auto"
+                  alt="Ekaya"
+                  loading="eager"
+                />
                 <button
                   onClick={closeAll}
                   className="text-gray-700 text-2xl font-bold p-2"

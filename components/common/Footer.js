@@ -122,6 +122,8 @@ function Footer() {
                     className="pb-6"
                     width={300}
                     height={300}
+                    loading="eager"
+                    priority
                   />
                 </div>
               </div>
