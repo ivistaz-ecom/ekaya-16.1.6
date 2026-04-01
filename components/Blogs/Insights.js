@@ -57,6 +57,8 @@ function Insights() {
                   alt={items.title?.rendered || "Blog post"}
                   width={300}
                   height={300}
+                  sizes="(min-width: 1280px) 384px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                  quality={60}
                 />
                 <div className="py-5">
                   <h5

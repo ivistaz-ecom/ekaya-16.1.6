@@ -521,7 +521,11 @@ import server from "../../config.json";
 import Link from "next/link";
 import { useSearchParams, usePathname } from "next/navigation";
 import { useEffect } from "react";
-import ReCAPTCHA from "react-google-recaptcha";
+import dynamic from "next/dynamic";
+
+const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+  ssr: false,
+});
 
 function Contact() {
   const Locations = [
@@ -569,6 +573,26 @@ function Contact() {
       }));
     }
   }, [pathname]);
+
+  const [loadRecaptcha, setLoadRecaptcha] = useState(false);
+  useEffect(() => {
+    const el = document.getElementById("contactpage");
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setLoadRecaptcha(true);
+      return;
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadRecaptcha(true);
+          io.disconnect();
+        }
+      },
+      { rootMargin: "320px 0px", threshold: 0 }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
 
   const handleCheckboxChange = () => {
     setIsCheckboxChecked(!isCheckboxChecked);
@@ -1020,11 +1044,13 @@ function Contact() {
               .
             </label>
           </div>
-          <div className="mt-6">
-            <ReCAPTCHA
-              sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
-              onChange={handleRecaptchaChange}
-            />
+          <div className="mt-6 min-h-[78px]">
+            {loadRecaptcha ? (
+              <ReCAPTCHA
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                onChange={handleRecaptchaChange}
+              />
+            ) : null}
             {recaptchaError && (
               <p className="mt-2 text-xs text-red-600">{recaptchaError}</p>
             )}

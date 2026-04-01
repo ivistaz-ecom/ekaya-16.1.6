@@ -44,6 +44,9 @@ const ABOUT_LINKS = [
 const linkClass =
   "block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
 
+const LOGO_WIDTH = 285
+const LOGO_HEIGHT = 380
+
 const ChevronIcon = ({ isOpen, className = "w-2.5 h-2.5 ms-2.5" }) =>
   isOpen ? (
     <FaChevronUp className={className} />
@@ -224,8 +227,8 @@ function Header({ stats }) {
             >
               <img
                 src="/logo.svg"
-                width={32}
-                height={32}
+                width={LOGO_WIDTH}
+                height={LOGO_HEIGHT}
                 className="w-full h-auto"
                 alt="Ekaya"
                 fetchPriority="high"
@@ -273,9 +276,9 @@ function Header({ stats }) {
               <div className="flex justify-between items-center mb-6">
                 <img
                   src="/logo.svg"
-                  width={32}
-                  height={32}
-                 className="w-full h-auto"
+                  width={LOGO_WIDTH}
+                  height={LOGO_HEIGHT}
+                  className="w-full h-auto"
                   alt="Ekaya"
                   loading="eager"
                 />
