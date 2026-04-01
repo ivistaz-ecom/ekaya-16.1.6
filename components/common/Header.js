@@ -228,7 +228,9 @@ function Header({ stats }) {
                 height={32}
                 className="w-full h-auto"
                 alt="Ekaya"
+                fetchPriority="high"
                 loading="eager"
+                decoding="sync"
               />
             </Link>
           </div>

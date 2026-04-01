@@ -377,6 +377,7 @@ function Crafted() {
                       <div>
                         <Image
                           src="/takshavi/takshavi-comp.webp"
+                          alt="Takshavi boutique residential development, architectural exterior view"
                           className="w-full h-[400px]"
                           width={800}
                           height={400}
@@ -385,6 +386,7 @@ function Crafted() {
                       <div>
                         <Image
                           src="/home/takshavi-3.png"
+                          alt="Takshavi residential enclave on Spencer Road, Frazer Town, Bangalore"
                           className="w-full h-[400px]"
                           width={800}
                           height={400}
@@ -416,6 +418,7 @@ function Crafted() {
                       <div>
                         <Image
                           src="/embrace.png"
+                          alt="Embrace luxury apartment block, Ekaya Spaces"
                           className="w-[800px] h-[400px]"
                           width={800}
                           height={400}
@@ -424,6 +427,7 @@ function Crafted() {
                       <div>
                         <Image
                           src="/home/embrace/embrace-1.png"
+                          alt="Embrace residential project exterior and landscaping"
                           className="w-[800px] h-[400px]"
                           width={800}
                           height={400}
@@ -432,6 +436,7 @@ function Crafted() {
                       <div>
                         <Image
                           src="/home/embrace/embrace-2.png"
+                          alt="Embrace modern homes and building facade"
                           className="w-[800px] h-[400px]"
                           width={800}
                           height={400}
@@ -462,6 +467,7 @@ function Crafted() {
                       <div>
                         <Image
                           src="/home/ellen/ellen-1.png"
+                          alt="Ellen premium apartment block, exterior view"
                           className="w-full h-[400px]"
                           width={800}
                           height={400}
@@ -470,6 +476,7 @@ function Crafted() {
                       <div>
                         <Image
                           src="/home/ellen/ellen-2.png"
+                          alt="Ellen three-storey residential homes by Ekaya Spaces"
                           className="w-full h-[400px]"
                           width={800}
                           height={400}
@@ -621,6 +628,7 @@ function Crafted() {
                     <div>
                       <Image
                         src="/home/vista-do-mar/vista-1.png"
+                        alt="Vista Do Mar luxury apartments in Dona Paula, Goa"
                         className="w-[800px] h-[400px]"
                         width={800}
                         height={400}
@@ -629,6 +637,7 @@ function Crafted() {
                     <div>
                       <Image
                         src="/home/vista-do-mar/vista-2.png"
+                        alt="Vista Do Mar coastal residential development, second view"
                         className="w-[800px] h-[400px]"
                         width={800}
                         height={400}
@@ -658,6 +667,7 @@ function Crafted() {
                     <div>
                       <Image
                         src="/vista-do-mar.png"
+                        alt="Amora upcoming residential project in Moira, Goa"
                         className="w-[800px] h-[400px]"
                         width={800}
                         height={400}
@@ -666,6 +676,7 @@ function Crafted() {
                     <div>
                       <Image
                         src="/vista-do-mar.png"
+                        alt="Amora coastal homes, alternate view"
                         className="w-[800px] h-[400px]"
                         width={800}
                         height={400}
@@ -694,6 +705,7 @@ function Crafted() {
                     <div>
                       <Image
                         src="/lucilia/slide-1.webp"
+                        alt="Lucilia residential project in Taleigao, Goa"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}
@@ -702,6 +714,7 @@ function Crafted() {
                     <div>
                       <Image
                         src="/lucilia/slide-2.webp"
+                        alt="Lucilia premium enclave, architectural view"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}

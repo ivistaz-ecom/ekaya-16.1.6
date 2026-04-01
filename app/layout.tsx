@@ -105,6 +105,12 @@ export default function RootLayout({
         </Script>
         {/* End Google Tag Manager */}
 
+        <link
+          rel="preload"
+          href="/logo.svg"
+          as="image"
+          type="image/svg+xml"
+        />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
         <link 

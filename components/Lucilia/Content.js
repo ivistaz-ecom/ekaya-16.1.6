@@ -60,7 +60,7 @@ function Content() {
             DESIGN & PLANNING HIGHLIGHTS
           </h3>
 
-          <p class="poppins-light text-[18px] text-start">
+          <p className="poppins-light text-[18px] text-start">
             At Lucilia, design is shaped by nature. Every detail from the
             orientation of the residences to the flow of air across rooms is
             crafted to enhance light, openness, and calm.
