@@ -29,6 +29,8 @@ function WhyEkaya() {
           className="lg:w-[524px] w-full"
           width={530}
           height={600}
+          sizes="(min-width: 1280px) 524px, (min-width: 1024px) 45vw, 100vw"
+          quality={65}
         />
       </div>
       <div className="w-full">

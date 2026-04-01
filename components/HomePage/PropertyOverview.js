@@ -378,18 +378,22 @@ function Crafted() {
                         <Image
                           src="/takshavi/takshavi-comp.webp"
                           alt="Takshavi boutique residential development, architectural exterior view"
-                          className="w-full h-[400px]"
+                          className="w-full h-[400px] object-cover"
                           width={800}
                           height={400}
+                          sizes="(min-width: 1024px) 800px, 100vw"
+                          quality={65}
                         />
                       </div>
                       <div>
                         <Image
                           src="/home/takshavi-3.png"
                           alt="Takshavi residential enclave on Spencer Road, Frazer Town, Bangalore"
-                          className="w-full h-[400px]"
+                          className="w-full h-[400px] object-cover"
                           width={800}
                           height={400}
+                          sizes="(min-width: 1024px) 800px, 100vw"
+                          quality={65}
                         />
                       </div>
                     </Slider>
