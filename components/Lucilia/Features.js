@@ -49,8 +49,8 @@ function Features() {
   return (
     <div>
       <div className="grid lg:grid-cols-4 grid-cols-1 mx-auto w-[80%] lg:mt-0 mt-[320px]">
-        {blogs.map((items, index) => (
-          <div className="p-6 pt-5 bg-white border border-gray-200 py-3">
+        {blogs.map((items) => (
+          <div key={items.id} className="p-6 pt-5 bg-white border border-gray-200 py-3">
             <h5 className="mb-2 lg:h-[55px] lg:text-xl text-base poppins-light tracking-tight text-e-green dark:text-white text-start">
               {items.title}
             </h5>

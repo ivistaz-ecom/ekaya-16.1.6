@@ -339,6 +339,7 @@ function Content() {
         <div>
           <Image
             src="/ellen-map.png"
+            alt="Map showing directions to Ellen by Ekaya in Bengaluru"
             className="w-full"
             width={600}
             height={600}

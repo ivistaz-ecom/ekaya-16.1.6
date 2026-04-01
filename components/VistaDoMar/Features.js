@@ -76,8 +76,8 @@ const blogs = [
 function ApproachContent() {
   return (
     <div className="grid lg:grid-cols-3 grid-cols-1 sm:grid-cols-2 py-12 lg:w-[80%] mx-auto w-full">
-      {blogs.map((items, index) => (
-        <div class="p-6 bg-white border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
+      {blogs.map((items) => (
+        <div key={items.id} className="p-6 bg-white border border-gray-200  dark:bg-gray-800 dark:border-gray-700">
           <img src={items.icon} className="py-6" alt="ekaya-spaces" />
           <h5 className="mb-2 h-[90px] text-2xl poppins-light tracking-tight text-gray-900 dark:text-white text-start">
             {items.title}
