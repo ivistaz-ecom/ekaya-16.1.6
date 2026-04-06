@@ -942,7 +942,7 @@ function Contact() {
             <div class="relative z-0 w-full mb-5 group">
               {/* <label for="underline_select" class="sr-only">Underline select</label> */}
               <label
-                for="project_select"
+                htmlFor="project_select"
                 class={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
                   errors && errors.email
                     ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
@@ -967,6 +967,7 @@ function Contact() {
               ))}
             </select> */}
               <select
+                id="project_select"
                 name="project_select"
                 value={formData.project_select}
                 onChange={handleInput}

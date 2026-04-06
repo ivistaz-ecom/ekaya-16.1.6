@@ -795,6 +795,7 @@ function Contact() {
               ))}
             </select> */}
               <select
+                id="project_select"
                 name="project_select"
                 value={formData.project_select}
                 onChange={handleInput}

@@ -163,9 +163,9 @@ function Crafted() {
   return (
     <>
       <div className="text-center lg:mt-[100px] mt-5 lg:w-[80%] mx-auto z-10 relative">
-        <h1 className="text-2xl text-e-green font-light tracking-[0.2em]">
+        <p className="text-2xl text-e-green font-light tracking-[0.2em]">
           PROPERTY OVERVIEW
-        </h1>
+        </p>
         <h2 className="lg:text-5xl text-3xl poppins-regular lg:py-10 py-5">
           Strategically located
           <br />
@@ -191,7 +191,7 @@ function Crafted() {
                 data-tabs-target="#styled-profile"
                 type="button"
                 role="tab"
-                aria-controls="profile"
+                aria-controls="styled-profile"
                 aria-selected="true"
               >
                 Bengaluru
@@ -207,7 +207,7 @@ function Crafted() {
                 data-tabs-target="#styled-dashboard"
                 type="button"
                 role="tab"
-                aria-controls="dashboard"
+                aria-controls="styled-dashboard"
                 aria-selected="false"
               >
                 Goa
@@ -220,7 +220,7 @@ function Crafted() {
             class="hidden p-4"
             id="styled-profile"
             role="tabpanel"
-            aria-labelledby="profile-tab"
+            aria-labelledby="profile-styled-tab"
           >
             <div className="lg:flex gap-4">
               <div className="lg:w-[380px] w-full">
@@ -514,7 +514,7 @@ function Crafted() {
             class="hidden p-4"
             id="styled-dashboard"
             role="tabpanel"
-            aria-labelledby="dashboard-tab"
+            aria-labelledby="dashboard-styled-tab"
           >
             <div className="lg:flex gap-4">
               <div className="lg:w-[480px]">

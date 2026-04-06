@@ -8,6 +8,8 @@ import { LuArrowRight } from "react-icons/lu";
 
 function Insights() {
   const [Blogs, setData] = useState([]);
+  const getPlainTitle = (title = "") =>
+    title.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").trim();
 
   const fetchPost = async () => {
     try {
@@ -70,7 +72,10 @@ function Insights() {
                     dangerouslySetInnerHTML={{ __html: items.excerpt.rendered }}
                   />
                   <div>
-                    <Link href={`/blogs/${items.slug}`}>
+                    <Link
+                      href={`/blogs/${items.slug}`}
+                      aria-label={`Read more about ${getPlainTitle(items.title?.rendered || "this article")}`}
+                    >
                       <p className="text-start font-normal flex items-center w-40 gap-2 text-base poppins-regular bg-white shadow-md rounded-full dark:text-gray-400 px-5 py-1 border hover:bg-e-green hover:text-white transition-all duration-300 text-e-green">
                         Read More <LuArrowRight className="text-2xl" />
                       </p>
