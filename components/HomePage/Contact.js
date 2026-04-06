@@ -345,6 +345,7 @@
 
  "use client";
 import React, { useState, useRef } from "react";
+import { createPortal } from "react-dom";
 import { IoMdArrowDropdown } from "react-icons/io";
 import axios from "axios";
 import server from "../../config.json";
@@ -661,7 +662,9 @@ function Contact({ sectionId: sectionIdProp } = {}) {
         id={sectionId}
       >
         <h3 className="lg:text-[46px] text-4xl lg:pb-3 pb-1">Get in touch</h3>
-        <h4 className="text-2xl font-light text-gray-600 pb-5">*Required fields</h4>
+        {/* <h4 className="text-2xl font-light text-gray-600 pb-5">
+          <span className="text-red-600">*</span>Required fields
+        </h4> */}
         {error && (
           <p className="text-red-600 text-lg mb-4" role="alert">
             {error}
@@ -689,13 +692,9 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               )}
               <label
                 htmlFor="first_name"
-                className={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.first_name
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                First name*
+                First name<span className="text-red-600">*</span>
               </label>
             </div>
             <div className="relative z-0 w-full mb-5 group">
@@ -703,9 +702,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
                 type="text"
                 name="last_name"
                 id="last_name"
-                className={`font-light block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer ${
-                  errors && errors.last_name ? "text-red-600" : " text-gray-900"
-                }`}
+                className="font-light block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
                 value={formData.last_name}
                 onChange={handleInput}
               />
@@ -719,13 +716,9 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               )}
               <label
                 htmlFor="last_name"
-                className={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.last_name
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Last name*
+                Last name<span className="text-red-600">*</span>
               </label>
             </div>
           </div>
@@ -749,13 +742,9 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               )}
               <label
                 htmlFor="email"
-                className={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.email
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Email*
+                Email<span className="text-red-600">*</span>
               </label>
             </div>
 
@@ -781,13 +770,9 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               )}
               <label
                 htmlFor="phone"
-                className={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.email
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Telephone*
+                Telephone<span className="text-red-600">*</span>
               </label>
             </div>
           </div>
@@ -797,13 +782,9 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               {/* <label for="underline_select" className="sr-only">Underline select</label> */}
               <label
                 htmlFor="project_select"
-                className={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.email
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Choose project*
+                Choose project<span className="text-red-600">*</span>
               </label>
               {/* <label htmlFor="project_select" className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Choose project</label> */}
               {/* <select
@@ -885,9 +866,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
             />
             <label
               htmlFor="link-checkbox"
-              className={`ms-2 text-[18px] font-light  dark:text-gray-300 ${
-                errors && errors.agree ? "text-red-500" : "text-gray-500"
-              }`}
+              className="ms-2 text-[18px] font-light text-gray-500 dark:text-gray-300"
             >
               I declare that I have read, understood and accept the{" "}
               <a
@@ -970,59 +949,62 @@ function Contact({ sectionId: sectionIdProp } = {}) {
         </div>
       </div>
 
-      {thankYouOpen ? (
-        <div
-          className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50"
-          role="presentation"
-          onClick={() => setThankYouOpen(false)}
-        >
-          <div
-            className="relative bg-white max-w-md w-full shadow-xl p-8 md:p-10 text-center"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="thank-you-title"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <button
-              type="button"
+      {thankYouOpen && typeof document !== "undefined"
+        ? createPortal(
+            <div
+              className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50"
+              role="presentation"
               onClick={() => setThankYouOpen(false)}
-              className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-sm"
-              aria-label="Close"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="22"
-                height="22"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                aria-hidden="true"
+              <div
+                className="relative bg-white max-w-md w-full shadow-xl p-8 md:p-10 text-center"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="thank-you-title"
+                onClick={(e) => e.stopPropagation()}
               >
-                <path d="M18 6L6 18M6 6l12 12" />
-              </svg>
-            </button>
-            <h3
-              id="thank-you-title"
-              className="text-2xl md:text-3xl font-light text-gray-900 mb-4 pr-8"
-            >
-              Thank you
-            </h3>
-            <p className="text-gray-600 font-light text-lg mb-8 leading-relaxed">
-              Your message has been sent successfully. We&apos;ll get back to you
-              soon.
-            </p>
-            <button
-              type="button"
-              onClick={() => setThankYouOpen(false)}
-              className="text-white bg-gray-900 font-light text-lg px-10 py-2.5 hover:bg-black w-full sm:w-auto transition-colors"
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      ) : null}
+                <button
+                  type="button"
+                  onClick={() => setThankYouOpen(false)}
+                  className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-sm"
+                  aria-label="Close"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="22"
+                    height="22"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M18 6L6 18M6 6l12 12" />
+                  </svg>
+                </button>
+                <h3
+                  id="thank-you-title"
+                  className="text-2xl md:text-3xl font-light text-gray-900 mb-4 pr-8"
+                >
+                  Thank you
+                </h3>
+                <p className="text-gray-600 font-light text-lg mb-8 leading-relaxed">
+                  Your message has been sent successfully. We&apos;ll get back to
+                  you soon.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => setThankYouOpen(false)}
+                  className="text-white bg-gray-900 font-light text-lg px-10 py-2.5 hover:bg-black w-full sm:w-auto transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>,
+            document.body
+          )
+        : null}
     </div>
   );
 }
