@@ -110,6 +110,7 @@ export default function RootLayout({
           href="/logo.svg"
           as="image"
           type="image/svg+xml"
+          fetchPriority="high"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com"/>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>

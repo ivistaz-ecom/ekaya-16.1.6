@@ -3,9 +3,9 @@ import React from "react";
 function Crafted() {
   return (
     <div className="text-center lg:mt-[100px] mt-5 lg:w-[70%] w-full mx-auto p-4">
-      <h2 className="text-2xl text-e-green font-light tracking-[0.2em]">
+      <p className="text-2xl text-e-green font-light tracking-[0.2em]">
         ABOUT EKAYA
-      </h2>
+      </p>
       <h2 className="lg:text-5xl text-4xl poppins-regular lg:py-10 py-5">
         Luxury that speaks softly
       </h2>

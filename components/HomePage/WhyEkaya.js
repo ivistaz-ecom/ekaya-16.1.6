@@ -48,6 +48,10 @@ function WhyEkaya() {
                 }`}
                 onClick={() => setActiveTab("profile")}
                 type="button"
+                id="why-ekaya-tab-profile"
+                role="tab"
+                aria-selected={activeTab === "profile"}
+                aria-controls="why-ekaya-panel-profile"
               >
                 Nature’s Embrace
                 <br />
@@ -63,6 +67,10 @@ function WhyEkaya() {
                 }`}
                 onClick={() => setActiveTab("dashboard")}
                 type="button"
+                id="why-ekaya-tab-dashboard"
+                role="tab"
+                aria-selected={activeTab === "dashboard"}
+                aria-controls="why-ekaya-panel-dashboard"
               >
                 Elite
                 <br />
@@ -78,6 +86,10 @@ function WhyEkaya() {
                 }`}
                 onClick={() => setActiveTab("settings")}
                 type="button"
+                id="why-ekaya-tab-settings"
+                role="tab"
+                aria-selected={activeTab === "settings"}
+                aria-controls="why-ekaya-panel-settings"
               >
                 Personalized
                 <br />
@@ -89,7 +101,12 @@ function WhyEkaya() {
 
         <div>
           {activeTab === "profile" && (
-            <div className="p-4 lg:h-[350px] content-center poppins-regular">
+            <div
+              className="p-4 lg:h-[350px] content-center poppins-regular"
+              id="why-ekaya-panel-profile"
+              role="tabpanel"
+              aria-labelledby="why-ekaya-tab-profile"
+            >
               <p className="text-[18px] font-light text-gray-600 lg:ml-20 text-start">
                 Discover the essence of tranquil living where nature seamlessly
                 intertwines with luxury. At Ekaya, every property is a testament
@@ -103,7 +120,12 @@ function WhyEkaya() {
             </div>
           )}
           {activeTab === "dashboard" && (
-            <div className="p-4 lg:h-[350px] content-center poppins-regular">
+            <div
+              className="p-4 lg:h-[350px] content-center poppins-regular"
+              id="why-ekaya-panel-dashboard"
+              role="tabpanel"
+              aria-labelledby="why-ekaya-tab-dashboard"
+            >
               <p className="text-[18px] font-light text-gray-600 lg:ml-20 text-start">
                 Step into a realm of unparalleled exclusivity where luxury knows
                 no bounds. Ekaya presents elite sanctuaries that redefine luxury
@@ -115,7 +137,12 @@ function WhyEkaya() {
             </div>
           )}
           {activeTab === "settings" && (
-            <div className="p-4 lg:h-[350px] content-center poppins-regular">
+            <div
+              className="p-4 lg:h-[350px] content-center poppins-regular"
+              id="why-ekaya-panel-settings"
+              role="tabpanel"
+              aria-labelledby="why-ekaya-tab-settings"
+            >
               <p className="text-[18px] font-light text-gray-600 lg:ml-20 text-start">
                 Elevate your living experience with Ekaya's signature blend of
                 personalised elegance. We understand that true luxury lies in
