@@ -177,7 +177,7 @@ function Content() {
         </Slider>
         <div className="text-[18px] poppins-light border border-e-green lg:w-[490px] p-6 my-12 mx-auto">
           <Link
-            href="/#contactpage"
+            href="#contact-amora"
             className="text-black dark:text-black underline hover:underline"
           >
             Click here

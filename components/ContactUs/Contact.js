@@ -7,7 +7,6 @@
 // import { useSearchParams, usePathname } from "next/navigation";
 // import { useEffect } from "react";
 
-
 // function Contact() {
 //   const Locations = [
 //     { name: "Embrace" },
@@ -511,23 +510,22 @@
 
 // export default Contact;
 
-
-
-"use client";
-import React, { useState } from "react";
-import { IoMdArrowDropdown } from "react-icons/io";
-import axios from "axios";
-import server from "../../config.json";
-import Link from "next/link";
-import { useSearchParams, usePathname } from "next/navigation";
-import { useEffect } from "react";
-import dynamic from "next/dynamic";
+"use client"
+import React, { useState, useRef } from "react"
+import { IoMdArrowDropdown } from "react-icons/io"
+import axios from "axios"
+import server from "../../config.json"
+import Link from "next/link"
+import { useSearchParams, usePathname } from "next/navigation"
+import { useEffect } from "react"
+import dynamic from "next/dynamic"
+import { getContactSectionId } from "../common/contactSectionIds"
 
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
   ssr: false,
-});
+})
 
-function Contact() {
+function Contact({ sectionId: sectionIdProp } = {}) {
   const Locations = [
     { name: "Embrace" },
     { name: "Ellen" },
@@ -537,192 +535,17 @@ function Contact() {
     { name: "Moira" },
     { name: "Amora" },
     { name: "Lucilia" },
-  ];
+  ]
 
-  const [errors, setErrors] = useState({});
-  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false);
-  const [checkboxError, setCheckboxError] = useState(false);
-  const [submitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState("");
-  const [acceptance, setAcceptance] = useState("");
-  const [recaptchaToken, setRecaptchaToken] = useState(null);
-  const [recaptchaError, setRecaptchaError] = useState("");
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const projectFromUrl = searchParams.get("project");
-    if (projectFromUrl) {
-      setFormData((prev) => ({
-        ...prev,
-        project_select: projectFromUrl,
-      }));
-    }
-  }, []);
-  const pathname = usePathname();
-
-  useEffect(() => {
-    const match = Locations.find((loc) =>
-      pathname
-        .toLowerCase()
-        .includes(loc.name.toLowerCase().replace(/\s/g, "-"))
-    );
-    if (match) {
-      setFormData((prev) => ({
-        ...prev,
-        project_select: match.name,
-      }));
-    }
-  }, [pathname]);
-
-  const [loadRecaptcha, setLoadRecaptcha] = useState(false);
-  useEffect(() => {
-    const el = document.getElementById("contactpage");
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setLoadRecaptcha(true);
-      return;
-    }
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setLoadRecaptcha(true);
-          io.disconnect();
-        }
-      },
-      { rootMargin: "320px 0px", threshold: 0 }
-    );
-    io.observe(el);
-    return () => io.disconnect();
-  }, []);
-
-  const handleCheckboxChange = () => {
-    setIsCheckboxChecked(!isCheckboxChecked);
-    setAcceptance("agree");
-  };
-  const nameRegex = /^[a-zA-Z\s]*$/;
-  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
-  const phoneRegex = /^\d+$/;
-  const notAllowedDomains = [
-    "test.com",
-    "sample.com",
-    "example.com",
-    "testing.com",
-  ];
-  function isValidEmail(email) {
-    const [_, domain] = email.split("@");
-    return notAllowedDomains.includes(domain);
-  }
-
-  const nameErrors = {
-    field: "first_name",
-    message: "invalid character",
-  };
-  const lastErrors = {
-    field: "last_name",
-    message: "invalid character",
-  };
-  const locationErrors = {
-    field: "location",
-    message: "invalid character",
-  };
-  const emailErrors = {
-    field: "email",
-    message: "Please enter a valid email address.",
-  };
-
-  const customDomainErrors = {
-    field: "email",
-    message: "This email domain is not allowed.",
-  };
-  const customPhoneErrors = {
-    field: "phone",
-    message: "Please enter only numbers.",
-  };
-
-  const handleInput = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-    //alert(e.target.value)
-
-    if (name === "first_name") {
-      if (!nameRegex.test(value)) {
-        console.log("invalid character");
-        const fieldErrors = {};
-        const { field, message } = nameErrors;
-        fieldErrors[field] = message;
-        setErrors(fieldErrors);
-      } else {
-        console.log("valid character");
-        setErrors("");
-      }
-    }
-    if (name === "last_name") {
-      if (!nameRegex.test(value)) {
-        console.log("invalid character");
-        const fieldErrors = {};
-        const { field, message } = lastErrors;
-        fieldErrors[field] = message;
-        setErrors(fieldErrors);
-      } else {
-        console.log("valid character");
-        setErrors("");
-      }
-    }
-
-    if (name === "email") {
-      if (!emailRegex.test(value)) {
-        console.log("invalid Email");
-        const fieldErrors = {};
-        const { field, message } = emailErrors;
-        fieldErrors[field] = message;
-        setErrors(fieldErrors);
-      } else {
-        console.log("valid character");
-        setErrors("");
-      }
-      if (isValidEmail(value)) {
-        console.log("invalid Email");
-        const fieldErrors = {};
-        const { field, message } = customDomainErrors;
-        fieldErrors[field] = message;
-        setErrors(fieldErrors);
-      } else {
-        console.log("valid character");
-        setErrors("");
-      }
-    }
-
-    if (name === "phone") {
-      if (!phoneRegex.test(value)) {
-        console.log("invalid character");
-        const fieldErrors = {};
-        const { field, message } = customPhoneErrors;
-        fieldErrors[field] = message;
-        setErrors(fieldErrors);
-      } else {
-        console.log("valid character");
-        setErrors("");
-      }
-    }
-    if (name === "location") {
-      if (!nameRegex.test(value)) {
-        console.log("invalid character");
-        const fieldErrors = {};
-        const { field, message } = locationErrors;
-        fieldErrors[field] = message;
-        setErrors(fieldErrors);
-      } else {
-        console.log("valid character");
-        setErrors("");
-      }
-    }
-
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const [successMessage, setSuccessMessage] = useState("");
-
+  const [errors, setErrors] = useState({})
+  const [isCheckboxChecked, setIsCheckboxChecked] = useState(false)
+  const [submitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState("")
+  const [successMessage, setSuccessMessage] = useState("")
+  const [recaptchaToken, setRecaptchaToken] = useState(null)
+  const [recaptchaError, setRecaptchaError] = useState("")
+  const [loadRecaptcha, setLoadRecaptcha] = useState(false)
+  const recaptchaRef = useRef(null)
   const [formData, setFormData] = useState({
     first_name: "",
     last_name: "",
@@ -731,52 +554,194 @@ function Contact() {
     project_select: "",
     location: "",
     agree: "",
-  });
+  })
+  const searchParams = useSearchParams()
+
+  const nameRegex = /^[a-zA-Z\s\-']+$/
+  const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i
+  const phoneDigitsRegex = /^\d+$/
+  const locationRegex = /^[a-zA-Z0-9\s.,#'\-\/]*$/
+  const blockedEmailDomains = [
+    "test.com",
+    "sample.com",
+    "example.com",
+    "testing.com",
+  ]
+
+  const trim = (v) => String(v ?? "").trim()
+
+  function isBlockedEmailDomain(email) {
+    const at = email.lastIndexOf("@")
+    if (at < 0) return false
+    const domain = email.slice(at + 1).toLowerCase()
+    return blockedEmailDomains.includes(domain)
+  }
+
+  /** Client validation before submit; returns { fieldName: message } */
+  function validateFormFields(data) {
+    const e = {}
+    const first = trim(data.first_name)
+    const last = trim(data.last_name)
+    const mail = trim(data.email)
+    const phoneRaw = trim(data.phone)
+    const project = trim(data.project_select)
+    const loc = trim(data.location)
+
+    if (!first) e.first_name = "First name is required."
+    else if (!nameRegex.test(first))
+      e.first_name = "Use letters, spaces, hyphens, or apostrophes only."
+
+    if (!last) e.last_name = "Last name is required."
+    else if (!nameRegex.test(last))
+      e.last_name = "Use letters, spaces, hyphens, or apostrophes only."
+
+    if (!mail) e.email = "Email is required."
+    else if (!emailRegex.test(mail))
+      e.email = "Please enter a valid email address."
+    else if (isBlockedEmailDomain(mail))
+      e.email = "This email domain is not allowed."
+
+    if (!phoneRaw) e.phone = "Telephone is required."
+    else if (!phoneDigitsRegex.test(phoneRaw))
+      e.phone = "Please enter numbers only (no spaces or dashes)."
+    else if (phoneRaw.length < 10 || phoneRaw.length > 15)
+      e.phone = "Enter a valid phone number (10–15 digits)."
+
+    if (!project) e.project_select = "Please choose a project."
+
+    if (loc && !locationRegex.test(loc))
+      e.location = "Use letters, numbers, and common address characters only."
+
+    if (!isCheckboxChecked || !trim(data.agree))
+      e.agree = "Please accept the privacy policy to continue."
+
+    return e
+  }
+
+  useEffect(() => {
+    const projectFromUrl = searchParams.get("project")
+    if (projectFromUrl) {
+      setFormData((prev) => ({
+        ...prev,
+        project_select: projectFromUrl,
+      }))
+    }
+  }, [])
+  const pathname = usePathname()
+  const sectionId = sectionIdProp ?? getContactSectionId(pathname)
+
+  useEffect(() => {
+    const match = Locations.find((loc) =>
+      pathname
+        .toLowerCase()
+        .includes(loc.name.toLowerCase().replace(/\s/g, "-")),
+    )
+    if (match) {
+      setFormData((prev) => ({
+        ...prev,
+        project_select: match.name,
+      }))
+    }
+  }, [pathname])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const el = document.getElementById(sectionId)
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setLoadRecaptcha(true)
+      return
+    }
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setLoadRecaptcha(true)
+          io.disconnect()
+        }
+      },
+      { rootMargin: "320px 0px", threshold: 0 },
+    )
+    io.observe(el)
+    return () => io.disconnect()
+  }, [sectionId])
+
+  const handleCheckboxChange = (e) => {
+    const checked = e.target.checked
+    setIsCheckboxChecked(checked)
+    setFormData((prev) => ({
+      ...prev,
+      agree: checked ? "agree" : "",
+    }))
+    setErrors((prev) => {
+      const next = { ...prev }
+      delete next.agree
+      return next
+    })
+  }
+
+  const handleInput = (e) => {
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
+    setErrors((prev) => {
+      const next = { ...prev }
+      delete next[name]
+      return next
+    })
+  }
 
   const handleRecaptchaChange = (token) => {
-    setRecaptchaToken(token);
-    setRecaptchaError("");
-  };
+    setRecaptchaToken(token)
+    setRecaptchaError("")
+  }
+
+  const resetRecaptcha = () => {
+    setRecaptchaToken(null)
+    recaptchaRef.current?.reset()
+  }
 
   const handleForm = async (event) => {
-    event.preventDefault();
-    setErrors({});
-    setIsSubmitting(true);
-    setError("");
+    event.preventDefault()
+    setError("")
+    setSuccessMessage("")
+
+    const validationErrors = validateFormFields(formData)
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors)
+      return
+    }
 
     if (!recaptchaToken) {
-      setRecaptchaError("Please verify that you are not a robot.");
-      setIsSubmitting(false);
-      return;
+      setRecaptchaError("Please verify that you are not a robot.")
+      return
     }
+
+    setRecaptchaError("")
+    setErrors({})
+    setIsSubmitting(true)
 
     const payload = {
       ...formData,
+      first_name: trim(formData.first_name),
+      last_name: trim(formData.last_name),
+      email: trim(formData.email),
+      phone: trim(formData.phone),
+      project_select: trim(formData.project_select),
+      location: trim(formData.location),
       "g-recaptcha-response": recaptchaToken,
-    };
+    }
+
+    const body = new FormData()
+    Object.entries(payload).forEach(([key, value]) => {
+      body.append(key, value == null ? "" : String(value))
+    })
 
     try {
       const response = await axios.post(
         `${server.SERVER_FROM}contact-form-7/v1/contact-forms/7/feedback`,
-        payload,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
-
-      console.log(response.data);
+        body,
+      )
 
       if (response.data.status === "mail_sent") {
-        // ✅ Success: Show message & reset form
-        if (response.data.status === "mail_sent") {
-          setSuccessMessage("Your form was submitted successfully!");
-          // reset form here
-        }
-
-        alert("Form submitted successfully!"); // You can replace with a custom success UI if needed
-
+        setSuccessMessage("Your form was submitted successfully!")
         setFormData({
           first_name: "",
           last_name: "",
@@ -785,36 +750,57 @@ function Contact() {
           project_select: "",
           location: "",
           agree: "",
-        });
-
-        setIsCheckboxChecked(false);
-        setAcceptance("");
-        setIsSubmitting(false);
-        setRecaptchaToken(null);
+        })
+        setIsCheckboxChecked(false)
+        resetRecaptcha()
       } else {
-        const fieldErrors = {};
-        const { invalid_fields } = response.data;
-        invalid_fields.forEach((field) => {
-          fieldErrors[field.field] = field.message;
-        });
-        setErrors(fieldErrors);
-        setIsSubmitting(false);
+        const fieldErrors = {}
+        const invalidFields = response.data.invalid_fields
+        invalidFields?.forEach((field) => {
+          fieldErrors[field.field] = field.message
+        })
+        setErrors(fieldErrors)
+        if (response.data.message) {
+          setError(response.data.message)
+        }
+        resetRecaptcha()
       }
     } catch (err) {
-      setError("An error occurred. Please try again.");
-      setIsSubmitting(false);
+      resetRecaptcha()
+      const msg =
+        err.response?.data?.message ||
+        err.message ||
+        "An error occurred. Please try again."
+      setError(
+        typeof msg === "string" ? msg : "An error occurred. Please try again.",
+      )
+    } finally {
+      setIsSubmitting(false)
     }
-  };
+  }
 
   return (
-
-      <div className="bg-[#5CA2B0] lg:p-10 p-5">      <div
-      className="mt-[100px] lg:w-[80%] mx-auto bg-gray-200 p-6 container"
-      id="contactpage"
-    >
+    <div className="bg-[#5CA2B0] lg:p-10 p-5">
+      {" "}
+      <div
+        className="mt-[100px] lg:w-[80%] mx-auto bg-gray-200 p-6 container"
+        id={sectionId}
+      >
         <h3 className="lg:text-[46px] text-4xl lg:pb-3 pb-1">Get in touch</h3>
-        <h4 className="text-2xl font-light text-gray-600 pb-5">*Required fields</h4>
-        <form class="py-6">
+        <h4 className="text-2xl font-light text-gray-600 pb-5">
+          *Required fields
+        </h4>
+        {error && (
+          <p className="text-red-600 text-lg mb-4" role="alert">
+            {error}
+          </p>
+        )}
+        {successMessage && (
+          <p className="text-green-600 text-lg mb-4" role="status">
+            {successMessage}
+          </p>
+        )}
+        <form class="py-6" onSubmit={handleForm}>
           <div class="grid md:grid-cols-2 md:gap-6">
             <div class="relative z-0 w-full mb-5 group">
               <input
@@ -909,8 +895,9 @@ function Contact() {
             <div class="relative z-0 w-full mb-5 group">
               <input
                 type="tel"
-                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                maxLength={11}
+                inputMode="numeric"
+                autoComplete="tel"
+                maxLength={15}
                 name="phone"
                 id="phone"
                 class="font-light block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
@@ -1020,13 +1007,13 @@ function Contact() {
             <input
               id="link-checkbox"
               type="checkbox"
+              checked={isCheckboxChecked}
               class={`checkbox-round border-4 bg-gray-100 border-red-500 rounded-full focus:ring-gray-500 dark:focus:ring-gray-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 ${
                 errors && errors.agree
                   ? "border-4 border-red-500"
                   : "text-gray-500"
               }`}
               name="agree"
-              value={formData.agree}
               onChange={handleCheckboxChange}
             />
             <label
@@ -1045,22 +1032,30 @@ function Contact() {
               .
             </label>
           </div>
+          {errors.agree && (
+            <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+              {errors.agree}
+            </p>
+          )}
           <div className="mt-6 min-h-[78px]">
             {loadRecaptcha ? (
               <ReCAPTCHA
+                ref={recaptchaRef}
                 sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
                 onChange={handleRecaptchaChange}
+                onExpired={() => setRecaptchaToken(null)}
               />
             ) : null}
-            {recaptchaError && (
-              <p className="mt-2 text-xs text-red-600">{recaptchaError}</p>
-            )}
+            {recaptchaError ? (
+              <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+                {recaptchaError}
+              </p>
+            ) : null}
           </div>
           <button
             type="submit"
             class="justify-center flex items-center my-6 text-white bg-gray-900 font-light text-[18px] w-full sm:w-auto px-10 py-2.5 text-center hover:bg-black"
-            onClick={handleForm}
-            disabled={submitting && "disabled"}
+            disabled={submitting}
           >
             Submit&nbsp;
             {submitting && (
@@ -1108,7 +1103,7 @@ function Contact() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Contact;
+export default Contact
