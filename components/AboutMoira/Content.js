@@ -125,7 +125,7 @@ function Content() {
       </div>
       <div>
       <div  className="mt-[450px]">
-      <Contact/>
+      <Contact />
       </div>
       </div>
     </>
