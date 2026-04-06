@@ -241,7 +241,7 @@
 //             {errors && errors.first_name && (
 //               <p
 //                 id="filled_error_help"
-//                 class="mt-2 text-xs text-red-600 dark:text-red-400"
+//                 className="mt-2 text-xs text-red-600 dark:text-red-400"
 //               >
 //                 {errors.first_name}
 //               </p>
@@ -271,7 +271,7 @@
 //             {errors && errors.last_name && (
 //               <p
 //                 id="filled_error_help"
-//                 class="mt-2 text-xs text-red-600 dark:text-red-400"
+//                 className="mt-2 text-xs text-red-600 dark:text-red-400"
 //               >
 //                 {errors.last_name}
 //               </p>
@@ -301,7 +301,7 @@
 //             {errors && errors.email && (
 //               <p
 //                 id="filled_error_help"
-//                 class="mt-2 text-xs text-red-600 dark:text-red-400"
+//                 className="mt-2 text-xs text-red-600 dark:text-red-400"
 //               >
 //                 {errors.email}
 //               </p>
@@ -332,7 +332,7 @@
 //             {errors && errors.phone && (
 //               <p
 //                 id="filled_error_help"
-//                 class="mt-2 text-xs text-red-600 dark:text-red-400"
+//                 className="mt-2 text-xs text-red-600 dark:text-red-400"
 //               >
 //                 {errors.phone}
 //               </p>
@@ -396,7 +396,7 @@
 //             {errors && errors.project_select && (
 //               <p
 //                 id="filled_error_help"
-//                 class="mt-2 text-xs text-red-600 dark:text-red-400"
+//                 className="mt-2 text-xs text-red-600 dark:text-red-400"
 //               >
 //                 {errors.project_select}
 //               </p>
@@ -414,7 +414,7 @@
 //             {errors && errors.location && (
 //               <p
 //                 id="filled_error_help"
-//                 class="mt-2 text-xs text-red-600 dark:text-red-400"
+//                 className="mt-2 text-xs text-red-600 dark:text-red-400"
 //               >
 //                 {errors.location}
 //               </p>
@@ -512,6 +512,7 @@
 
 "use client"
 import React, { useState, useRef } from "react"
+import { createPortal } from "react-dom"
 import { IoMdArrowDropdown } from "react-icons/io"
 import axios from "axios"
 import server from "../../config.json"
@@ -541,7 +542,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
   const [isCheckboxChecked, setIsCheckboxChecked] = useState(false)
   const [submitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState("")
-  const [successMessage, setSuccessMessage] = useState("")
+  const [thankYouOpen, setThankYouOpen] = useState(false)
   const [recaptchaToken, setRecaptchaToken] = useState(null)
   const [recaptchaError, setRecaptchaError] = useState("")
   const [loadRecaptcha, setLoadRecaptcha] = useState(false)
@@ -701,7 +702,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
   const handleForm = async (event) => {
     event.preventDefault()
     setError("")
-    setSuccessMessage("")
+    setThankYouOpen(false)
 
     const validationErrors = validateFormFields(formData)
     if (Object.keys(validationErrors).length > 0) {
@@ -741,7 +742,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
       )
 
       if (response.data.status === "mail_sent") {
-        setSuccessMessage("Your form was submitted successfully!")
+        setThankYouOpen(true)
         setFormData({
           first_name: "",
           last_name: "",
@@ -780,6 +781,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
   }
 
   return (
+    <>
     <div className="bg-[#5CA2B0] lg:p-10 p-5">
       {" "}
       <div
@@ -787,17 +789,12 @@ function Contact({ sectionId: sectionIdProp } = {}) {
         id={sectionId}
       >
         <h3 className="lg:text-[46px] text-4xl lg:pb-3 pb-1">Get in touch</h3>
-        <h4 className="text-2xl font-light text-gray-600 pb-5">
-          *Required fields
-        </h4>
+        {/* <h4 className="text-2xl font-light text-gray-600 pb-5">
+          <span className="text-red-600">*</span>Required fields
+        </h4> */}
         {error && (
           <p className="text-red-600 text-lg mb-4" role="alert">
             {error}
-          </p>
-        )}
-        {successMessage && (
-          <p className="text-green-600 text-lg mb-4" role="status">
-            {successMessage}
           </p>
         )}
         <form class="py-6" onSubmit={handleForm}>
@@ -815,20 +812,16 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               {errors && errors.first_name && (
                 <p
                   id="filled_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
+                  className="mt-2 text-xs text-red-600 dark:text-red-400"
                 >
                   {errors.first_name}
                 </p>
               )}
               <label
-                for="first_name"
-                class={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.first_name
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                htmlFor="first_name"
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                First name*
+                First name<span className="text-red-600">*</span>
               </label>
             </div>
             <div class="relative z-0 w-full mb-5 group">
@@ -836,29 +829,23 @@ function Contact({ sectionId: sectionIdProp } = {}) {
                 type="text"
                 name="last_name"
                 id="last_name"
-                class={`font-light block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer ${
-                  errors && errors.last_name ? "text-red-600" : " text-gray-900"
-                }`}
+                className="font-light block py-2.5 px-0 w-full text-xl text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-black focus:outline-none focus:ring-0 focus:border-black peer"
                 value={formData.last_name}
                 onChange={handleInput}
               />
               {errors && errors.last_name && (
                 <p
                   id="filled_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
+                  className="mt-2 text-xs text-red-600 dark:text-red-400"
                 >
                   {errors.last_name}
                 </p>
               )}
               <label
-                for="last_name"
-                class={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.last_name
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                htmlFor="last_name"
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Last name*
+                Last name<span className="text-red-600">*</span>
               </label>
             </div>
           </div>
@@ -875,20 +862,16 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               {errors && errors.email && (
                 <p
                   id="filled_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
+                  className="mt-2 text-xs text-red-600 dark:text-red-400"
                 >
                   {errors.email}
                 </p>
               )}
               <label
-                for="email"
-                class={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.email
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                htmlFor="email"
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Email*
+                Email<span className="text-red-600">*</span>
               </label>
             </div>
 
@@ -907,20 +890,16 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               {errors && errors.phone && (
                 <p
                   id="filled_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
+                  className="mt-2 text-xs text-red-600 dark:text-red-400"
                 >
                   {errors.phone}
                 </p>
               )}
               <label
-                for="phone"
-                class={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.email
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                htmlFor="phone"
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Telephone*
+                Telephone<span className="text-red-600">*</span>
               </label>
             </div>
           </div>
@@ -930,13 +909,9 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               {/* <label for="underline_select" class="sr-only">Underline select</label> */}
               <label
                 htmlFor="project_select"
-                class={`peer-focus:font-light font-light absolute text-xl  dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 ${
-                  errors && errors.email
-                    ? "text-red-600 peer-focus:text-black peer-focus:dark:text-black"
-                    : " text-gray-500 peer-focus:text-black peer-focus:dark:text-black"
-                }`}
+                className="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 peer-focus:text-black peer-focus:dark:text-black"
               >
-                Choose project*
+                Choose project<span className="text-red-600">*</span>
               </label>
               {/* <label for="project_select" class="peer-focus:font-light font-light absolute text-xl text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-black peer-focus:dark:text-black peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Choose project</label> */}
               {/* <select
@@ -972,7 +947,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               {errors && errors.project_select && (
                 <p
                   id="filled_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
+                  className="mt-2 text-xs text-red-600 dark:text-red-400"
                 >
                   {errors.project_select}
                 </p>
@@ -990,7 +965,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               {errors && errors.location && (
                 <p
                   id="filled_error_help"
-                  class="mt-2 text-xs text-red-600 dark:text-red-400"
+                  className="mt-2 text-xs text-red-600 dark:text-red-400"
                 >
                   {errors.location}
                 </p>
@@ -1017,10 +992,8 @@ function Contact({ sectionId: sectionIdProp } = {}) {
               onChange={handleCheckboxChange}
             />
             <label
-              for="link-checkbox"
-              class={`ms-2 text-[18px] font-light  dark:text-gray-300 ${
-                errors && errors.agree ? "text-red-500" : "text-gray-500"
-              }`}
+              htmlFor="link-checkbox"
+              className="ms-2 text-[18px] font-light text-gray-500 dark:text-gray-300"
             >
               I declare that I have read, understood and accept the{" "}
               <a
@@ -1103,6 +1076,64 @@ function Contact({ sectionId: sectionIdProp } = {}) {
         </div>
       </div>
     </div>
+
+    {thankYouOpen && typeof document !== "undefined"
+      ? createPortal(
+          <div
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/50"
+            role="presentation"
+            onClick={() => setThankYouOpen(false)}
+          >
+            <div
+              className="relative bg-white max-w-md w-full shadow-xl p-8 md:p-10 text-center"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="thank-you-title"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setThankYouOpen(false)}
+                className="absolute top-4 right-4 p-2 text-gray-500 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 rounded-sm"
+                aria-label="Close"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  aria-hidden="true"
+                >
+                  <path d="M18 6L6 18M6 6l12 12" />
+                </svg>
+              </button>
+              <h3
+                id="thank-you-title"
+                className="text-2xl md:text-3xl font-light text-gray-900 mb-4 pr-8"
+              >
+                Thank you
+              </h3>
+              <p className="text-gray-600 font-light text-lg mb-8 leading-relaxed">
+                Your message has been sent successfully. We&apos;ll get back to
+                you soon.
+              </p>
+              <button
+                type="button"
+                onClick={() => setThankYouOpen(false)}
+                className="text-white bg-gray-900 font-light text-lg px-10 py-2.5 hover:bg-black w-full sm:w-auto transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          </div>,
+          document.body,
+        )
+      : null}
+    </>
   )
 }
 
