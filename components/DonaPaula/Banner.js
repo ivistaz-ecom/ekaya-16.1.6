@@ -17,7 +17,7 @@ function Banner() {
   return (
     <div className="lg:h-[70vh] h-[60vh] relative mx-auto" data-aos="fade-down">
       <Image
-        src="/dona-paula/banner.png"
+        src="/dona-paula/banner.webp"
         alt="Banner"
         width={1000} // Adjust width and height according to your image dimensions
         height={500}

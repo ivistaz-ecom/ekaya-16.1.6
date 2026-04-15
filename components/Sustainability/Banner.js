@@ -17,7 +17,7 @@ function Banner() {
   return (
     <div className="lg:h-[70vh] h-[50vh] relative mx-auto" data-aos="fade-down">
       <Image
-        src="/sustainability/sus-banner.png"
+        src="/sustainability/sus-banner.webp"
         alt="Banner"
         width={1000} // Adjust width and height according to your image dimensions
         height={500}

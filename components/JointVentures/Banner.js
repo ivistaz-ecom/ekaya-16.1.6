@@ -19,7 +19,7 @@ function Banner() {
   return (
     <div className="h-[70vh] relative mx-auto" data-aos='fade-down'>
        <Image
-        src="/joint-ventures.png"
+        src="/joint-ventures.webp"
         alt="Banner"
         width={1000} // Adjust width and height according to your image dimensions
         height={500}

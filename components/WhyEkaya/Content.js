@@ -33,7 +33,7 @@ function Content() {
           <div className="lg:absolute lg:left-0 lg:-ml-40">
             <Image
               class="object-cover lg:w-[25em]"
-              src="/why-ekaya/1.png"
+              src="/why-ekaya/1.webp"
               alt="ekaya-spaces"
               width={800}
               height={500}
@@ -48,7 +48,7 @@ function Content() {
           <div className="lg:absolute lg:-right-40 ">
             <Image
               class="object-cover lg:w-[25em] w-full"
-              src="/why-ekaya/2.png"
+              src="/why-ekaya/2.webp"
               alt="ekaya-spaces"
               width={800}
               height={500}
@@ -87,7 +87,7 @@ function Content() {
           <div className="lg:absolute lg:left-0 lg:-ml-40">
             <Image
               class="object-cover lg:w-[25em] w-full"
-              src="/why-ekaya/3.png"
+              src="/why-ekaya/3.webp"
               alt="ekaya-spaces"
               width={800}
               height={500}

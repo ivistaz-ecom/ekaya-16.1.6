@@ -28,10 +28,11 @@ function Content() {
   }, []);
 
   return (
-    <div className="lg:mt-[100px] mt-5 mx-auto" data-aos="fade-up">
-      <p
-        className="poppins-light text-[18px] text-start pb-5"
-        dangerouslySetInnerHTML={{ __html: Page }}
+    <div className="lg:mt-[100px] mt-5 mx-auto w-[80%] max-w-7xl" data-aos="fade-up">
+      {/* Block-level wrapper: WP content includes <p>/<div> — must not nest inside <p> */}
+      <div
+        className="about-us-content poppins-light text-[18px] text-start pb-5 [&_p]:mb-4 [&_a]:text-e-green [&_a]:underline"
+        dangerouslySetInnerHTML={{ __html: Page ?? "" }}
       />
     </div>
   );

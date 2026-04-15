@@ -44,8 +44,9 @@ const ABOUT_LINKS = [
 const linkClass =
   "block px-4 py-2 poppins-light text-[18px] hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white"
 
+// Match public/logo.svg viewBox (285.146×29.823) so layout is reserved before load
 const LOGO_WIDTH = 285
-const LOGO_HEIGHT = 380
+const LOGO_HEIGHT = 30
 
 const ChevronIcon = ({ isOpen, className = "w-2.5 h-2.5 ms-2.5" }) =>
   isOpen ? (
@@ -100,8 +101,9 @@ function Header({ stats }) {
         <div className="flex justify-between p-4 lg:w-[80%] mx-auto  items-center z-50 ">
           <div className="text-center lg:hidden">
             <button
-              className="text-white bg-white rounded-lg px-2 py-2"
+              className="text-black bg-white/95 rounded-lg px-2 py-2 border border-white/40 shadow-sm"
               type="button"
+              aria-label="Toggle mobile menu"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <FaBarsStaggered size={23} color="black" />
@@ -220,16 +222,13 @@ function Header({ stats }) {
               </ul>
             </div>
           </div>
-          <div className="lg:mr-[00px] w-40 lg:w-60 md:w-96">
-            <Link
-              href="/"
-              className="flex items-center space-x-3 rtl:space-x-reverse"
-            >
+          <div className="lg:mr-[00px] w-40 lg:w-60 md:w-96 shrink-0 aspect-[285/30]">
+            <Link href="/" className="block h-full w-full">
               <img
                 src="/logo.svg"
                 width={LOGO_WIDTH}
                 height={LOGO_HEIGHT}
-                className="w-full h-auto"
+                className="w-full h-full object-contain object-left"
                 alt="Ekaya"
                 fetchPriority="high"
                 loading="eager"
@@ -274,14 +273,16 @@ function Header({ stats }) {
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex justify-between items-center mb-6">
-                <img
-                  src="/logo.svg"
-                  width={LOGO_WIDTH}
-                  height={LOGO_HEIGHT}
-                  className="w-full h-auto"
-                  alt="Ekaya"
-                  loading="eager"
-                />
+                <div className="w-40 aspect-[285/30] shrink-0">
+                  <img
+                    src="/logo.svg"
+                    width={LOGO_WIDTH}
+                    height={LOGO_HEIGHT}
+                    className="w-full h-full object-contain object-left"
+                    alt="Ekaya"
+                    loading="eager"
+                  />
+                </div>
                 <button
                   onClick={closeAll}
                   className="text-gray-700 text-2xl font-bold p-2"

@@ -4,25 +4,25 @@ import Image from "next/image";
 const contentData = [
   {
     text: "Dona Paula boasts a rich historical tapestry, with tales dating back to the colonial era of Portuguese rule in Goa. Legend has it that Dona Paula de Menezes, a noblewoman of Portuguese descent, tragically fell in love with a local fisherman, only to meet her demise by plunging into the Arabian Sea from the precipice now known as the Dona Paula Viewpoint. Her love story has since become the subject of folklore and continues to intrigue visitors to this day.",
-    imgSrc: "/dona-paula/1.png",
+    imgSrc: "/dona-paula/1.webp",
     imgAlt: "moira",
     reverse: false,
   },
   {
     text: "Furthermore, Dona Paula’s strategic location along the coast made it a significant port during the colonial era, facilitating trade and commerce between Portugal and other parts of Asia. The remnants of this maritime heritage can still be seen in the quaint fishing villages and historic landmarks that dot the coastline.",
-    imgSrc: "/dona-paula/2.png",
+    imgSrc: "/dona-paula/2.webp",
     imgAlt: "dona paula",
     reverse: true,
   },
   {
     text: "Rich in cultural heritage, Dona Paula boasts landmarks such as the Cabo Raj Bhavan, once a Portuguese fort and now the official residence of the Governor of Goa. Its vibrant markets and proximity to renowned beaches like Miramar and Vainguinim further elevate its charm, offering a perfect blend of relaxation and exploration.",
-    imgSrc: "/dona-paula/3.png",
+    imgSrc: "/dona-paula/3.webp",
     imgAlt: "dona paula",
     reverse: false,
   },
   {
     text: "With its timeless beauty, affluent ambiance, and enchanting coastal vistas, Dona Paula continues to enchant visitors and residents alike, promising an unforgettable experience amidst the wealth and luxury of Goa’s coastal paradise.",
-    imgSrc: "/dona-paula/4.png",
+    imgSrc: "/dona-paula/4.webp",
     imgAlt: "dona paula",
     reverse: true,
   },

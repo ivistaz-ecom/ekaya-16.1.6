@@ -53,7 +53,7 @@ function Banner({ slug }) {
         }
         
         // Final fallback to default banner
-        setBannerImage(imageUrl || "/blogs/banner.png");
+        setBannerImage(imageUrl || "/blogs/banner.webp");
       }
     } catch (error) {
       console.error("Error fetching post:", error);
