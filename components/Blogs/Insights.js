@@ -45,7 +45,7 @@ function Insights() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {Blogs.map((items, index) => {
             // Safely get featured media image URL
-            const featuredImageUrl = items["_embedded"]?.["wp:featuredmedia"]?.[0]?.["source_url"] || "/blogs/banner.png";
+            const featuredImageUrl = items["_embedded"]?.["wp:featuredmedia"]?.[0]?.["source_url"] || "/blogs/banner.webp";
             
             return (
             <div

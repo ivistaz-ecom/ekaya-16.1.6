@@ -21,7 +21,7 @@ function Content() {
         >
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10 w-full"
-            src="/our-team/1.png"
+            src="/our-team/1.webp"
             alt="ekaya-spaces"
             width={800}
             height={500}
@@ -58,7 +58,7 @@ function Content() {
           </div>
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:ml-10 w-full"
-            src="/our-team/2.png"
+            src="/our-team/2.webp"
             alt="ekaya-spaces"
             width={800}
             height={500}
@@ -71,7 +71,7 @@ function Content() {
         >
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10"
-            src="/our-team/3.png"
+            src="/our-team/3.webp"
             alt="ekaya-spaces"
             width={800}
             height={500}
@@ -107,7 +107,7 @@ function Content() {
           </div>
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:ml-10"
-            src="/our-team/4.png"
+            src="/our-team/4.webp"
             alt="ekaya-spaces"
             width={800}
             height={500}
@@ -120,7 +120,7 @@ function Content() {
         >
           <Image
             class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10"
-            src="/our-team/5.png"
+            src="/our-team/5.webp"
             alt="ekaya-spaces"
             width={800}
             height={500}

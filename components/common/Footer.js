@@ -119,9 +119,10 @@ function Footer() {
                   <Image
                     src="/footer-logo.svg"
                     alt="Ekaya logo"
-                    className="pb-6"
-                    width={300}
-                    height={300}
+                    className="pb-6 h-auto w-full max-w-[286px] object-contain object-left"
+                    width={286}
+                    height={30}
+                    sizes="(max-width: 1024px) 90vw, 286px"
                     loading="eager"
                     priority
                   />

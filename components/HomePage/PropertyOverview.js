@@ -387,7 +387,7 @@ function Crafted() {
                       </div>
                       <div>
                         <Image
-                          src="/home/takshavi-3.png"
+                          src="/home/takshavi-3.webp"
                           alt="Takshavi residential enclave on Spencer Road, Frazer Town, Bangalore"
                           className="w-full h-[400px] object-cover"
                           width={800}
@@ -439,7 +439,7 @@ function Crafted() {
                       </div>
                       <div>
                         <Image
-                          src="/home/embrace/embrace-2.png"
+                          src="/home/embrace/embrace-2.webp"
                           alt="Embrace modern homes and building facade"
                           className="w-[800px] h-[400px]"
                           width={800}
@@ -479,7 +479,7 @@ function Crafted() {
                       </div>
                       <div>
                         <Image
-                          src="/home/ellen/ellen-2.png"
+                          src="/home/ellen/ellen-2.webp"
                           alt="Ellen three-storey residential homes by Ekaya Spaces"
                           className="w-full h-[400px]"
                           width={800}
@@ -640,7 +640,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/vista-2.png"
+                        src="/home/vista-do-mar/vista-2.webp"
                         alt="Vista Do Mar coastal residential development, second view"
                         className="w-[800px] h-[400px]"
                         width={800}

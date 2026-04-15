@@ -106,7 +106,7 @@ function Insights() {
             // Safely get featured media image URL
             const featuredImageUrl =
               items["_embedded"]?.["wp:featuredmedia"]?.[0]?.["source_url"] ||
-              "/blogs/banner.png"
+              "/blogs/banner.webp"
 
             return (
               <div
