@@ -36,8 +36,7 @@ function ContactBtn() {
     <div className="absolute lg:right-[11%] right-[11%] bottom-12  md:bottom-44 z-0">
       <Link
         href={contactHref}
-        aria-label="Contact us"
-        className="flex items-center gap-2 bg-[#5CA2B0] hover:bg-[#fff] text-white hover:text-[#5CA2B0] py-3 px-6 rounded-none transition-all duration-300 group"
+        className="flex items-center gap-2 bg-[#5CA2B0] hover:bg-[#fff] text-white hover:text-[#5CA2B0] py-3 px-6 rounded-none transition-all duration-300 group  poppins-light tracking-wide"
         onClick={(e) => {
           if (!onPageWithContact) return;
           const el = document.getElementById(sectionId);
@@ -47,13 +46,14 @@ function ContactBtn() {
           }
         }}
       >
-        <span className="poppins-light tracking-wide">CONTACT US</span>
+        CONTACT US
         <svg
           className="w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-2"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
           viewBox="0 0 14 10"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"

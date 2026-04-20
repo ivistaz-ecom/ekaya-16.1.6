@@ -1,16 +1,16 @@
-"use client";
-import React, { useState, useRef } from "react";
+"use client"
+import React, { useState, useRef } from "react"
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import Image from "next/image";
-import Link from "next/link";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import Slider from "react-slick"
+import Image from "next/image"
+import Link from "next/link"
 // import { ReactComponent as PrevArrow } from '../../public/left-black.svg'; // Import your custom SVG arrows
 // import { ReactComponent as NextArrow } from '../../public/right-black.svg'; // Import your custom SVG arrows
 
 function Crafted() {
-  const sliderRef = useRef(null);
+  const sliderRef = useRef(null)
 
   const NextArrow = ({ onClick }) => (
     <div className="arrow next-arrow" onClick={onClick}>
@@ -58,7 +58,7 @@ function Crafted() {
         </g>
       </svg>
     </div>
-  );
+  )
 
   const PrevArrow = ({ onClick }) => (
     <div className="arrow prev-arrow" onClick={onClick}>
@@ -97,53 +97,53 @@ function Crafted() {
         </g>
       </svg>
     </div>
-  );
+  )
 
-  const [takshavi, setTakshavi] = useState(true);
-  const [embrace, setEmbrace] = useState(false);
-  const [ellen, setEllen] = useState(false);
-  const [vista, setVista] = useState(true);
-  const [amora, setAmora] = useState(false);
-  const [lucilia, setLucilia] = useState(false);
+  const [takshavi, setTakshavi] = useState(true)
+  const [embrace, setEmbrace] = useState(false)
+  const [ellen, setEllen] = useState(false)
+  const [vista, setVista] = useState(true)
+  const [amora, setAmora] = useState(false)
+  const [lucilia, setLucilia] = useState(false)
   //     const [goa, setGoa] = useState(false)
 
   const handletakshavi = () => {
-    setTakshavi(true);
-    setEmbrace(false);
-    setEllen(false);
+    setTakshavi(true)
+    setEmbrace(false)
+    setEllen(false)
     // setGoa(false)
-  };
+  }
   const handleembrace = () => {
-    setEmbrace(true);
-    setTakshavi(false);
-    setEllen(false);
+    setEmbrace(true)
+    setTakshavi(false)
+    setEllen(false)
     // setGoa(false)
-  };
+  }
   const handleellen = () => {
-    setEmbrace(false);
-    setTakshavi(false);
-    setEllen(true);
+    setEmbrace(false)
+    setTakshavi(false)
+    setEllen(true)
     // setGoa(false)
-  };
+  }
 
   const handlevista = () => {
-    setVista(true);
-    setAmora(false);
-    setLucilia(false);
+    setVista(true)
+    setAmora(false)
+    setLucilia(false)
     //setTakshavi(false)
     //setEllen(true)
     // setGoa(false)
-  };
+  }
   const handleamora = () => {
-    setVista(false);
-    setLucilia(false);
-    setAmora(true);
-  };
+    setVista(false)
+    setLucilia(false)
+    setAmora(true)
+  }
   const handlelucilia = () => {
-    setVista(false);
-    setAmora(false);
-    setLucilia(true);
-  };
+    setVista(false)
+    setAmora(false)
+    setLucilia(true)
+  }
 
   //     const handleGoa = () => {
   //         setGoa(true)
@@ -158,7 +158,7 @@ function Crafted() {
     autoplay: true,
     prevArrow: <PrevArrow onClick={() => sliderRef.current.slickPrev()} />, // Pass onClick handler to prev arrow
     nextArrow: <NextArrow onClick={() => sliderRef.current.slickNext()} />, // Pass onClick handler to next arrow
-  };
+  }
 
   return (
     <>
@@ -186,7 +186,7 @@ function Crafted() {
               role="presentation"
             >
               <button
-                class="inline-block p-4 text-[18px] font-light hover:bg-e-green hover:w-[200px] hover:border-gray-300 dark:hover:text-gray-300"
+                className="inline-block p-4 text-[18px] font-light hover:bg-e-green hover:w-[200px] hover:border-gray-300 dark:hover:text-gray-300"
                 id="profile-styled-tab"
                 data-tabs-target="#styled-profile"
                 type="button"
@@ -746,7 +746,7 @@ function Crafted() {
         </div>
       </div>
     </>
-  );
+  )
 }
 
-export default Crafted;
+export default Crafted

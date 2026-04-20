@@ -932,18 +932,18 @@ function Contact({ sectionId: sectionIdProp } = {}) {
           <div className="block">
             <a href="tel:+91 82174 79108">
               {" "}
-              <h5 className="mb-2 lg:text-2xl text-xl font-light tracking-tight text-w-blue">
+              <span className="mb-2 lg:text-2xl text-xl font-light tracking-tight text-w-blue block">
                 <span className="text-e-green">Call:</span> +91 82174 79108
-              </h5>
+              </span>
             </a>
           </div>
           <div className="inline-block h-[31px] min-h-[0.20em] w-[0.15em] self-stretch bg-e-green lg:block hidden"></div>
           <hr className="h-px border-t lg:w-9/12 w-[75%] border-e-green pb-4 lg:mx-auto lg:hidden block" />
           <div className="block">
             <a href="mailto:contact@ekaya.in">
-              <h5 className="mb-2 lg:text-2xl text-xl font-light tracking-tight text-w-green poppins-light">
+              <span className="mb-2 lg:text-2xl text-xl font-light tracking-tight text-w-green poppins-light block">
                 <span className="text-e-green">Email:</span> contact@ekaya.in
-              </h5>
+              </span>
             </a>
           </div>
         </div>
