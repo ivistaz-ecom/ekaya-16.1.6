@@ -238,29 +238,24 @@ function Header({ stats }) {
           </div>
           <Link
             href="/contact-us"
-            className="flex md:order-2 space-x-3 md:space-x-0"
+            className="inline-flex items-center md:order-2 text-e-green bg-white hover:bg-black hover:border-white hover:text-white poppins-normal rounded-full text- lg:px-20 px-5 py-2.5 text-center"
           >
-            <button
-              type="button"
-              className="text-e-green bg-white hover:bg-black hover:border-white hover:text-white poppins-normal rounded-full text- lg:px-20 px-5 py-2.5 text-center inline-flex items-center"
+            INQUIRE
+            <svg
+              className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 14 10"
             >
-              INQUIRE
-              <svg
-                className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 14 10"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M1 5h12m0 0L9 1m4 4L9 9"
-                />
-              </svg>
-            </button>
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M1 5h12m0 0L9 1m4 4L9 9"
+              />
+            </svg>
           </Link>
         </div>
         {mobileMenuOpen && (
