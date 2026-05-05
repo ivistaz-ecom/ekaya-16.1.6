@@ -163,6 +163,96 @@ const Carousel = () => {
               className="w-full h-auto object-cover"
             />
           </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-3.webp"
+              alt="slide-3"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-4.webp"
+              alt="slide-4"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-5.webp"
+              alt="slide-5"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-6.webp"
+              alt="slide-6"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-7.webp"
+              alt="slide-7"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-8.webp"
+              alt="slide-8"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-9.webp"
+              alt="slide-9"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-10.webp"
+              alt="slide-10"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-11.webp"
+              alt="slide-11"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
+          <div className="p-2">
+            <Image
+              src="/lucilia/slide-12.webp"
+              alt="slide-12"
+              width={1000}
+              height={1000}
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </Slider>
       </div>
     </div>
