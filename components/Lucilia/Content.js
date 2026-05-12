@@ -46,14 +46,26 @@ function Content() {
       </div>
 
       <div className="h-[700px] lg:relative mx-auto py-12 z-10">
-        <Image
-          src="/lucilia/design-bg.webp"
-          alt="Banner"
-          width={1000} // Adjust width and height according to your image dimensions
-          height={500}
-          className="w-full h-full object-cover"
-          priority // Preload the image
-        />
+                <Image
+            src="/lucilia/design.webp"
+            alt="Banner"
+            width={1920}
+            height={1080}
+            className="w-full h-full object-cover hidden md:block"
+            priority
+          />
+
+          {/* Mobile Image */}
+          <Image
+            src="/lucilia/design-mobile.webp"
+            alt="Mobile Banner"
+            width={768}
+            height={1200}
+            className="w-full h-full object-cover block md:hidden"
+            priority
+          />
+
+        
 
         <div className=" bg-white lg:border absolute lg:-mt-40 lg:ml-[50%] lg:mr-[10%] p-10 z-10">
           <h3 className="text-2xl text-e-green font-light tracking-[0.2em] pb-3">
