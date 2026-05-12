@@ -16,14 +16,25 @@ function Banner() {
 
   return (
     <div className="lg:h-screen h-[60vh] relative mx-auto" data-aos="fade-down">
-      <Image
-        src="/lucilia/banner.webp"
-        alt="Banner"
-        width={1000} // Adjust width and height according to your image dimensions
-        height={500}
-        className="w-full h-full object-cover"
-        priority // Preload the image
-      />
+      {/* Desktop Image */}
+<Image
+  src="/lucilia/banner1.webp"
+  alt="Banner"
+  width={1920}
+  height={1080}
+  className="w-full h-full object-cover hidden md:block"
+  priority
+/>
+
+{/* Mobile Image */}
+<Image
+  src="/lucilia/Mobile-Banner1.webp"
+  alt="Mobile Banner"
+  width={768}
+  height={1200}
+  className="w-full h-full object-cover block md:hidden"
+  priority
+/>
       <div className="lg:w-[80%] w-full absolute bottom-0 lg:py-12 lg:pl-40 md:pl-20 pl-12 pb-28">
         <h1 className="lg:text-7xl md:text-5xl text-3xl text-white poppins-light">
           Lucilia
