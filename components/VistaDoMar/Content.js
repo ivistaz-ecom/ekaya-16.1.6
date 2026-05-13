@@ -7,6 +7,17 @@ import Features from "../../components/VistaDoMar/Features"
 import Carousels from "../../components/VistaDoMar/Carousels"
 import Contact from "../../components/HomePage/Contact"
 
+/** Place files in public/VistaDoMar/ — image-1.webp … image-7.webp */
+const VISTA_STORY_SLIDES = [
+  { src: "/VistaDoMar/image-1.webp", alt: "Vista Do Mar, Dona Paula — slide 1 of 7" },
+  { src: "/VistaDoMar/image-2.webp", alt: "Vista Do Mar — slide 2 of 7" },
+  { src: "/VistaDoMar/image-3.webp", alt: "Vista Do Mar — slide 3 of 7" },
+  { src: "/VistaDoMar/image-4.webp", alt: "Vista Do Mar — slide 4 of 7" },
+  { src: "/VistaDoMar/image-5.webp", alt: "Vista Do Mar — slide 5 of 7" },
+  { src: "/VistaDoMar/image-6.webp", alt: "Vista Do Mar — slide 6 of 7" },
+  { src: "/VistaDoMar/image-7.webp", alt: "Vista Do Mar — slide 7 of 7" },
+]
+
 function Content() {
   const sliderRef = useRef(null)
 
@@ -194,20 +205,11 @@ function Content() {
       >
         <div className="vista-do-mar-slider relative">
           <Slider ref={sliderRef} {...settings} className="z-10">
-            <div className="p-2 z-10">
-              <img
-                src="/VistaDoMar/part-1.webp"
-                className=""
-                alt="ekaya-spaces"
-              />
-            </div>
-            <div className="p-2">
-              <img
-                src="/VistaDoMar/part-2.webp"
-                className=""
-                alt="ekaya-spaces"
-              />
-            </div>
+            {VISTA_STORY_SLIDES.map(({ src, alt }, index) => (
+              <div className={`p-2 ${index === 0 ? "z-10" : ""}`} key={src}>
+                <img src={src} className="w-full h-auto" alt={alt} />
+              </div>
+            ))}
           </Slider>
         </div>
         <div className="text-[18px] poppins-light border border-e-green lg:w-[490px] p-6 my-12 mx-auto">
