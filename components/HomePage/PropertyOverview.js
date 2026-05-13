@@ -654,7 +654,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/image-2.webp"
+                        src="/home/vista-do-mar/Image-2.webp"
                         alt="Vista Do Mar coastal residential development — slide 2 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
@@ -664,7 +664,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/image-3.webp"
+                        src="/home/vista-do-mar/Image-3.webp"
                         alt="Vista Do Mar — slide 3 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
@@ -674,7 +674,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/image-4.webp"
+                        src="/home/vista-do-mar/Image-4.webp"
                         alt="Vista Do Mar — slide 4 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
@@ -684,7 +684,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/image-5.webp"
+                        src="/home/vista-do-mar/Image-5.webp"
                         alt="Vista Do Mar — slide 5 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
@@ -694,7 +694,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/image-6.webp"
+                        src="/home/vista-do-mar/Image-6.webp"
                         alt="Vista Do Mar — slide 6 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
@@ -704,7 +704,7 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/image-7.webp"
+                        src="/home/vista-do-mar/Image-7.webp"
                         alt="Vista Do Mar — slide 7 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
