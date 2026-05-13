@@ -10,7 +10,10 @@ const PROJECTS = {
   ongoing: [
     {
       region: "Goa",
-      links: [{ href: "/vista-do-mar", label: "Vista Do Mar" }],
+      links: [
+        { href: "/vista-do-mar", label: "Vista Do Mar" },
+        { href: "/about-lucilia", label: "Lucilia" },
+      ],
     },
     { region: "Bangalore", links: [{ href: "/takshavi", label: "Takshavi" }] },
   ],
@@ -26,10 +29,7 @@ const PROJECTS = {
   upcoming: [
     {
       region: "Goa",
-      links: [
-        { href: "/about-amora", label: "Amora" },
-        { href: "/about-lucilia", label: "Lucilia" },
-      ],
+      links: [{ href: "/about-amora", label: "Amora" }],
     },
   ],
 }

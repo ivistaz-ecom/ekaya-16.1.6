@@ -573,6 +573,27 @@ function Crafted() {
                           />
                         </svg>
                       </button>
+                      <button
+                        className="bg-e-green w-full border-t border-white font-light text-start p-4 text-[18px] text-white flex justify-between items-center"
+                        onClick={handlelucilia}
+                      >
+                        Lucilia
+                        <svg
+                          class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                          aria-hidden="true"
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 14 10"
+                        >
+                          <path
+                            stroke="currentColor"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            stroke-width="2"
+                            d="M1 5h12m0 0L9 1m4 4L9 9"
+                          />
+                        </svg>
+                      </button>
                     </div>
                   </div>
                   <h2 id="accordion-collapse-heading-2" className="mt-5">
@@ -615,14 +636,6 @@ function Crafted() {
                         Amora
                       </button>
                     </div>
-                    <div class="border border-b-0 border-gray-200 dark:border-gray-700">
-                      <button
-                        className="bg-e-green w-full font-light text-start p-4 text-[18px] text-white"
-                        onClick={handlelucilia}
-                      >
-                        Lucilia
-                      </button>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -631,20 +644,72 @@ function Crafted() {
                   <Slider ref={sliderRef} {...settings}>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/vista-1.png"
-                        alt="Vista Do Mar luxury apartments in Dona Paula, Goa"
-                        className="w-[800px] h-[400px]"
+                        src="/home/vista-do-mar/Image-1.webp"
+                        alt="Vista Do Mar luxury apartments in Dona Paula, Goa — slide 1 of 7"
+                        className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
                       <Image
-                        src="/home/vista-do-mar/vista-2.webp"
-                        alt="Vista Do Mar coastal residential development, second view"
-                        className="w-[800px] h-[400px]"
+                        src="/home/vista-do-mar/image-2.webp"
+                        alt="Vista Do Mar coastal residential development — slide 2 of 7"
+                        className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/home/vista-do-mar/image-3.webp"
+                        alt="Vista Do Mar — slide 3 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/home/vista-do-mar/image-4.webp"
+                        alt="Vista Do Mar — slide 4 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/home/vista-do-mar/image-5.webp"
+                        alt="Vista Do Mar — slide 5 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/home/vista-do-mar/image-6.webp"
+                        alt="Vista Do Mar — slide 6 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/home/vista-do-mar/image-7.webp"
+                        alt="Vista Do Mar — slide 7 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                   </Slider>
@@ -708,20 +773,72 @@ function Crafted() {
                   <Slider ref={sliderRef} {...settings}>
                     <div>
                       <Image
-                        src="/lucilia/slide-1.webp"
-                        alt="Lucilia residential project in Taleigao, Goa"
+                        src="/lucilia/image-1.webp"
+                        alt="Lucilia residential project in Taleigao, Goa — slide 1 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
                       <Image
-                        src="/lucilia/slide-2.webp"
-                        alt="Lucilia premium enclave, architectural view"
+                        src="/lucilia/image-2.webp"
+                        alt="Lucilia premium enclave, architectural view — slide 2 of 7"
                         className="w-[800px] h-[400px] object-cover"
                         width={800}
                         height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/lucilia/image-3.webp"
+                        alt="Lucilia — slide 3 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/lucilia/image-4.webp"
+                        alt="Lucilia — slide 4 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/lucilia/image-5.webp"
+                        alt="Lucilia — slide 5 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/lucilia/image-6.webp"
+                        alt="Lucilia — slide 6 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/lucilia/image-7.webp"
+                        alt="Lucilia — slide 7 of 7"
+                        className="w-[800px] h-[400px] object-cover"
+                        width={800}
+                        height={400}
+                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                   </Slider>
