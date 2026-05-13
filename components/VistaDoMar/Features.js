@@ -25,7 +25,7 @@ const blogs = [
     id: "4",
     icon: "/icon-domar-3.svg",
     title: "Rooftop Lounge with Barbecue",
-    desc: "Host unforgettable gatherings in our rooftop lounge, boasting panoramic ocean views and barbecue facilities.",
+    desc: "Host unforgettable gatherings in our rooftop lounge, boasting panoramic views and barbecue facilities.",
   },
   {
     id: "5",

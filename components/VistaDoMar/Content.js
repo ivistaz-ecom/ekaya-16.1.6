@@ -223,7 +223,7 @@ function Content() {
 
       <div className="text-center w-[80%] mx-auto" data-aos="fade-down">
         <h4 className="lg:text-4xl md:text-4xl text-2xl text-black poppins-light pb-6">
-          Luxurious Amenities at Oceanfront Apartments
+          Luxurious Amenities at Vista Do Mar
         </h4>
         <p className="poppins-light text-[18px] pb-5 ">
           Indulge in the ultimate luxury living experience with a comprehensive
