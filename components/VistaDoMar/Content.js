@@ -18,8 +18,18 @@ const VISTA_STORY_SLIDES = [
   { src: "/VistaDoMar/image-7.webp", alt: "Vista Do Mar — slide 7 of 7" },
 ]
 
+/** Place files in public/VistaDoMar/construction_status/ — slide1.webp … slide5.webp */
+const CONSTRUCTION_STATUS_SLIDES = [
+  { src: "/VistaDoMar/construction_status/slide1.jpeg", alt: "Vista Do Mar construction status — May 2026, slide 1 of 5" },
+  { src: "/VistaDoMar/construction_status/slide2.jpeg", alt: "Vista Do Mar construction status — May 2026, slide 2 of 5" },
+  { src: "/VistaDoMar/construction_status/slide3.jpeg", alt: "Vista Do Mar construction status — May 2026, slide 3 of 5" },
+  { src: "/VistaDoMar/construction_status/slide4.jpeg", alt: "Vista Do Mar construction status — May 2026, slide 4 of 5" },
+  { src: "/VistaDoMar/construction_status/slide5.jpeg", alt: "Vista Do Mar construction status — May 2026, slide 5 of 5" },
+]
+
 function Content() {
   const sliderRef = useRef(null)
+  const constructionSliderRef = useRef(null)
 
   const NextArrow = ({ onClick }) => (
     <div
@@ -142,6 +152,37 @@ function Content() {
     ],
   }
 
+  const constructionSettings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    prevArrow: (
+      <PrevArrow onClick={() => constructionSliderRef.current.slickPrev()} />
+    ),
+    nextArrow: (
+      <NextArrow onClick={() => constructionSliderRef.current.slickNext()} />
+    ),
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  }
+
   return (
     <div>
       <div className="lg:mt-[100px] mt-10 lg:w-[80%] lg:px-0 px-5 mx-auto">
@@ -220,6 +261,25 @@ function Content() {
             Click here
           </a>{" "}
           to fill the form for the project brochure
+        </div>
+
+        <div className="mt-4 mb-8">
+          <h4 className="lg:text-4xl text-2xl text-black poppins-light pb-8 text-center">
+            Construction Status as of May 2026
+          </h4>
+          <div className="vista-do-mar-slider relative">
+            <Slider
+              ref={constructionSliderRef}
+              {...constructionSettings}
+              className="z-10"
+            >
+              {CONSTRUCTION_STATUS_SLIDES.map(({ src, alt }) => (
+                <div className="p-2" key={src}>
+                  <img src={src} className="w-full h-auto" alt={alt} />
+                </div>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
 
