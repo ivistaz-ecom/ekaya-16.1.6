@@ -264,9 +264,14 @@ function Content() {
         </div>
 
         <div className="mt-4 mb-8">
-          <h4 className="lg:text-4xl text-2xl text-black poppins-light pb-8 text-center">
-            Construction Status as of May 2026
-          </h4>
+          <div className="text-center pb-8">
+            <h4 className="lg:text-4xl text-2xl text-black poppins-light">
+              Construction Status
+            </h4>
+            <p className="lg:text-xl text-base text-black poppins-light mt-2">
+              (as of May 2026)
+            </p>
+          </div>
           <div className="vista-do-mar-slider relative">
             <Slider
               ref={constructionSliderRef}
