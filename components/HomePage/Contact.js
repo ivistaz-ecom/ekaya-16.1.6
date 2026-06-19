@@ -360,6 +360,7 @@ const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
 });
 
 function Contact({ sectionId: sectionIdProp } = {}) {
+  const recaptchaSiteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
   const Locations = [
     { name: "Embrace" },
     { name: "Ellen" },
@@ -587,7 +588,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
       return;
     }
 
-    if (!recaptchaToken) {
+    if (recaptchaSiteKey && !recaptchaToken) {
       setRecaptchaError("Please verify that you are not a robot.");
       return;
     }
@@ -884,10 +885,10 @@ function Contact({ sectionId: sectionIdProp } = {}) {
             </p>
           )}
           <div className="mt-6 min-h-[78px]">
-            {loadRecaptcha ? (
+            {loadRecaptcha && recaptchaSiteKey ? (
               <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                sitekey={recaptchaSiteKey}
                 onChange={handleRecaptchaChange}
                 onExpired={() => setRecaptchaToken(null)}
               />
