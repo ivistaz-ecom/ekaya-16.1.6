@@ -1,10 +1,7 @@
 import './globals.css';
 import Script from 'next/script';
-import { GoogleAnalytics } from '@next/third-parties/google';
 import 'aos/dist/aos.css';
 import AppShell from '../components/common/AppShell';
-
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
 
 export const metadata = {
   metadataBase: new URL('https://ekaya-spaces.com'),
@@ -139,7 +136,6 @@ export default function RootLayout({
         {/* End Google Tag Manager (noscript) */}
 
         <AppShell>{children}</AppShell>
-        {GA_MEASUREMENT_ID ? <GoogleAnalytics gaId={GA_MEASUREMENT_ID} /> : null}
       </body>
     </html>
   );
