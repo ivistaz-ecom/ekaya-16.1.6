@@ -12,8 +12,6 @@ function Insights() {
   const [Blogs, setData] = useState([])
   const [isDesktop, setIsDesktop] = useState(false)
   const sliderRef = useRef(null)
-  const getPlainTitle = (title = "") =>
-    title.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").trim()
 
   const fetchPost = async () => {
     try {
@@ -138,14 +136,12 @@ function Insights() {
                         __html: items.excerpt.rendered,
                       }}
                     />
-                    <Link
-                      href={`/blogs/${items.slug}`}
-                      aria-label={`Read more about ${getPlainTitle(items.title?.rendered || "this article")}`}
+                    <p
+                      className="text-start font-normal flex items-center w-40 gap-2 text-base poppins-regular bg-white shadow-md rounded-full dark:text-gray-400 px-5 py-1 border hover:bg-e-green hover:text-white transition-all duration-300 text-e-green "
+                      aria-hidden="true"
                     >
-                      <p className="text-start font-normal flex items-center w-40 gap-2 text-base poppins-regular bg-white shadow-md rounded-full dark:text-gray-400 px-5 py-1 border hover:bg-e-green hover:text-white transition-all duration-300 text-e-green ">
-                        Read More <IoIosArrowForward className="text-2xl" />
-                      </p>
-                    </Link>
+                      Read More <IoIosArrowForward className="text-2xl" />
+                    </p>
                   </div>
                 </Link>
               </div>

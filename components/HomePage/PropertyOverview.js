@@ -51,7 +51,7 @@ function Crafted() {
                 transform="translate(8.913 0) rotate(45)"
                 fill="none"
                 stroke="#fff"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </g>
           </g>
@@ -91,7 +91,7 @@ function Crafted() {
               transform="translate(17.776 8.913) rotate(135)"
               fill="none"
               stroke="#fff"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </g>
         </g>
@@ -172,9 +172,9 @@ function Crafted() {
           masterpieces
         </h2>
 
-        <div class="mb-4 mx-auto">
+        <div className="mb-4 mx-auto">
           <ul
-            class="justify-center flex lg:flex-wrap -mb-px text-sm font-medium text-center"
+            className="justify-center flex lg:flex-wrap -mb-px text-sm font-medium text-center"
             id="default-styled-tab"
             data-tabs-toggle="#default-styled-tab-content"
             data-tabs-active-classes="text-white w-[200px] bg-e-green"
@@ -182,7 +182,7 @@ function Crafted() {
             role="tablist"
           >
             <li
-              class="me-2 mx-2 bg-gray-800 text-white w-[200px]"
+              className="me-2 mx-2 bg-gray-800 text-white w-[200px]"
               role="presentation"
             >
               <button
@@ -198,11 +198,11 @@ function Crafted() {
               </button>
             </li>
             <li
-              class="me-2 mx-2 bg-gray-800 text-white w-[200px]"
+              className="me-2 mx-2 bg-gray-800 text-white w-[200px]"
               role="presentation"
             >
               <button
-                class="inline-block p-4 text-[18px] font-light hover:bg-e-green hover:w-[200px] hover:border-gray-300 dark:hover:text-gray-300"
+                className="inline-block p-4 text-[18px] font-light hover:bg-e-green hover:w-[200px] hover:border-gray-300 dark:hover:text-gray-300"
                 id="dashboard-styled-tab"
                 data-tabs-target="#styled-dashboard"
                 type="button"
@@ -217,7 +217,7 @@ function Crafted() {
         </div>
         <div id="default-styled-tab-content" className="z-10 relative">
           <div
-            class="hidden p-4"
+            className="hidden p-4"
             id="styled-profile"
             role="tabpanel"
             aria-labelledby="profile-styled-tab"
@@ -228,7 +228,7 @@ function Crafted() {
                   <h2 id="accordion-collapse-heading-11">
                     <button
                       type="button"
-                      class="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 gap-3 poppins-light text-[18px]"
+                      className="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 gap-3 poppins-light text-[18px]"
                       data-accordion-target="#accordion-collapse-body-11"
                       aria-expanded="true"
                       aria-controls="accordion-collapse-body-11"
@@ -236,7 +236,7 @@ function Crafted() {
                       <span>Ongoing Projects</span>
                       <svg
                         data-accordion-icon
-                        class="w-3 h-3 rotate-180 shrink-0"
+                        className="w-3 h-3 rotate-180 shrink-0"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -244,9 +244,9 @@ function Crafted() {
                       >
                         <path
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M9 5 5 1 1 5"
                         />
                       </svg>
@@ -254,17 +254,17 @@ function Crafted() {
                   </h2>
                   <div
                     id="accordion-collapse-body-11"
-                    class="hidden"
+                    className="hidden"
                     aria-labelledby="accordion-collapse-heading-11"
                   >
-                    <div class=" border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                    <div className=" border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
                       <button
                         className="bg-e-green w-full font-light text-start p-4 text-[18px] text-white flex justify-between items-center"
                         onClick={handletakshavi}
                       >
                         Takshavi
                         <svg
-                          class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                          className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -272,9 +272,9 @@ function Crafted() {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M1 5h12m0 0L9 1m4 4L9 9"
                           />
                         </svg>
@@ -284,7 +284,7 @@ function Crafted() {
                   <h2 id="accordion-collapse-heading-22" className="mt-5">
                     <button
                       type="button"
-                      class="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200  gap-3 poppins-light text-[18px]"
+                      className="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200  gap-3 poppins-light text-[18px]"
                       data-accordion-target="#accordion-collapse-body-22"
                       aria-expanded="false"
                       aria-controls="accordion-collapse-body-22"
@@ -292,7 +292,7 @@ function Crafted() {
                       <span>Completed Projects</span>
                       <svg
                         data-accordion-icon
-                        class="w-3 h-3 rotate-180 shrink-0"
+                        className="w-3 h-3 rotate-180 shrink-0"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -300,9 +300,9 @@ function Crafted() {
                       >
                         <path
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M9 5 5 1 1 5"
                         />
                       </svg>
@@ -310,17 +310,17 @@ function Crafted() {
                   </h2>
                   <div
                     id="accordion-collapse-body-22"
-                    class="hidden"
+                    className="hidden"
                     aria-labelledby="accordion-collapse-heading-22"
                   >
-                    <div class=" border-gray-200 dark:border-gray-700">
+                    <div className=" border-gray-200 dark:border-gray-700">
                       <button
                         className="bg-e-green w-full font-light text-start p-4 text-[18px] text-white flex justify-between items-center"
                         onClick={handleembrace}
                       >
                         Embrace
                         <svg
-                          class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                          className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -328,9 +328,9 @@ function Crafted() {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M1 5h12m0 0L9 1m4 4L9 9"
                           />
                         </svg>
@@ -341,7 +341,7 @@ function Crafted() {
                       >
                         Ellen
                         <svg
-                          class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                          className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -349,9 +349,9 @@ function Crafted() {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M1 5h12m0 0L9 1m4 4L9 9"
                           />
                         </svg>
@@ -364,7 +364,7 @@ function Crafted() {
               <div className="lg:w-[800px] w-full">
                 {/* takshavi card                   */}
                 {takshavi && (
-                  <div class="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
+                  <div className="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
                     <Slider ref={sliderRef} {...settings}>
                       {/* <div>
                         <Image
@@ -417,7 +417,7 @@ function Crafted() {
                 )}
 
                 {embrace && (
-                  <div class="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
+                  <div className="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
                     <Slider ref={sliderRef} {...settings}>
                       <div>
                         <Image
@@ -466,7 +466,7 @@ function Crafted() {
                 )}
 
                 {ellen && (
-                  <div class="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
+                  <div className="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
                     <Slider ref={sliderRef} {...settings}>
                       <div>
                         <Image
@@ -511,7 +511,7 @@ function Crafted() {
           </div>
 
           <div
-            class="hidden p-4"
+            className="hidden p-4"
             id="styled-dashboard"
             role="tabpanel"
             aria-labelledby="dashboard-styled-tab"
@@ -522,7 +522,7 @@ function Crafted() {
                   <h2 id="accordion-collapse-heading-10">
                     <button
                       type="button"
-                      class="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 gap-3 poppins-light text-[18px]"
+                      className="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 gap-3 poppins-light text-[18px]"
                       data-accordion-target="#accordion-collapse-body-10"
                       aria-expanded="true"
                       aria-controls="accordion-collapse-body-10"
@@ -530,7 +530,7 @@ function Crafted() {
                       <span>Ongoing Projects</span>
                       <svg
                         data-accordion-icon
-                        class="w-3 h-3 rotate-180 shrink-0"
+                        className="w-3 h-3 rotate-180 shrink-0"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -538,9 +538,9 @@ function Crafted() {
                       >
                         <path
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M9 5 5 1 1 5"
                         />
                       </svg>
@@ -548,17 +548,17 @@ function Crafted() {
                   </h2>
                   <div
                     id="accordion-collapse-body-10"
-                    class="hidden"
+                    className="hidden"
                     aria-labelledby="accordion-collapse-heading-10"
                   >
-                    <div class=" border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
+                    <div className=" border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900">
                       <button
                         className="bg-e-green w-full font-light text-start p-4 text-[18px] text-white flex justify-between items-center"
                         onClick={handlevista}
                       >
                         Vista Do Mar
                         <svg
-                          class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                          className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -566,9 +566,9 @@ function Crafted() {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M1 5h12m0 0L9 1m4 4L9 9"
                           />
                         </svg>
@@ -579,7 +579,7 @@ function Crafted() {
                       >
                         Lucilia
                         <svg
-                          class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                          className="rtl:rotate-180 w-3.5 h-3.5 ms-2"
                           aria-hidden="true"
                           xmlns="http://www.w3.org/2000/svg"
                           fill="none"
@@ -587,9 +587,9 @@ function Crafted() {
                         >
                           <path
                             stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
                             d="M1 5h12m0 0L9 1m4 4L9 9"
                           />
                         </svg>
@@ -599,7 +599,7 @@ function Crafted() {
                   <h2 id="accordion-collapse-heading-2" className="mt-5">
                     <button
                       type="button"
-                      class="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200  gap-3 poppins-light text-[18px]"
+                      className="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200  gap-3 poppins-light text-[18px]"
                       data-accordion-target="#accordion-collapse-body-2"
                       aria-expanded="false"
                       aria-controls="accordion-collapse-body-2"
@@ -607,7 +607,7 @@ function Crafted() {
                       <span>Upcoming Projects</span>
                       <svg
                         data-accordion-icon
-                        class="w-3 h-3 rotate-180 shrink-0"
+                        className="w-3 h-3 rotate-180 shrink-0"
                         aria-hidden="true"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -615,9 +615,9 @@ function Crafted() {
                       >
                         <path
                           stroke="currentColor"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M9 5 5 1 1 5"
                         />
                       </svg>
@@ -625,10 +625,10 @@ function Crafted() {
                   </h2>
                   <div
                     id="accordion-collapse-body-2"
-                    class="hidden"
+                    className="hidden"
                     aria-labelledby="accordion-collapse-heading-2"
                   >
-                    <div class="border border-b-0 border-gray-200 dark:border-gray-700">
+                    <div className="border border-b-0 border-gray-200 dark:border-gray-700">
                       <button
                         className="bg-e-green w-full font-light text-start p-4 text-[18px] text-white"
                         onClick={handleamora}
