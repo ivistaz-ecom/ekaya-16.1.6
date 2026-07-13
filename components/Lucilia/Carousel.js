@@ -1,9 +1,17 @@
 "use client"
 import React, { useRef } from "react"
 import Slider from "react-slick"
-import Image from "next/image"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
+
+/** Place files in public/lucilia_carousel/ — Image 1.webp … Image 12.webp */
+const LUCILIA_SLIDES = Array.from({ length: 12 }, (_, i) => {
+  const n = i + 1
+  return {
+    src: `/lucilia_carousel/Image%20${n}.webp`,
+    alt: `Lucilia — slide ${n} of 12`,
+  }
+})
 
 const Carousel = () => {
   const sliderRef = useRef(null)
@@ -145,114 +153,11 @@ const Carousel = () => {
     >
       <div className="vista-do-mar-slider relative">
         <Slider ref={sliderRef} {...settings} className="z-10">
-          <div className="p-2 z-10">
-            <Image
-              src="/lucilia/slide-1.webp"
-              alt="slide-1"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-2.webp"
-              alt="slide-2"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-3.webp"
-              alt="slide-3"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-4.webp"
-              alt="slide-4"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-5.webp"
-              alt="slide-5"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-6.webp"
-              alt="slide-6"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-7.webp"
-              alt="slide-7"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-8.webp"
-              alt="slide-8"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-9.webp"
-              alt="slide-9"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-10.webp"
-              alt="slide-10"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-11.webp"
-              alt="slide-11"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
-          <div className="p-2">
-            <Image
-              src="/lucilia/slide-12.webp"
-              alt="slide-12"
-              width={1000}
-              height={1000}
-              className="w-full h-auto object-cover"
-            />
-          </div>
+          {LUCILIA_SLIDES.map(({ src, alt }, index) => (
+            <div className={`p-2 ${index === 0 ? "z-10" : ""}`} key={src}>
+              <img src={src} className="w-full h-auto" alt={alt} />
+            </div>
+          ))}
         </Slider>
       </div>
     </div>

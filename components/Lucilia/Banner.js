@@ -42,23 +42,23 @@ function Banner() {
         <h2 className="lg:text-7xl md:text-5xl text-3xl text-[#BBC6C9] poppins-light">
           by Ekaya Spaces
         </h2>
-        <div class="flex lg:py-12 pt-4 content-between gap-x-2 sm:flex-row sm:justify-start sm:space-y-0">
-          <div class="block">
-            <h5 class="mb-2 lg:text-2xl text-[18px] font-light tracking-tight text-white">
+        <div className="flex lg:py-12 pt-4 content-between gap-x-2 sm:flex-row sm:justify-start sm:space-y-0">
+          <div className="block">
+            <h5 className="mb-2 lg:text-2xl text-[18px] font-light tracking-tight text-white">
             Taleigao
             </h5>
           </div>
-          <div class="inline-block h-[28px] min-h-[0.20em] w-[0.15em] self-stretch bg-white lg:block md:block hidden"></div>
+          <div className="inline-block h-[28px] min-h-[0.20em] w-[0.15em] self-stretch bg-white lg:block md:block hidden"></div>
           <hr className="h-px border-t w-9/12 border-white pb-4 mx-auto lg:hidden hidden" />
-          <div class="block">
-            <h5 class="mb-2 lg:text-2xl text-[18px] font-light tracking-tight text-white poppins-light">
+          <div className="block">
+            <h5 className="mb-2 lg:text-2xl text-[18px] font-light tracking-tight text-white poppins-light">
               Goa
             </h5>
           </div>
-          <div class="inline-block h-[28px] min-h-[0.20em] w-[0.15em] self-stretch bg-white lg:block md:block hidden"></div>
+          <div className="inline-block h-[28px] min-h-[0.20em] w-[0.15em] self-stretch bg-white lg:block md:block hidden"></div>
           <hr className="h-px border-t w-9/12 border-white pb-4 mx-auto lg:hidden hidden" />
-          <div class="block">
-            <h5 class="mb-2 lg:text-2xl text-[18px] font-light tracking-tight text-white poppins-light">
+          <div className="block">
+            <h5 className="mb-2 lg:text-2xl text-[18px] font-light tracking-tight text-white poppins-light">
               India
             </h5>
           </div>
@@ -66,10 +66,10 @@ function Banner() {
       </div>
       <ContactBtn />
       <div className="overflow-hidden z-0">
-        <div class="vertical overflow-hidden"></div>
-        <div class="vertical-1 overflow-hidden"></div>
-        <div class="vertical-2 overflow-hidden"></div>
-        <div class="vertical-3 overflow-hidden"></div>
+        <div className="vertical overflow-hidden"></div>
+        <div className="vertical-1 overflow-hidden"></div>
+        <div className="vertical-2 overflow-hidden"></div>
+        <div className="vertical-3 overflow-hidden"></div>
       </div>
     </div>
   );
