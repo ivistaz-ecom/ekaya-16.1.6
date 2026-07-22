@@ -10,7 +10,7 @@ import {
   DEFAULT_CONTACT_SECTION_ID,
 } from "./contactSectionIds";
 
-function ContactBtn() {
+function ContactBtn({ align = "right" }) {
   const pathname = usePathname();
   const p = normalizePathname(pathname);
   const onPageWithContact = hasContactSectionOnPath(pathname);
@@ -32,8 +32,15 @@ function ContactBtn() {
     window.history.replaceState(null, "", `${pathForHash}#${id}`);
   };
 
+  const positionClass =
+    align === "left"
+      ? "lg:left-[11%] lg:bottom-12"
+      : "lg:right-[11%] lg:bottom-12";
+
   return (
-    <div className="absolute lg:right-[11%] right-[11%] bottom-12  md:bottom-44 z-0">
+    <div
+      className={`absolute hidden lg:block ${positionClass} z-0 transition-all duration-500`}
+    >
       <Link
         href={contactHref}
         className="flex items-center gap-2 bg-[#5CA2B0] hover:bg-[#fff] text-white hover:text-[#5CA2B0] py-3 px-6 rounded-none transition-all duration-300 group  poppins-light tracking-wide"
