@@ -57,7 +57,7 @@ function Banner() {
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
-    autoplaySpeed: 4000,
+    autoplaySpeed: 8000,
     pauseOnHover: false,
     cssEase: "linear",
     beforeChange: (_current, next) => setCurrentSlide(next),
