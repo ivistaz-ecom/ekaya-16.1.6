@@ -10,8 +10,8 @@ import "slick-carousel/slick/slick-theme.css"
 // Add more banners here — optional `mobile` falls back to `desktop`
 const banners = [
   {
-    desktop: "/home/Banner-1.jpg",
-    mobile: "/home/Banner-1-Mobile.jpg",
+    desktop: "/home/Banner_1.jpg",
+    mobile: "/home/Banner_1-Mobile.jpg",
     alt: "Banner 1",
     contactAlign: "left",
   },
