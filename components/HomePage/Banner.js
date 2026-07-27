@@ -27,6 +27,18 @@ const banners = [
     alt: "Banner 3",
     contactAlign: "right",
   },
+  {
+    desktop: "/home/Banner-4.jpg",
+    mobile: "/home/Banner-4-Mobile.jpg",
+    alt: "Banner 3",
+    contactAlign: "right",
+  },
+  {
+    desktop: "/home/Banner-5.jpg",
+    mobile: "/home/Banner-5-Mobile.jpg",
+    alt: "Banner 5",
+    contactAlign: "right",
+  },
 ]
 
 function Banner() {
