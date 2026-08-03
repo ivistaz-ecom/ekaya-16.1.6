@@ -712,6 +712,7 @@ function Crafted() {
                         sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
+                    
                   </Slider>
                   <div className="text-start">
                     <h3 className="text-[34px] py-2 px-4 font-regular">
@@ -735,7 +736,7 @@ function Crafted() {
                   <Slider ref={sliderRef} {...settings}>
                     <div>
                       <Image
-                        src="/vista-do-mar.png"
+                        src="/amora/amora-home.jpeg"
                         alt="Amora upcoming residential project in Moira, Goa"
                         className="w-[800px] h-[400px]"
                         width={800}
@@ -744,7 +745,16 @@ function Crafted() {
                     </div>
                     <div>
                       <Image
-                        src="/vista-do-mar.png"
+                        src="/amora/amora-home2.jpeg"
+                        alt="Amora coastal homes, alternate view"
+                        className="w-[800px] h-[400px]"
+                        width={800}
+                        height={400}
+                      />
+                    </div>
+                    <div>
+                      <Image
+                        src="/amora/amora-home3.jpg"
                         alt="Amora coastal homes, alternate view"
                         className="w-[800px] h-[400px]"
                         width={800}
