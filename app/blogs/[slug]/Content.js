@@ -78,6 +78,33 @@ function Content({ slug }) {
   color: #ed2225 !important;
 }
 
+        .blog-post-content {
+          overflow-wrap: anywhere;
+          word-break: break-word;
+          max-width: 100%;
+        }
+
+        .blog-post-content a,
+        .blog-post-content p {
+          overflow-wrap: anywhere;
+          word-break: break-word;
+          max-width: 100%;
+        }
+
+        .blog-post-content img,
+        .blog-post-content iframe,
+        .blog-post-content table,
+        .blog-post-content pre {
+          max-width: 100%;
+        }
+
+        .blog-post-content [id^="fn"] {
+          display: inline-block;
+          max-width: 100%;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+
       `}
       </style>
       <Seo
@@ -92,9 +119,9 @@ function Content({ slug }) {
           <p>Please check the address and try again.</p>
         </div>
       ) : (
-        <div className="mt-10 lg:mt-[100px] w-[80%] mx-auto" data-aos="fade-up">
+        <div className="mt-10 lg:mt-[100px] w-[80%] max-w-full mx-auto overflow-x-hidden" data-aos="fade-up">
           <div
-            className="poppins-light text-[18px] text-start pb-5"
+            className="blog-post-content poppins-light text-[18px] text-start pb-5"
             dangerouslySetInnerHTML={{ __html: Page }}
           />
         </div>
