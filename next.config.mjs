@@ -1,10 +1,16 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    compress: true,
-    images: {
-      domains: ['docs.ekaya-spaces.com'],
-    },
-
+  compress: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'docs.ekaya-spaces.com',
+        pathname: '/**',
+      },
+    ],
+  },
 };
 
 export default nextConfig;
+
