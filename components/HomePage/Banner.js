@@ -11,7 +11,7 @@ import "slick-carousel/slick/slick-theme.css"
 const banners = [
   {
     desktop: "/home/Banner1.jpg",
-    mobile: "/home/Banner-1-Mob.jpg",
+    mobile: "/home/Banner-1-Mobile.jpg",
     alt: "Banner 1",
     contactAlign: "left",
   },
