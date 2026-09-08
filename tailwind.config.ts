@@ -15,7 +15,7 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        'poppins': ['Poppins', 'satext-e-greenns-serif'],
+        'poppins': ['var(--font-poppins)', 'Poppins', 'sans-serif'],
       },
       colors: {
         'e-green': '#5CA2B0',

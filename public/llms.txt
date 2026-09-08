@@ -1,7 +1,3 @@
-# llms.txt for https://ekaya-spaces.com/
-# This file allows all major AI bots to access and use website content for training.
-
-
 # Ekaya Spaces
 
 > Ekaya Spaces is a boutique real estate developer creating thoughtfully designed luxury residences and holiday homes in Bengaluru and Goa, with a focus on intimate communities, environmental harmony, architectural quality, and personalized service.
@@ -82,7 +78,7 @@ Ekaya Spaces has projects in locations including Dona Paula and Moira, with its 
 - [Our Team](https://ekaya-spaces.com/our-team): Team and expertise.
 - [Blogs](https://ekaya-spaces.com/blogs): Ekaya Spaces insights and articles.
 
-## Legal
+## Optional
 
 - [Privacy Policy](https://ekaya-spaces.com/privacy-policy): Privacy and data-handling information.
 - [Terms of Use](https://ekaya-spaces.com/terms-of-use): Website terms and conditions.

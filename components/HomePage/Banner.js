@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react"
 import AOS from "aos"
 import ContactBtn from "../common/ContactBtn"
-import Image from "next/image"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -12,31 +11,31 @@ const banners = [
   {
     desktop: "/home/Banner1.jpg",
     mobile: "/home/Banner-1-Mobile.jpg",
-    alt: "Banner 1",
+    alt: "Banner 1 - Ekaya Spaces luxury homes",
     contactAlign: "left",
   },
   {
     desktop: "/home/Banne2.jpg",
     mobile: "/home/Banner-2-Mo.jpg",
-    alt: "Banner 2",
+    alt: "Banner 2 - Ekaya Spaces luxury homes",
     contactAlign: "right",
   },
   {
     desktop: "/home/Banner3.jpg",
-    mobile: "/home/Banner-3-Mob.jpg",
-    alt: "Banner 3",
+    mobile: "/home/Banner3.jpg",
+    alt: "Banner 3 - Ekaya Spaces luxury homes",
     contactAlign: "right",
   },
   {
     desktop: "/home/Banner-4.jpg",
     mobile: "/home/Banner-4-Mobile.jpg",
-    alt: "Banner 3",
+    alt: "Banner 4 - Ekaya Spaces luxury homes",
     contactAlign: "right",
   },
   {
     desktop: "/home/Banner-5.jpg",
     mobile: "/home/Banner-5-Mobile.jpg",
-    alt: "Banner 5",
+    alt: "Banner 5 - Ekaya Spaces luxury homes",
     contactAlign: "right",
   },
 ]
@@ -46,19 +45,7 @@ function Banner() {
     AOS.init({ once: false })
   }, [])
 
-  const [isMobile, setIsMobile] = useState(false)
   const [currentSlide, setCurrentSlide] = useState(0)
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024) // lg breakpoint
-    }
-
-    checkMobile()
-    window.addEventListener("resize", checkMobile)
-
-    return () => window.removeEventListener("resize", checkMobile)
-  }, [])
 
   const settings = {
     dots: false,
@@ -82,14 +69,21 @@ function Banner() {
       <Slider {...settings} className="banner-slider h-full">
         {banners.map((banner, index) => (
           <div key={banner.desktop} className="relative w-full h-[100vh] lg:h-screen">
-            <Image
-              src={isMobile ? banner.mobile || banner.desktop : banner.desktop}
-              alt={banner.alt}
-              fill
-              className="object-cover"
-              priority={index === 0}
-              sizes="100vw"
-            />
+            <picture className="w-full h-full block">
+              <source
+                media="(max-width: 1023px)"
+                srcSet={banner.mobile || banner.desktop}
+              />
+              <source media="(min-width: 1024px)" srcSet={banner.desktop} />
+              <img
+                src={banner.desktop}
+                alt={banner.alt}
+                className="w-full h-full object-cover"
+                loading={index === 0 ? "eager" : "lazy"}
+                fetchPriority={index === 0 ? "high" : "low"}
+                decoding={index === 0 ? "sync" : "async"}
+              />
+            </picture>
           </div>
         ))}
       </Slider>
@@ -107,6 +101,9 @@ function Banner() {
         .banner-slider .slick-slide,
         .banner-slider .slick-slide > div {
           height: 100%;
+        }
+        .banner-slider:not(.slick-initialized) .slick-slide:not(:first-child) {
+          display: none !important;
         }
         .banner-slider .slick-list {
           z-index: 0;

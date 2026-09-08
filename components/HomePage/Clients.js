@@ -16,17 +16,17 @@ function Clients() {
         <hr className="border-dashed border-t-2 border-gray-300" />
       </div>
 
-      <figcaption class="lg:flex items-center justify-center pt-8 center">
+      <figcaption className="lg:flex items-center justify-center pt-8 center">
         <Image
-          class="rounded-full w-14 h-14"
+          className="rounded-full w-14 h-14"
           src="/richard.png"
           alt="profile picture"
           width={100}
           height={100}
         />
-        <div class="lg:flex items-center space-y-0.5 font-medium dark:text-white lg:text-left rtl:text-right ms-3 text-center">
+        <div className="lg:flex items-center space-y-0.5 font-medium dark:text-white lg:text-left rtl:text-right ms-3 text-center">
           <div className="text-xl poppins-medium">Richard M</div>
-          <div class="ml-2 text-xl text-gray-700 dark:text-gray-400 poppins-light">
+          <div className="ml-2 text-xl text-gray-700 dark:text-gray-400 poppins-light">
             President and CEO l Vilas Arch Pvt. Ltd.
           </div>
         </div>
