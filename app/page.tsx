@@ -34,13 +34,13 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <>
-      <Suspense fallback={<div></div>}>
-        <Banner />
-        <Crafted />
-        <Overview />
-        {/* <Clients /> */}
-        <WhyEkaya />
-        <Insights />
+      <Banner />
+      <Crafted />
+      <Overview />
+      {/* <Clients /> */}
+      <WhyEkaya />
+      <Insights />
+      <Suspense fallback={<div className="min-h-[400px]"></div>}>
         <Contact />
       </Suspense>
     </>

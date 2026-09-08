@@ -2,6 +2,15 @@ import './globals.css';
 import Script from 'next/script';
 import 'aos/dist/aos.css';
 import AppShell from '../components/common/AppShell';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+  style: ['normal', 'italic'],
+  variable: '--font-poppins',
+  display: 'swap',
+});
 
 export const metadata = {
   metadataBase: new URL('https://ekaya-spaces.com'),
@@ -93,7 +102,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" className={poppins.variable}>
       <head>
         {/* Google Tag Manager */}
         <Script id="google-tag-manager" strategy="lazyOnload">
@@ -112,18 +121,26 @@ export default function RootLayout({
           type="image/svg+xml"
           fetchPriority="high"
         />
-        <link rel="preconnect" href="https://fonts.googleapis.com"/>
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous"/>
-        <link 
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" 
-          rel="stylesheet"
+        <link
+          rel="preload"
+          href="/home/Banner-1-Mobile.jpg"
+          as="image"
+          media="(max-width: 1023px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          href="/home/Banner1.jpg"
+          as="image"
+          media="(min-width: 1024px)"
+          fetchPriority="high"
         />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body>
+      <body className={poppins.className}>
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 
