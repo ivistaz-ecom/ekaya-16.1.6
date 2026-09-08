@@ -9,14 +9,17 @@ function Footer() {
       label: "Facebook",
     },
     {
-      href: "https://www.instagram.com/ekayaspaces?igsh=NzQ5bW41bmU5bnpn",
+      href: "https://www.instagram.com/ekaya_spaces/",
       label: "Instagram",
     },
     {
       href: "https://www.linkedin.com/company/ekaya-spaces/",
       label: "LinkedIn",
     },
-    { href: "https://www.youtube.com/@ekayaspaces", label: "YouTube" },
+    { 
+      href: "https://www.youtube.com/@ekayaspaces",
+      label: "YouTube"
+    },
   ];
 
   const projects = [
