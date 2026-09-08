@@ -49,7 +49,7 @@ function Content() {
                 transform="translate(8.913 0) rotate(45)"
                 fill="none"
                 stroke="#fff"
-                stroke-width="2"
+                strokeWidth="2"
               />
             </g>
           </g>
@@ -89,7 +89,7 @@ function Content() {
               transform="translate(17.776 8.913) rotate(135)"
               fill="none"
               stroke="#fff"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </g>
         </g>
@@ -220,16 +220,16 @@ function Content() {
       </div>
 
       <div className="justify-between z-50 mt-16 mx-auto w-[80%] lg:w-full">
-        <div class="lg:flex flex-col items-center bg-white md:flex-row mx-auto">
+        <div className="lg:flex flex-col items-center bg-white md:flex-row mx-auto">
           <Image
-            class="object-cover lg:w-[30em] mr-10 sm:w-[20em]"
+            className="object-cover lg:w-[30em] mr-10 sm:w-[20em]"
             src="/amora-blog.png"
             alt="moira"
             width={500}
             height={700}
           />
-          <div class="flex flex-col justify-between leading-normal lg:pt-0 pt-6">
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5">
+          <div className="flex flex-col justify-between leading-normal lg:pt-0 pt-6">
+            <p className="mb-3 poppins-light text-[18px] text-start pb-5">
               The commitment to ensuring utmost convenience and comfort extends
               to the practical aspects of vacation living as well. Each villa is
               fully air-conditioned, providing a respite from the tropical heat,
@@ -242,9 +242,9 @@ function Content() {
           </div>
         </div>
 
-        <div class="flex lg:flex-row flex-col-reverse lg:items-center items-end bg-white md:flex-col-reverse  justify-items-end">
-          <div class="flex flex-col justify-between leading-normal">
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5 lg:ml-36">
+        <div className="flex lg:flex-row flex-col-reverse lg:items-center items-end bg-white md:flex-col-reverse  justify-items-end">
+          <div className="flex flex-col justify-between leading-normal">
+            <p className="mb-3 poppins-light text-[18px] text-start pb-5 lg:ml-36">
               One of the most remarkable features of Amora Villas is the
               emphasis on privacy. Each villa is thoughtfully designed to ensure
               seclusion and exclusivity, allowing vacationers to enjoy their
@@ -255,7 +255,7 @@ function Content() {
             </p>
           </div>
           <Image
-            class="object-cover lg:w-[30em] ml-10 sm:w-[20em]"
+            className="object-cover lg:w-[30em] ml-10 sm:w-[20em]"
             src="/amora-blog-1.png"
             alt="moira"
             width={500}
@@ -263,16 +263,16 @@ function Content() {
           />
         </div>
 
-        <div class="lg:flex flex-col items-center bg-white md:flex-row mx-auto">
+        <div className="lg:flex flex-col items-center bg-white md:flex-row mx-auto">
           <Image
-            class="object-cover lg:w-[30em] mr-10 sm:w-[20em]"
+            className="object-cover lg:w-[30em] mr-10 sm:w-[20em]"
             src="/amora-blog-2.png"
             alt="moira"
             width={500}
             height={700}
           />
-          <div class="flex flex-col justify-between leading-normal">
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5">
+          <div className="flex flex-col justify-between leading-normal">
+            <p className="mb-3 poppins-light text-[18px] text-start pb-5">
               Moreover, the strategic location of Amora Villas further enhances
               its allure. Surrounded by some of the finest residential projects
               in Moira, guests benefit from a vibrant community atmosphere while
@@ -293,7 +293,7 @@ function Content() {
         />
 
         <div className=" bg-white border absolute -mt-40 lg:ml-[50%] lg:mr-[10%] p-10">
-          <p class="mb-3 poppins-light text-[18px] text-start pb-5">
+          <p className="mb-3 poppins-light text-[18px] text-start pb-5">
             In essence, Amora Villas stands as a testament to unparalleled
             luxury and sophistication, offering discerning vacationers a rare
             opportunity to experience the epitome of coastal living in the
