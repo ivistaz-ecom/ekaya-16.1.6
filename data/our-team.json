@@ -1,0 +1,86 @@
+{
+  "intro": "Our company is led by a dynamic team of partners with extensive experience in real estate development, design, and engineering. Together, we bring a wealth of knowledge and a shared passion for creating exceptional spaces that harmonize with our clients' surroundings.",
+  "highlights": [
+    {
+      "id": 1,
+      "title": "Real Estate Visionaries",
+      "description": "Our partners are seasoned professionals in the real estate industry, each with a proven track record of successful projects and a keen understanding of market trends. They possess a strategic vision for Ekaya Spaces, driving innovation and excellence in every aspect of our developments.",
+      "image": "/our-team/1.webp"
+    },
+    {
+      "id": 2,
+      "title": "Design Experts",
+      "description": "Drawing from backgrounds in architecture and interior design, our team infuses creativity and aesthetics into every project. We believe that thoughtful design enhances livability and inspires connection, resulting in spaces that are as functional as they are beautiful.",
+      "image": "/our-team/2.webp"
+    },
+    {
+      "id": 3,
+      "title": "Highly Qualified Engineers",
+      "description": "We possess a team of highly qualified engineers who not only possess technical expertise but also share a deep connection to the local area. Their understanding of regional nuances allows us to integrate sustainable solutions and innovative technologies seamlessly into our developments.",
+      "image": "/our-team/3.webp"
+    },
+    {
+      "id": 4,
+      "title": "Community Commitment",
+      "description": "Beyond their professional achievements, the team is dedicated to fostering community and sustainability. We prioritize creating spaces that enrich the lives of residents and contribute positively to the neighbourhoods we serve.",
+      "image": "/our-team/4.webp"
+    },
+    {
+      "id": 5,
+      "title": "Collaborative Spirit",
+      "description": "Collaboration is at the heart of everything we do. Our diverse team works synergistically, leveraging our collective strengths to deliver exceptional results and exceed expectations.",
+      "image": "/our-team/5.webp"
+    }
+  ],
+  "leaders": [
+    {
+      "id": 1,
+      "name": "Chethan Puvannaa KI",
+      "role": "Co-founder/Partner",
+      "image": "/our-team/chethan-puvannaa-ki.webp",
+      "imagePosition": "left",
+      "bio": [
+        "Chethan Puvannaa is a Co-founder and driving force behind Ekaya Spaces LLP, with a hands-on role across design, development, and business strategy. With a strong passion for architecture and design, he is closely involved in shaping the vision and character of every project.",
+        "A key strength of Chethan's work is his ability to build and nurture strong relationships with landowners, creating development partnerships that are aligned with the interests of all stakeholders. He specialises in identifying joint-venture opportunities, structuring projects, and working closely on the financial and commercial aspects to ensure that each development is both thoughtfully designed and commercially viable.",
+        "At Ekaya Spaces, Chethan brings together design, numbers, relationships, and execution, helping transform well-located properties into distinctive, high-quality developments."
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Surbhi Sharma",
+      "role": "Co-founder/Partner",
+      "image": "/our-team/surbhi-sharma.webp",
+      "imagePosition": "right",
+      "bio": [
+        "Surbhi Sharma is a Co-founder at Ekaya Spaces LLP, where she oversees financials and cost control. Her professional journey spans entrepreneurship, technology consulting, and international business collaboration, with a particular focus on building bridges between Indian and European businesses.",
+        "A key strength of Surbhi's work is her ability to bring businesses together across borders, from founding a technology consulting firm focused on the internationalization goals of Indian and European companies.",
+        "For her extensive work with the Government of Spain, she was appointed Honorary Consul of Spain in Karnataka and awarded the Knight's Cross's order (Cruz) - Al Merito Civil.",
+        "Surbhi holds a Bachelor's in Commerce from Bangalore University, along with a Post Graduate Diploma in Computer Science.",
+        "At Ekaya Spaces, Surbhi brings together financial discipline, cost control, and a global perspective on partnerships, helping ensure that every development is as commercially sound as it is well-connected."
+      ]
+    }
+  ],
+  "departments": [
+    {
+      "id": 1,
+      "name": "Marketing",
+      "members": [
+        {
+          "id": 1,
+          "name": "Sanibha Sohliya",
+          "role": "Sr Manager - Residential Sales & Marketing Services",
+          "image": "/our-team/ms-sanibha-sohliya.webp",
+          "bio": [
+            "With over five years of experience in the real estate industry, Sanibha brings a strong understanding of the market and a thoughtful, client-centric approach to her role as Senior Sales Manager at Ekaya Spaces.",
+            "Her experience is rooted in building meaningful client relationships, understanding individual aspirations, and delivering a seamless and personalised property experience.",
+            "With an eye for detail and a genuine understanding of people, she believes that finding the right space is about more than a transaction. It is about finding a place that truly feels like home."
+          ]
+        }
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Join Our Vision",
+    "description": "Discover the passion and expertise behind Ekaya Spaces. Meet our team of visionaries and experience the difference of working with a company driven by innovation, integrity, and a commitment to excellence."
+  }
+}

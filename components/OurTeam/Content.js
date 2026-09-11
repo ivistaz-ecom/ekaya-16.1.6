@@ -1,154 +1,232 @@
-import React from "react";
+"use client";
+import React, { useRef } from "react";
 import Image from "next/image";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import teamData from "../../data/our-team.json";
+
+const ArrowIcon = ({ direction = "right" }) => (
+  <svg
+    className={`w-10 h-5 ${direction === "left" ? "rotate-180" : ""}`}
+    aria-hidden="true"
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 14 10"
+  >
+    <path
+      stroke="currentColor"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      d="M1 5h12m0 0L9 1m4 4L9 9"
+    />
+  </svg>
+);
+
+const NextArrow = ({ onClick }) => (
+  <button
+    type="button"
+    aria-label="Next slide"
+    className="team-carousel-arrow text-e-green"
+    onClick={onClick}
+  >
+    <ArrowIcon direction="right" />
+  </button>
+);
+
+const PrevArrow = ({ onClick }) => (
+  <button
+    type="button"
+    aria-label="Previous slide"
+    className="team-carousel-arrow text-e-green"
+    onClick={onClick}
+  >
+    <ArrowIcon direction="left" />
+  </button>
+);
 
 function Content() {
+  const sliderRef = useRef(null);
+
+  const settings = {
+    dots: false,
+    arrows: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 4500,
+    pauseOnHover: true,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <>
-      <div className="lg:mt-[100px] mt-10 w-[80%] mx-auto" data-aos="fade-down">
-        <p className="poppins-light text-[18px] text-center pb-5">
-          Our company is led by a dynamic team of partners with extensive
-          experience in real estate development, design, and engineering.
-          Together, we bring a wealth of knowledge and a shared passion for
-          creating exceptional spaces that harmonize with our clients’s
-          surroundings.
+      <section className="w-[80%] mx-auto max-w-6xl lg:mt-[80px] mt-10">
+        <div className="flex flex-col gap-16 lg:gap-20">
+          {teamData.leaders.map((leader) => (
+            <article
+              key={leader.id}
+              className={`flex flex-col items-center gap-8 lg:gap-14 ${
+                leader.imagePosition === "right"
+                  ? "md:flex-row-reverse"
+                  : "md:flex-row"
+              }`}
+              data-aos={
+                leader.imagePosition === "right" ? "fade-left" : "fade-right"
+              }
+            >
+              <div className="relative w-full md:w-[340px] lg:w-[440px] shrink-0 aspect-[4/5]">
+                <Image
+                  src={leader.image}
+                  alt={leader.name}
+                  fill
+                  sizes="(min-width: 1024px) 440px, (min-width: 768px) 340px, 80vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="flex flex-col justify-center leading-normal">
+                <h2 className="text-3xl lg:text-4xl poppins-medium tracking-tight text-black">
+                  {leader.name}
+                </h2>
+                <p className="mt-2 text-lg text-gray-500 poppins-light">
+                  {leader.role}
+                </p>
+                <div className="mt-5 space-y-4">
+                  {leader.bio.map((paragraph, index) => (
+                    <p
+                      key={index}
+                      className="poppins-light text-[16px] lg:text-[18px] text-gray-700 leading-relaxed"
+                    >
+                      {paragraph}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {teamData.departments.map((department) => (
+        <section key={department.id} className="mt-16 lg:mt-24" data-aos="fade-up">
+          <h2 className="text-4xl lg:text-5xl text-e-green poppins-light text-center pb-8">
+            {department.name}
+          </h2>
+          <div className="bg-[#D9E8EC] py-10 lg:py-16">
+            <div className="w-[80%] mx-auto max-w-6xl flex flex-col gap-12">
+              {department.members.map((member) => (
+                <article
+                  key={member.id}
+                  className="flex flex-col md:flex-row items-center gap-8 lg:gap-14"
+                >
+                  <div className="relative w-full md:w-[340px] lg:w-[440px] shrink-0 aspect-[4/5]">
+                    <Image
+                      src={member.image}
+                      alt={member.name}
+                      fill
+                      sizes="(min-width: 1024px) 440px, (min-width: 768px) 340px, 80vw"
+                      className="object-cover"
+                    />
+                  </div>
+                  <div className="flex flex-col justify-center leading-normal">
+                    <h3 className="text-3xl lg:text-4xl poppins-light tracking-tight text-e-green">
+                      {member.name}
+                    </h3>
+                    <p className="mt-2 text-lg lg:text-xl text-black poppins-medium">
+                      {member.role}
+                    </p>
+                    <div className="mt-5 space-y-4">
+                      {member.bio.map((paragraph, index) => (
+                        <p
+                          key={index}
+                          className="poppins-light text-[16px] lg:text-[18px] text-gray-700 leading-relaxed"
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+      ))}
+
+      <section className="relative z-0 bg-white lg:mt-[80px] mt-12 w-[80%] mx-auto max-w-6xl" data-aos="fade-down">
+        <div className="flex flex-col sm:flex-row sm:items-end gap-6 pb-10 lg:pb-14">
+          <div className="flex items-start gap-5 max-w-5xl">
+            <span className="hidden sm:block w-[2px] h-14 bg-e-green shrink-0 mt-1" />
+            <p className="poppins-light text-[18px] text-left text-gray-700 leading-relaxed">
+              {teamData.intro}
+            </p>
+          </div>
+          <div className="flex items-center gap-8 shrink-0 sm:ml-auto pb-1">
+            <PrevArrow onClick={() => sliderRef.current?.slickPrev()} />
+            <NextArrow onClick={() => sliderRef.current?.slickNext()} />
+          </div>
+        </div>
+
+        <div className="team-highlights-slider">
+          <Slider {...settings} ref={sliderRef}>
+            {teamData.highlights.map((item, index) => (
+              <div key={item.id} className="px-3 h-full">
+                <article className="group h-full flex flex-col">
+                  <div className="relative">
+                    <div className="relative w-full aspect-[4/3] overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(min-width: 1024px) 30vw, (min-width: 768px) 45vw, 80vw"
+                        className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent" />
+                      <span className="absolute bottom-4 left-4 text-white poppins-light tracking-[0.28em] text-sm">
+                        {String(index + 1).padStart(2, "0")}
+                      </span>
+                    </div>
+                    <span className="absolute bottom-0 left-0 h-[3px] w-10 bg-e-green transition-all duration-500 group-hover:w-full" />
+                  </div>
+                  <h3 className="mt-6 mb-3 text-2xl poppins-medium tracking-tight text-e-green">
+                    {item.title}
+                  </h3>
+                  <p className="poppins-light text-[16px] lg:text-[17px] text-gray-700 leading-relaxed">
+                    {item.description}
+                  </p>
+                </article>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </section>
+
+      <section className="w-[80%] mx-auto max-w-6xl text-center py-12" data-aos="fade-up">
+        <h2 className="text-4xl lg:text-5xl text-black poppins-light pb-6">
+          {teamData.cta.title}
+        </h2>
+        <p className="text-[18px] text-black poppins-light">
+          {teamData.cta.description}
         </p>
-      </div>
-
-      <div className="w-[80%] mx-auto">
-        <div
-          class="flex flex-col items-center bg-white md:flex-row lg:w-[90%]"
-          data-aos="fade-right"
-        >
-          <Image
-            class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10 w-full"
-            src="/our-team/1.webp"
-            alt="ekaya-spaces"
-            width={800}
-            height={500}
-          />
-          <div class="flex flex-col justify-between leading-normal lg:py-0 py-6">
-            <h5 class="mb-2 text-2xl poppins-medium tracking-tight text-[#5CA2B0] dark:text-white">
-              Real Estate Visionaries
-            </h5>
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5">
-              Our partners are seasoned professionals in the real estate
-              industry, each with a proven track record of successful projects
-              and a keen understanding of market trends. They possess a
-              strategic vision for Ekaya Spaces, driving innovation and
-              excellence in every aspect of our developments.
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col-reverse items-center bg-white md:flex-row lg:w-[90%] justify-items-end"
-          data-aos="fade-left"
-        >
-          <div class="flex flex-col justify-between leading-normal lg:py-0 py-6">
-            <h5 class="mb-2 text-2xl poppins-medium tracking-tight text-[#5CA2B0] dark:text-white lg:ml-36">
-              Design Experts
-            </h5>
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5 lg:ml-36">
-              Drawing from backgrounds in architecture and interior design, our
-              team infuses creativity and aesthetics into every project. We
-              believe that thoughtful design enhances livability and inspires
-              connection, resulting in spaces that are as functional as they are
-              beautiful.
-            </p>
-          </div>
-          <Image
-            class="object-cover lg:w-[25em] sm:w-[14em] sm:ml-10 w-full"
-            src="/our-team/2.webp"
-            alt="ekaya-spaces"
-            width={800}
-            height={500}
-          />
-        </div>
-
-        <div
-          class="flex flex-col items-center bg-white md:flex-row w-[90%]"
-          data-aos="fade-right"
-        >
-          <Image
-            class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10"
-            src="/our-team/3.webp"
-            alt="ekaya-spaces"
-            width={800}
-            height={500}
-          />
-          <div class="flex flex-col justify-between leading-normal lg:py-0 py-6">
-            <h5 class="mb-2 text-2xl poppins-medium tracking-tight text-[#5CA2B0] dark:text-white">
-              Highly Qualified Engineers
-            </h5>
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5">
-              We possess a team of highly qualified engineers who not only
-              possess technical expertise but also share a deep connection to
-              the local area. Their understanding of regional nuances allows us
-              to integrate sustainable solutions and innovative technologies
-              seamlessly into our developments.
-            </p>
-          </div>
-        </div>
-
-        <div
-          class="flex flex-col-reverse items-center bg-white md:flex-row lg:w-[90%] justify-items-end"
-          data-aos="fade-left"
-        >
-          <div class="flex flex-col justify-between leading-normal lg:py-0 py-6">
-            <h5 class="mb-2 text-2xl poppins-medium tracking-tight text-[#5CA2B0] dark:text-white lg:ml-36">
-              Community Commitment
-            </h5>
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5 lg:ml-36">
-              Beyond their professional achievements, the team is dedicated to
-              fostering community and sustainability. We prioritize creating
-              spaces that enrich the lives of residents and contribute
-              positively to the neighbourhoods we serve.
-            </p>
-          </div>
-          <Image
-            class="object-cover lg:w-[25em] sm:w-[14em] sm:ml-10"
-            src="/our-team/4.webp"
-            alt="ekaya-spaces"
-            width={800}
-            height={500}
-          />
-        </div>
-
-        <div
-          class="flex flex-col items-center bg-white md:flex-row lg:w-[90%]"
-          data-aos="fade-right"
-        >
-          <Image
-            class="object-cover lg:w-[25em] sm:w-[14em] sm:mr-10"
-            src="/our-team/5.webp"
-            alt="ekaya-spaces"
-            width={800}
-            height={500}
-          />
-          <div class="flex flex-col justify-between leading-normal lg:py-0 py-6">
-            <h5 class="mb-2 text-2xl poppins-medium tracking-tight text-[#5CA2B0] dark:text-white lg:ml-36">
-              Collaborative Spirit
-            </h5>
-            <p class="mb-3 poppins-light text-[18px] text-start pb-5 lg:ml-36">
-              Collaboration is at the heart of everything we do. Our diverse
-              team works synergistically, leveraging our collective strengths to
-              deliver exceptional results and exceed expectations.
-            </p>
-          </div>
-        </div>
-
-        <div className="w-[80%] mx-auto text-center py-12">
-          <h4 className="text-5xl text-black poppins-light pb-6">
-            Join Our Vision
-          </h4>
-          <p className="text-[18px] text-black poppins-light">
-            Discover the passion and expertise behind Ekaya Spaces. Meet our
-            team of visionaries and experience the difference of working with a
-            company driven by innovation, integrity, and a commitment to
-            excellence.
-          </p>
-        </div>
-      </div>
+      </section>
     </>
   );
 }
