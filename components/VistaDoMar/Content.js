@@ -186,9 +186,9 @@ function Content() {
   return (
     <div>
       <div className="lg:mt-[100px] mt-10 lg:w-[80%] lg:px-0 px-5 mx-auto">
-        <h2 className="text-2xl text-e-green font-light tracking-[0.2em] lg:pb-12 pb-3">
+        {/* <h2 className="text-2xl text-e-green font-light tracking-[0.2em] lg:pb-12 pb-3">
           ABOUT THE PLOT
-        </h2>
+        </h2> */}
         {/* <h4 className="lg:text-4xl text-2xl text-black poppins-light pb-6">
           Alvit and Esmeralda’s Journey
         </h4>
