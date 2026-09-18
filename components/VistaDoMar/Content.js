@@ -189,7 +189,7 @@ function Content() {
         <h2 className="text-2xl text-e-green font-light tracking-[0.2em] lg:pb-12 pb-3">
           ABOUT THE PLOT
         </h2>
-        <h4 className="lg:text-4xl text-2xl text-black poppins-light pb-6">
+        {/* <h4 className="lg:text-4xl text-2xl text-black poppins-light pb-6">
           Alvit and Esmeralda’s Journey
         </h4>
         <p className="poppins-light text-[18px] text-start pb-5">
@@ -238,7 +238,7 @@ function Content() {
           and determination. Ekaya Spaces has collaborated with the family to
           develop a luxury apartment project, aptly named Vista do Mar, ensuring
           that Alvit’s legacy lives on, even though he may no longer be with us.
-        </p>
+        </p> */}
       </div>
       <div
         className="lg:w-[80%] sm:w-[80%] w-full mx-auto p-5"
