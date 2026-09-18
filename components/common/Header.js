@@ -36,7 +36,7 @@ const PROJECTS = {
 
 const ABOUT_LINKS = [
   { href: "/about-us", label: "Our Story" },
-  { href: "/our-team", label: "Our Team" },
+  // { href: "/our-team", label: "Our Team" },
   { href: "/why-ekaya", label: "Why Ekaya" },
   { href: "/sustainability", label: "Sustainability" },
 ]

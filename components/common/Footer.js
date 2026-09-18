@@ -46,7 +46,7 @@ function Footer() {
 
   const aboutLinks = [
     { href: "/about-us", label: "Our Story" },
-    { href: "/our-team", label: "Our Team" },
+    // { href: "/our-team", label: "Our Team" },
     { href: "/why-ekaya", label: "Why Ekaya" },
     { href: "/blogs", label: "Blogs" },
     { href: "/sustainability", label: "Sustainability" },
