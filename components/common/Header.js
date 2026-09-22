@@ -26,12 +26,6 @@ const PROJECTS = {
       ],
     },
   ],
-  upcoming: [
-    {
-      region: "Goa",
-      links: [{ href: "/about-amora", label: "Amora" }],
-    },
-  ],
 }
 
 const ABOUT_LINKS = [
@@ -58,7 +52,7 @@ const ChevronIcon = ({ isOpen, className = "w-2.5 h-2.5 ms-2.5" }) =>
 function Header({ stats }) {
   const [desktopDropdown, setDesktopDropdown] = useState(null) // "projects" | "ekaya"
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mobileDropdown, setMobileDropdown] = useState(null) // "ongoing" | "completed" | "upcoming" | "about"
+  const [mobileDropdown, setMobileDropdown] = useState(null) // "ongoing" | "completed" | "about"
   const [isScrolled, setIsScrolled] = useState(false)
 
   const closeAll = () => {
@@ -121,7 +115,7 @@ function Header({ stats }) {
                     // keep hover active while crossing the visual gap (mt-7) into dropdown
                     className={`relative inline-block ${
                       desktopDropdown === "projects"
-                        ? "before:content-[''] before:absolute before:left-0 before:top-full before:h-7 before:w-[600px]"
+                        ? "before:content-[''] before:absolute before:left-0 before:top-full before:h-7 before:w-[400px]"
                         : ""
                     }`}
                   >
@@ -134,7 +128,7 @@ function Header({ stats }) {
                       <ChevronIcon isOpen={desktopDropdown === "projects"} />
                     </button>
                     {desktopDropdown === "projects" && (
-                      <div className="z-50 absolute left-0 top-full mt-7 font-normal bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 w-[600px]">
+                      <div className="z-50 absolute left-0 top-full mt-7 font-normal bg-white divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600 w-[400px]">
                         <div className="flex justify-between p-0">
                           {[
                             ["Ongoing Projects", PROJECTS.ongoing, ""],
@@ -143,7 +137,6 @@ function Header({ stats }) {
                               PROJECTS.completed,
                               "bg-gray-200",
                             ],
-                            ["Upcoming Projects", PROJECTS.upcoming, ""],
                           ].map(([title, sections, bgClass]) => (
                             <div
                               key={title}
@@ -295,7 +288,6 @@ function Header({ stats }) {
                 {[
                   ["ongoing", "Ongoing Projects", PROJECTS.ongoing],
                   ["completed", "Completed Projects", PROJECTS.completed],
-                  ["upcoming", "Upcoming Projects", PROJECTS.upcoming],
                 ].map(([key, title, sections]) => (
                   <li key={key}>
                     <button

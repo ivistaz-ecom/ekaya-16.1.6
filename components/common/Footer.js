@@ -38,7 +38,6 @@ function Footer() {
         // { href: "/about-dona-paula", label: "Dona Paula" },
         { href: "/vista-do-mar", label: "Vista Do Mar" },
         // { href: "/about-moira", label: "Moira" },
-        { href: "/about-amora", label: "Amora" },
         { href: "/about-lucilia", label: "Lucilia" },
       ],
     },
