@@ -26,7 +26,7 @@ function WhyEkaya() {
         <Image
           src={images[activeTab]}
           alt="Why Ekaya Visual"
-          className="lg:w-[524px] w-full"
+          className="lg:w-[524px] w-full h-auto"
           width={530}
           height={600}
           sizes="(min-width: 1280px) 524px, (min-width: 1024px) 45vw, 100vw"
