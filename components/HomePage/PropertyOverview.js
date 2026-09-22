@@ -103,7 +103,6 @@ function Crafted() {
   const [embrace, setEmbrace] = useState(false)
   const [ellen, setEllen] = useState(false)
   const [vista, setVista] = useState(true)
-  const [amora, setAmora] = useState(false)
   const [lucilia, setLucilia] = useState(false)
   //     const [goa, setGoa] = useState(false)
 
@@ -128,20 +127,13 @@ function Crafted() {
 
   const handlevista = () => {
     setVista(true)
-    setAmora(false)
     setLucilia(false)
     //setTakshavi(false)
     //setEllen(true)
     // setGoa(false)
   }
-  const handleamora = () => {
-    setVista(false)
-    setLucilia(false)
-    setAmora(true)
-  }
   const handlelucilia = () => {
     setVista(false)
-    setAmora(false)
     setLucilia(true)
   }
 
@@ -596,47 +588,6 @@ function Crafted() {
                       </button>
                     </div>
                   </div>
-                  <h2 id="accordion-collapse-heading-2" className="mt-5">
-                    <button
-                      type="button"
-                      className="bg-gray-800 text-white flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200  gap-3 poppins-light text-[18px]"
-                      data-accordion-target="#accordion-collapse-body-2"
-                      aria-expanded="false"
-                      aria-controls="accordion-collapse-body-2"
-                    >
-                      <span>Upcoming Projects</span>
-                      <svg
-                        data-accordion-icon
-                        className="w-3 h-3 rotate-180 shrink-0"
-                        aria-hidden="true"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 10 6"
-                      >
-                        <path
-                          stroke="currentColor"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M9 5 5 1 1 5"
-                        />
-                      </svg>
-                    </button>
-                  </h2>
-                  <div
-                    id="accordion-collapse-body-2"
-                    className="hidden"
-                    aria-labelledby="accordion-collapse-heading-2"
-                  >
-                    <div className="border border-b-0 border-gray-200 dark:border-gray-700">
-                      <button
-                        className="bg-e-green w-full font-light text-start p-4 text-[18px] text-white"
-                        onClick={handleamora}
-                      >
-                        Amora
-                      </button>
-                    </div>
-                  </div>
                 </div>
               </div>
               {vista && (
@@ -731,53 +682,6 @@ function Crafted() {
                 </div>
               )}
 
-              {amora && (
-                <div className="lg:mt-0 mt-4 lg:w-[800px] z-10 relative">
-                  <Slider ref={sliderRef} {...settings}>
-                    <div>
-                      <Image
-                        src="/amora/amora-home.jpeg"
-                        alt="Amora upcoming residential project in Moira, Goa"
-                        className="w-[800px] h-[400px]"
-                        width={800}
-                        height={400}
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="/amora/amora-home2.jpeg"
-                        alt="Amora coastal homes, alternate view"
-                        className="w-[800px] h-[400px]"
-                        width={800}
-                        height={400}
-                      />
-                    </div>
-                    <div>
-                      <Image
-                        src="/amora/amora-home3.jpg"
-                        alt="Amora coastal homes, alternate view"
-                        className="w-[800px] h-[400px]"
-                        width={800}
-                        height={400}
-                      />
-                    </div>
-                  </Slider>
-                  <div className="text-start">
-                    <h3 className="text-[34px] py-2 px-4 font-regular">
-                      Amora
-                    </h3>
-                    <p className="text-[18px] px-4 py-2 font-light mb-6">
-                      Located in the serene coastal town of Moira
-                    </p>
-                    <Link
-                      href="/about-amora"
-                      className="p-4 px-12 mt-4 ml-4 bg-e-green text-white"
-                    >
-                      Know more
-                    </Link>
-                  </div>
-                </div>
-              )}
               {lucilia && (
                 <div className="lg:mt-0 mt-4 lg:w-[800px] z-10 relative">
                   <Slider ref={sliderRef} {...settings}>
