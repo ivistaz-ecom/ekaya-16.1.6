@@ -9,6 +9,21 @@ import Link from "next/link"
 // import { ReactComponent as PrevArrow } from '../../public/left-black.svg'; // Import your custom SVG arrows
 // import { ReactComponent as NextArrow } from '../../public/right-black.svg'; // Import your custom SVG arrows
 
+function SlideImage({ src, alt, quality }) {
+  return (
+    <div className="relative w-full h-[400px]">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover"
+        sizes="(min-width: 1024px) 800px, 100vw"
+        {...(quality ? { quality } : {})}
+      />
+    </div>
+  )
+}
+
 function Crafted() {
   const sliderRef = useRef(null)
 
@@ -367,24 +382,16 @@ function Crafted() {
                         />
                       </div> */}
                       <div>
-                        <Image
+                        <SlideImage
                           src="/takshavi/takshavi-comp.webp"
                           alt="Takshavi boutique residential development, architectural exterior view"
-                          className="w-full h-[400px] object-cover"
-                          width={800}
-                          height={400}
-                          sizes="(min-width: 1024px) 800px, 100vw"
                           quality={65}
                         />
                       </div>
                       <div>
-                        <Image
+                        <SlideImage
                           src="/home/takshavi-3.webp"
                           alt="Takshavi residential enclave on Spencer Road, Frazer Town, Bangalore"
-                          className="w-full h-[400px] object-cover"
-                          width={800}
-                          height={400}
-                          sizes="(min-width: 1024px) 800px, 100vw"
                           quality={65}
                         />
                       </div>
@@ -412,30 +419,21 @@ function Crafted() {
                   <div className="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
                     <Slider ref={sliderRef} {...settings}>
                       <div>
-                        <Image
+                        <SlideImage
                           src="/embrace.png"
                           alt="Embrace luxury apartment block, Ekaya Spaces"
-                          className="w-[800px] h-[400px]"
-                          width={800}
-                          height={400}
                         />
                       </div>
                       <div>
-                        <Image
+                        <SlideImage
                           src="/home/embrace/embrace-1.png"
                           alt="Embrace residential project exterior and landscaping"
-                          className="w-[800px] h-[400px]"
-                          width={800}
-                          height={400}
                         />
                       </div>
                       <div>
-                        <Image
+                        <SlideImage
                           src="/home/embrace/embrace-2.webp"
                           alt="Embrace modern homes and building facade"
-                          className="w-[800px] h-[400px]"
-                          width={800}
-                          height={400}
                         />
                       </div>
                     </Slider>
@@ -461,21 +459,15 @@ function Crafted() {
                   <div className="mt-4 lg:mt-0 dark:bg-gray-800 z-10 relative">
                     <Slider ref={sliderRef} {...settings}>
                       <div>
-                        <Image
+                        <SlideImage
                           src="/home/ellen/ellen-1.png"
                           alt="Ellen premium apartment block, exterior view"
-                          className="w-full h-[400px]"
-                          width={800}
-                          height={400}
                         />
                       </div>
                       <div>
-                        <Image
+                        <SlideImage
                           src="/home/ellen/ellen-2.webp"
                           alt="Ellen three-storey residential homes by Ekaya Spaces"
-                          className="w-full h-[400px]"
-                          width={800}
-                          height={400}
                         />
                       </div>
                     </Slider>
@@ -594,73 +586,45 @@ function Crafted() {
                 <div className="lg:mt-0 mt-4 lg:w-[800px] z-10 relative">
                   <Slider ref={sliderRef} {...settings}>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/home/vista-do-mar/Image-1.webp"
                         alt="Vista Do Mar luxury apartments in Dona Paula, Goa — slide 1 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/home/vista-do-mar/Image-2.webp"
                         alt="Vista Do Mar coastal residential development — slide 2 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/home/vista-do-mar/Image-3.webp"
                         alt="Vista Do Mar — slide 3 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/home/vista-do-mar/Image-4.webp"
                         alt="Vista Do Mar — slide 4 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/home/vista-do-mar/Image-5.webp"
                         alt="Vista Do Mar — slide 5 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/home/vista-do-mar/Image-6.webp"
                         alt="Vista Do Mar — slide 6 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/home/vista-do-mar/Image-7.webp"
                         alt="Vista Do Mar — slide 7 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     
@@ -686,73 +650,45 @@ function Crafted() {
                 <div className="lg:mt-0 mt-4 lg:w-[800px] z-10 relative">
                   <Slider ref={sliderRef} {...settings}>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/lucilia/image-1.webp"
                         alt="Lucilia residential project in Taleigao, Goa — slide 1 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/lucilia/image-2.webp"
                         alt="Lucilia premium enclave, architectural view — slide 2 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/lucilia/image-3.webp"
                         alt="Lucilia — slide 3 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/lucilia/image-4.webp"
                         alt="Lucilia — slide 4 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/lucilia/image-5.webp"
                         alt="Lucilia — slide 5 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/lucilia/image-6.webp"
                         alt="Lucilia — slide 6 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                     <div>
-                      <Image
+                      <SlideImage
                         src="/lucilia/image-7.webp"
                         alt="Lucilia — slide 7 of 7"
-                        className="w-[800px] h-[400px] object-cover"
-                        width={800}
-                        height={400}
-                        sizes="(min-width: 1024px) 800px, 100vw"
                       />
                     </div>
                   </Slider>
