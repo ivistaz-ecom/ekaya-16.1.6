@@ -53,15 +53,16 @@ function Insights() {
               key={index}
             >
               <div className="bg-gray-100 p-5">
-                <Image
-                  className="rounded-0 w-full"
-                  src={featuredImageUrl}
-                  alt={items.title?.rendered || "Blog post"}
-                  width={300}
-                  height={300}
-                  sizes="(min-width: 1280px) 384px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                  quality={60}
-                />
+                <div className="relative w-full aspect-[16/10] overflow-hidden">
+                  <Image
+                    className="object-cover"
+                    src={featuredImageUrl}
+                    alt={items.title?.rendered || "Blog post"}
+                    fill
+                    sizes="(min-width: 1280px) 384px, (min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                    quality={60}
+                  />
+                </div>
                 <div className="py-5">
                   <h5
                     className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title"
