@@ -18,6 +18,7 @@ function Banner({ slug }) {
   const [bannerImage, setBannerImage] = useState();
   const [publishDate, setPublishDate] = useState("");
   const [publishDateIso, setPublishDateIso] = useState("");
+  const [authorName, setAuthorName] = useState("");
   const [error, setError] = useState(false);
 
   const formatPublishDate = (dateString) => {
@@ -44,9 +45,13 @@ function Banner({ slug }) {
         setPageTitle(postData[0].title.rendered);
         setPublishDateIso(postData[0].date || "");
         setPublishDate(formatPublishDate(postData[0].date));
-        
+
         // Get banner image from ACF field first, then fallback to featured media
         const acfData = postData[0].acf;
+        const rawAuthorName = acfData?.author_name;
+        setAuthorName(
+          typeof rawAuthorName === "string" ? rawAuthorName.trim() : ""
+        );
         let imageUrl = null;
         
         // Check ACF banner_image field (could be URL string or object)
@@ -116,13 +121,16 @@ function Banner({ slug }) {
                 className="lg:!text-6xl md:text-5xl !text-3xl lg:px-0 px-10 text-white poppins-light !font-light"
                 dangerouslySetInnerHTML={{ __html: pageTitle }}
               />
-              {publishDate ? (
-                <time
-                  dateTime={publishDateIso}
-                  className="mt-4 block lg:px-0 px-10 text-white/85 poppins-light text-base md:text-lg"
-                >
-                  {publishDate}
-                </time>
+              {publishDate || authorName ? (
+                <p className="mt-4 lg:px-0 px-10 text-white/85 poppins-light text-base md:text-lg">
+                  {publishDate ? (
+                    <time dateTime={publishDateIso}>{publishDate}</time>
+                  ) : null}
+                  {publishDate && authorName ? (
+                    <span aria-hidden="true"> · </span>
+                  ) : null}
+                  {authorName ? <span>{authorName}</span> : null}
+                </p>
               ) : null}
             </div>
           </div>
