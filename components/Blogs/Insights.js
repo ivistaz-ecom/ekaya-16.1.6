@@ -11,6 +11,17 @@ function Insights() {
   const getPlainTitle = (title = "") =>
     title.replace(/<[^>]+>/g, "").replace(/&nbsp;/g, " ").trim();
 
+  const formatPublishDate = (dateString) => {
+    if (!dateString) return "";
+    const date = new Date(dateString);
+    if (Number.isNaN(date.getTime())) return "";
+    return date.toLocaleDateString("en-GB", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  };
+
   const fetchPost = async () => {
     try {
       const postResponse = await fetch(
@@ -64,6 +75,14 @@ function Insights() {
                   />
                 </div>
                 <div className="py-5">
+                  {items.date ? (
+                    <time
+                      dateTime={items.date}
+                      className="mb-2 block text-start text-sm tracking-wide poppins-regular text-gray-500"
+                    >
+                      {formatPublishDate(items.date)}
+                    </time>
+                  ) : null}
                   <h5
                     className="mb-2 text-start text-2xl font-light tracking-tight poppins-regular text-gray-900 dark:text-white post-content-title"
                     dangerouslySetInnerHTML={{ __html: items.title?.rendered || "" }}
