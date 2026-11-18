@@ -534,7 +534,7 @@ function Contact({ sectionId: sectionIdProp } = {}) {
     { name: "Takshavi" },
     { name: "Dona Paula" },
     { name: "Vista Do Mar" },
-    { name: "Moira" },
+    // { name: "Moira" },
     { name: "Lucilia" },
   ]
 
